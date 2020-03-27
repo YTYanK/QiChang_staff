@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		379295AF67DCA5A7A2CD3C55 /* Pods_QiChangStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
-		3CB90FC1242CA29800819C3B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FC0242CA29800819C3B /* ViewController.m */; };
 		3CB90FC4242CA29800819C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC2242CA29800819C3B /* Main.storyboard */; };
-		3CB90FC6242CA29900819C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC5242CA29900819C3B /* Assets.xcassets */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
 		3CB90FCC242CA29900819C3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FCB242CA29900819C3B /* main.m */; };
-		3CB90FD5242CAC5000819C3B /* YTYCoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB90FD4242CAC5000819C3B /* YTYCoreFramework.framework */; };
+		3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FD8242D8C5000819C3B /* Login.storyboard */; };
+		3CB90FFA242DE0CC00819C3B /* YTYCoreFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB90FF9242DE0CC00819C3B /* YTYCoreFramework.framework */; };
+		3CB90FFD242DE1BE00819C3B /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FFC242DE1BE00819C3B /* LoginVC.m */; };
+		3CB91000242DEE1F00819C3B /* YTYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FFE242DEE1F00819C3B /* YTYView.m */; };
+		3CB91001242DF0E200819C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC5242CA29900819C3B /* Assets.xcassets */; };
+		3CB91009242DFAC200819C3B /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB91007242DFAC200819C3B /* MainVC.m */; };
+		3CB9100A242DFAC200819C3B /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB91008242DFAC200819C3B /* MainVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,14 +29,21 @@
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3CB90FBC242CA29800819C3B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		3CB90FBD242CA29800819C3B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		3CB90FBF242CA29800819C3B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3CB90FC0242CA29800819C3B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3CB90FC3242CA29800819C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CB90FC5242CA29900819C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CB90FC8242CA29900819C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CB90FCA242CA29900819C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CB90FCB242CA29900819C3B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3CB90FD4242CAC5000819C3B /* YTYCoreFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YTYCoreFramework.framework; sourceTree = "<group>"; };
+		3CB90FD8242D8C5000819C3B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3CB90FDA242D8DDB00819C3B /* QiChangStaff-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QiChangStaff-Prefix.pch"; sourceTree = "<group>"; };
+		3CB90FF9242DE0CC00819C3B /* YTYCoreFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YTYCoreFramework.framework; sourceTree = "<group>"; };
+		3CB90FFB242DE1BE00819C3B /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		3CB90FFC242DE1BE00819C3B /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		3CB90FFE242DEE1F00819C3B /* YTYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTYView.m; sourceTree = "<group>"; };
+		3CB90FFF242DEE1F00819C3B /* YTYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTYView.h; sourceTree = "<group>"; };
+		3CB91006242DFAC200819C3B /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		3CB91007242DFAC200819C3B /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		3CB91008242DFAC200819C3B /* MainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVC.xib; sourceTree = "<group>"; };
 		4B751A4EF1087D4D2A8AE7D1 /* Pods-QiChangStaff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QiChangStaff.debug.xcconfig"; path = "Target Support Files/Pods-QiChangStaff/Pods-QiChangStaff.debug.xcconfig"; sourceTree = "<group>"; };
 		9E49F444FF71F8FC420EF06D /* Pods-QiChangStaff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QiChangStaff.release.xcconfig"; path = "Target Support Files/Pods-QiChangStaff/Pods-QiChangStaff.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB90FD5242CAC5000819C3B /* YTYCoreFramework.framework in Frameworks */,
 				379295AF67DCA5A7A2CD3C55 /* Pods_QiChangStaff.framework in Frameworks */,
+				3CB90FFA242DE0CC00819C3B /* YTYCoreFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +100,9 @@
 		3CB90FD2242CA42700819C3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3CB90FD4242CAC5000819C3B /* YTYCoreFramework.framework */,
+				3CB90FFF242DEE1F00819C3B /* YTYView.h */,
+				3CB90FFE242DEE1F00819C3B /* YTYView.m */,
+				3CB90FF9242DE0CC00819C3B /* YTYCoreFramework.framework */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -101,13 +114,12 @@
 				3CB90FBA242CA29800819C3B /* AppDelegate.m */,
 				3CB90FBC242CA29800819C3B /* SceneDelegate.h */,
 				3CB90FBD242CA29800819C3B /* SceneDelegate.m */,
-				3CB90FBF242CA29800819C3B /* ViewController.h */,
-				3CB90FC0242CA29800819C3B /* ViewController.m */,
 				3CB90FC2242CA29800819C3B /* Main.storyboard */,
 				3CB90FC5242CA29900819C3B /* Assets.xcassets */,
 				3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */,
 				3CB90FCA242CA29900819C3B /* Info.plist */,
 				3CB90FCB242CA29900819C3B /* main.m */,
+				3CB90FDA242D8DDB00819C3B /* QiChangStaff-Prefix.pch */,
 			);
 			path = Configure;
 			sourceTree = "<group>";
@@ -115,6 +127,7 @@
 		3CB90FD6242CB28B00819C3B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3CB91002242DFA4100819C3B /* 主页 */,
 				3CB90FD7242CB2A900819C3B /* 登录部分 */,
 			);
 			path = Main;
@@ -123,8 +136,21 @@
 		3CB90FD7242CB2A900819C3B /* 登录部分 */ = {
 			isa = PBXGroup;
 			children = (
+				3CB90FD8242D8C5000819C3B /* Login.storyboard */,
+				3CB90FFB242DE1BE00819C3B /* LoginVC.h */,
+				3CB90FFC242DE1BE00819C3B /* LoginVC.m */,
 			);
 			path = "登录部分";
+			sourceTree = "<group>";
+		};
+		3CB91002242DFA4100819C3B /* 主页 */ = {
+			isa = PBXGroup;
+			children = (
+				3CB91006242DFAC200819C3B /* MainVC.h */,
+				3CB91007242DFAC200819C3B /* MainVC.m */,
+				3CB91008242DFAC200819C3B /* MainVC.xib */,
+			);
+			path = "主页";
 			sourceTree = "<group>";
 		};
 		65EA7EA011356B746193CE69 /* Pods */ = {
@@ -133,7 +159,6 @@
 				4B751A4EF1087D4D2A8AE7D1 /* Pods-QiChangStaff.debug.xcconfig */,
 				9E49F444FF71F8FC420EF06D /* Pods-QiChangStaff.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,8 +221,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB9100A242DFAC200819C3B /* MainVC.xib in Resources */,
 				3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */,
-				3CB90FC6242CA29900819C3B /* Assets.xcassets in Resources */,
+				3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */,
+				3CB91001242DF0E200819C3B /* Assets.xcassets in Resources */,
 				3CB90FC4242CA29800819C3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,10 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB90FC1242CA29800819C3B /* ViewController.m in Sources */,
 				3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */,
+				3CB90FFD242DE1BE00819C3B /* LoginVC.m in Sources */,
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
+				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
+				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,11 +431,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QiChangStaff/Utils",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QiChangStaff/Configure/QiChangStaff-Prefix.pch";
 				INFOPLIST_FILE = QiChangStaff/Configure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.POPFREE.QiChangStaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -426,11 +459,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QiChangStaff/Utils",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QiChangStaff/Configure/QiChangStaff-Prefix.pch";
 				INFOPLIST_FILE = QiChangStaff/Configure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.POPFREE.QiChangStaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

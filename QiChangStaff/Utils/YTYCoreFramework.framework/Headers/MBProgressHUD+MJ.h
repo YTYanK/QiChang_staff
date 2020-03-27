@@ -5,8 +5,7 @@
 //  Copyright (c) 2013年 itcast. All rights reserved.
 //
 
-#import "MBProgressHUD.h"
-//#import <>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MBProgressHUD (MJ)
 
@@ -22,7 +21,6 @@
 + (MBProgressHUD *)showMessage:(NSString *)message;
 
 + (void)hideHUDForView:(UIView *)view;
-+ (void)hideHUDForDis:(CGFloat)dis;
 + (void)hideHUD;
 
 

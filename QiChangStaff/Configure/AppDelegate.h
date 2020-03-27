@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) MainVC *mainAdmin;
 
 @end
 

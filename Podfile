@@ -5,7 +5,6 @@ platform :ios, '10.0'
 target 'QiChangStaff' do
    use_frameworks!
    pod 'AFNetworking'   #, '~> 3.2.1'
-#   pod 'SVProgressHUD'
    pod 'MBProgressHUD'
    pod 'Toast', '~> 4.0.0'
    pod 'MJExtension', '~> 3.0.17'

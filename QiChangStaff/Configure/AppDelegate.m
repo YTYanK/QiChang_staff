@@ -14,9 +14,25 @@
 
 @implementation AppDelegate
 
+- (MainVC *)mainAdmin {
+    if (_mainAdmin == nil) {
+        _mainAdmin = [[MainVC alloc] init];
+    }
+    return _mainAdmin;
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSLog(@"%@", IPHEAD);
+    if (!isLogin) {
+        NSLog(@"未登录");
+    }else {
+        NSLog(@"登录");
+    }
+    
     return YES;
 }
 

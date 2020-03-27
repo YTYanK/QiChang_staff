@@ -1,0 +1,38 @@
+//
+//  QiChangStaff-Prefix.pch
+//  QiChangStaff
+//
+//  Created by POP3mac on 2020/3/27.
+//  Copyright © 2020 YTYanK. All rights reserved.
+//
+
+#ifndef QiChangStaff_Prefix_pch
+#define QiChangStaff_Prefix_pch
+
+#import <Masonry/Masonry.h>
+#import <YYModel.h>
+#import <MJRefresh/MJRefresh.h>
+#import <SDWebImage/SDWebImage.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <YTYCoreFramework/YTYCoreFramework.h>
+//#import "QiChangApi.h"  //请求方法
+//#import "YTYUtilTools.h"
+//#import "UITextField+Length.h"
+//#import "NSBundle+Localize.h"
+////???: ----- 语言切换
+//#import "YTYChangeLanguage.h"
+//#import "QiChangConstant.h"  // 固定常量
+#import "YTYView.h"  //输入框组件
+//#import "UIImage+Extension.h"
+//#import "UIView+LayerCorner.h"
+//#import "UIButton+Extension.h"
+//#import "UILabel+Extension.h"
+//#import "HeaderVIew.h"  //头部组件
+
+//#import "MBProgressHUD+MJ.h"
+
+
+#define LOGIN_TOKEN @"LoginToken"
+#define isLogin ([NSUD stringForKey:LOGIN_TOKEN])
+
+#endif /* QiChangStaff_Prefix_pch */
