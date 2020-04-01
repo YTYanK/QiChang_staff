@@ -178,7 +178,7 @@
     
 //    [self presentViewController:nav animated:YES completion:^{
         window.rootViewController = nav;
-//        [window makeKeyWindow];
+        [window makeKeyWindow];
 //    }];
     
     

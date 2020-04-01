@@ -20,5 +20,6 @@ target 'QiChangStaff' do
    pod 'Stripe', '~>18.3.0'  #stripe信用卡
    pod 'PGDatePicker' #日期选择器
    pod 'STAlertView', '~> 1.0.0'
+   pod 'YTYCoreFramework', '~> 0.0.5'
 end
 

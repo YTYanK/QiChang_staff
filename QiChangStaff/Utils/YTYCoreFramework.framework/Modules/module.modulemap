@@ -1,6 +1,0 @@
-framework module YTYCoreFramework {
-  umbrella header "YTYCoreFramework.h"
-
-  export *
-  module * { export * }
-}

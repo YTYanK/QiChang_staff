@@ -7,7 +7,23 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0DBD5E2-BE49-4B20-9107-B0B81087DE20"
+            uuid = "7B6CAD90-AC33-440F-9F57-529E18A10A40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiChangStaff/Main/&#x767b;&#x5f55;&#x90e8;&#x5206;/LoginVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-loginClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "622C8072-E962-4875-BF13-7574878E203E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -23,15 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7B6CAD90-AC33-440F-9F57-529E18A10A40"
+            uuid = "E87AD412-7C33-444F-83CA-7FD9EDC462FC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiChangStaff/Main/&#x767b;&#x5f55;&#x90e8;&#x5206;/LoginVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-loginClick:"
             landmarkType = "7">
          </BreakpointContent>

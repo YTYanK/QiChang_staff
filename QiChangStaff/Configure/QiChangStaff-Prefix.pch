@@ -14,7 +14,8 @@
 #import <MJRefresh/MJRefresh.h>
 #import <SDWebImage/SDWebImage.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <YTYCoreFramework/YTYCoreFramework.h>
+#import <YTYCoreFramework.h>
+//#import <YTYCoreFramework/YTYCoreFramework.h>
 //#import "QiChangApi.h"  //请求方法
 //#import "YTYUtilTools.h"
 //#import "UITextField+Length.h"

@@ -17,11 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"这是个首页";
-       [[UINavigationBar appearance] setTranslucent:NO];
+      self.title = @"主页";
+      
+       [[UINavigationBar appearance] setTranslucent:YES];
        [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
        [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-   
+    self.navigationController.navigationBar.barTintColor = YTYRGB(55, 157, 205);
    
     // Do any additional setup after loading the view from its nib.
 }
