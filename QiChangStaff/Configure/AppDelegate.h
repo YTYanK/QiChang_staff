@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MainVC.h"
+#import "LoginVC.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) MainVC *mainAdmin;
+@property (strong, nonatomic) LoginVC*loginPage;
 
++ (void)login:(NSString *)token;
++ (void)logout;
 @end
 

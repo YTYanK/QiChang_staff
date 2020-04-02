@@ -14,25 +14,20 @@
 
 @implementation AppDelegate
 
-- (MainVC *)mainAdmin {
-    if (_mainAdmin == nil) {
-        _mainAdmin = [[MainVC alloc] init];
+
+
+- (LoginVC *)loginPage {
+    if (_loginPage == nil) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:NULL];
+          _loginPage = [storyboard instantiateInitialViewController];
     }
-    return _mainAdmin;
+    return _loginPage;
 }
 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    NSLog(@"%@", IPHEAD);
-    if (!isLogin) {
-        NSLog(@"未登录");
-    }else {
-        NSLog(@"登录");
-    }
-    
     return YES;
 }
 
@@ -54,4 +49,62 @@
 }
 
 
++ (void)logout {
+   
+    AppDelegate * appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    UIWindow* window = nil;
+         
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes)
+        {
+                if (windowScene.activationState == UISceneActivationStateForegroundActive)
+                {
+                    window = windowScene.windows.firstObject;
+                    break;
+                }
+        }
+    }else{
+       window = [[UIApplication sharedApplication] delegate].window;
+    }
+    
+    [UIView transitionWithView:window duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        
+        BOOL oldState = [UIView areAnimationsEnabled];
+        [UIView setAnimationsEnabled:NO];
+        window.rootViewController = appDelegate.loginPage;
+        [window makeKeyAndVisible];
+        [UIView setAnimationsEnabled:oldState];
+    } completion:nil];
+     [NSUD setValue:nil forKey:LOGIN_TOKEN];
+}
+
++ (void)login:(NSString *)token {
+         UIWindow* window = nil;
+           if (@available(iOS 13.0, *)) {
+               for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes)
+               {
+                       if (windowScene.activationState == UISceneActivationStateForegroundActive)
+                       {
+                           window = windowScene.windows.firstObject;
+
+                           break;
+                       }
+               }
+           }else{
+              window = [[UIApplication sharedApplication] delegate].window;
+           }
+           
+           [UIView transitionWithView:window duration:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+
+               UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
+                    UINavigationController *nav = [storyboard instantiateInitialViewController];
+
+               BOOL oldState = [UIView areAnimationsEnabled];
+               [UIView setAnimationsEnabled:NO];
+               window.rootViewController = nav;
+               [window makeKeyAndVisible];
+               [UIView setAnimationsEnabled:oldState];
+           } completion:nil];
+          [NSUD setValue:token forKey:LOGIN_TOKEN];
+}
 @end

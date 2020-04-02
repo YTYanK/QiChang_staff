@@ -23,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
     //注册通知,进行监听当前状态
     [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showKeyboard:)
@@ -36,7 +38,16 @@
     [self updateAllData];
 }
 
-
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//     NSLog(@"？？？==》%@", self.navigationController);
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:animated];
+//}
 
 
 #pragma mark - 初始化设置
@@ -154,36 +165,10 @@
 //       [MBProgressHUD showError:error toView:self.view];
 //   }];
     
-   AppDelegate * appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    
-    
+    [AppDelegate login:@"登录"];
 
-      UIWindow* window = nil;
-     
-        if (@available(iOS 13.0, *)) {
-            for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes)
-            {
-                    if (windowScene.activationState == UISceneActivationStateForegroundActive)
-                    {
-                        window = windowScene.windows.firstObject;
-
-                        break;
-                    }
-            }
-        }else{
-             window = [UIApplication sharedApplication].keyWindow;
-        }
-    
-    UINavigationController *nav = [[UINavigationController  alloc] initWithRootViewController:appDelegate.mainAdmin];
-    
-//    [self presentViewController:nav animated:YES completion:^{
-        window.rootViewController = nav;
-        [window makeKeyWindow];
-//    }];
-    
-    
-    
 }
+
 // 监控键盘显示
 - (void)showKeyboard:(NSNotificationCenter *)sender{
     [self.view addGestureRecognizer:[YTYTools obtainTapGestureRecognizerObjectWithAction:@selector(hideKeyboard:) withTarget:self]];

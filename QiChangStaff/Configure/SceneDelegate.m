@@ -1,4 +1,7 @@
 #import "SceneDelegate.h"
+#import "MainVC.h"
+#import "LoginVC.h"
+#import "AppDelegate.h"
 
 @interface SceneDelegate ()
 
@@ -11,6 +14,19 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+   // NSLog(@"%@", isLogin);
+     if (!isLogin) {
+         AppDelegate * appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+         self.window.rootViewController = appDelegate.loginPage;
+         [self.window makeKeyAndVisible];
+     }else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
+        UINavigationController *nav = [storyboard instantiateInitialViewController];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
+     }
+    
 }
 
 

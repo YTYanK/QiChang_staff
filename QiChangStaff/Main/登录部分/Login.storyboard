@@ -17,10 +17,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Kq-VB-qgX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="3nv-NN-bpX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61k-Ym-u3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="176"/>
+            <point key="canvasLocation" x="780" y="110"/>
         </scene>
     </scenes>
 </document>
