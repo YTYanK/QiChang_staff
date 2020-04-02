@@ -14,7 +14,7 @@
 @property (strong, nonatomic) UIImageView * icon;
 @property (strong, nonatomic) UILabel *typeLabel;
 @property (strong, nonatomic) UILabel *numLabel;
-@property (strong, nonatomic) NSArray<UIButton *> *btns;
+@property (strong, nonatomic) NSMutableArray<UIButton *> *btns;
 
 
 
@@ -75,15 +75,18 @@
     self.numLabel.backgroundColor = UIColor.blueColor;
     [self.view addSubview:self.numLabel];
     
-    
+    self.btns = [NSMutableArray array];
     for (int i = 0; i < 4; i++) {
        UIButton *btn = [[UIButton alloc] init];
        btn.backgroundColor = YTYRGBA(81, 165, 216, 1);
        btn.layer.cornerRadius = 3;
-       CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, 100, 44) cornerRadius:3];
+        btn.layer.borderWidth = 2;
+        btn.layer.borderColor = UIColor.greenColor.CGColor;
+       CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, YTY_DP_375(250), YTY_DP_375(44)) cornerRadius:3];
        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
        [btn.layer addSublayer:layer];
        [self.view addSubview:btn];
+        [self.btns addObject:btn];
     }
     
    
@@ -110,6 +113,19 @@
            make.width.mas_equalTo(YTY_DP_375(250));
            make.height.mas_equalTo(YTY_DP_375(50));
      }];
+    
+    for (int j = 0; j < self.btns.count; j++) {
+        // + t   + h
+        CGFloat t = (j *10) + 10  + (j * (50 + 19));
+        
+        [self.btns[j] mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(self.view);
+                make.top.equalTo(self.numLabel.mas_bottom).with.offset(t);
+                make.width.mas_equalTo(YTY_DP_375(250));
+                make.height.mas_equalTo(YTY_DP_375(44));
+         }];
+    }
+    
 //
 //    [self.inputPassword mas_makeConstraints:^(MASConstraintMaker *make) {
 //          make.centerX.equalTo(self.view);
