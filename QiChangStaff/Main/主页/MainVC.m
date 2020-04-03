@@ -8,12 +8,23 @@
 
 #import "MainVC.h"
 #import "AppDelegate.h"
-#import <UILabel+Extension.h>
+
+
+#import "QCSWarehouseVC.h"
+
+
 @interface MainVC ()
 
 @property (strong, nonatomic) UIImageView * icon;
 @property (strong, nonatomic) UILabel *typeLabel;
+// 其他模式下的正常编号 / 仓管员模式只显示名称
 @property (strong, nonatomic) UILabel *numLabel;
+
+// 仓管员模式下显示
+@property (strong, nonatomic) UILabel *numberLabel;
+@property (strong, nonatomic) UILabel *areaLabel;
+
+
 @property (strong, nonatomic) NSMutableArray<UIButton *> *btns;
 
 
@@ -26,11 +37,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
       self.title = @"主页";
       self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-      self.navigationItem.rightBarButtonItem = [MainVC obtainBackItemWithTarget:self action:@selector(logout)];
-    // Do any additional setup after loading the view from its nib.
+//      self.navigationItem.rightBarButtonItem = [AppDelegate obtainBackItemWithTarget:self action:@selector(logout) image:[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    
+    NSLog(@"查看角色->%@", [NSUD objectForKey:LOGIN_ROLE_TYPE]);
+    
     // 初始化view
     [self setAllInitSubView];
     // 布局样式
@@ -51,8 +64,6 @@
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
   
-//    self.view.backgroundColor = UIColor.grayColor;
-    
     self.icon = [[UIImageView alloc] initWithImage:[UIImage new]];
     self.icon.contentMode = UIViewContentModeScaleAspectFit;
     [self.icon setViewBorderCornerRadius:(YTY_DP_375(70)/2) borderWidth:1 borderColor:UIColor.grayColor];
@@ -66,26 +77,41 @@
     self.typeLabel.backgroundColor = YTYRGBA(131, 58, 113, 1);
     [self.typeLabel setViewBorderCornerRadius:7 borderWidth:0 borderColor:UIColor.clearColor];
     [self.view addSubview:self.typeLabel];
-//     [cell.orderDateLabel setRangeOfString:@"\n" lineSpacing:10 firstFont:setArialFont(14) firstColor:UIColor.blackColor tailFont:[UIFont systemFontOfSize:16 weight:UIFontWeightBold] tailColor:YTYRGBA(88, 85, 85, 1)];
+    
     
     self.numLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.numLabel.textAlignment = NSTextAlignmentCenter;
-    self.numLabel.textColor = UIColor.whiteColor;
+    self.numLabel.textColor = UIColor.blackColor;
+//    self.numLabel.backgroundColor = UIColor.redColor;
     self.numLabel.numberOfLines = 3;
-    self.numLabel.backgroundColor = UIColor.blueColor;
     [self.view addSubview:self.numLabel];
+    
+    
+    if([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper]) {
+        self.areaLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.areaLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:self.areaLabel];
+        
+         
+        self.numberLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.numberLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:self.numberLabel];
+    }
+    
     
     self.btns = [NSMutableArray array];
     for (int i = 0; i < 4; i++) {
        UIButton *btn = [[UIButton alloc] init];
-       btn.backgroundColor = YTYRGBA(81, 165, 216, 1);
-       btn.layer.cornerRadius = 3;
+        btn.tag = i;
+        btn.backgroundColor = YTYRGBA(81, 165, 216, 1);
+        btn.layer.cornerRadius = 2;
         btn.layer.borderWidth = 2;
-        btn.layer.borderColor = UIColor.greenColor.CGColor;
-       CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, YTY_DP_375(250), YTY_DP_375(44)) cornerRadius:3];
-       [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-       [btn.layer addSublayer:layer];
-       [self.view addSubview:btn];
+        btn.layer.borderColor = YTYRGBA(229, 229, 229, 1).CGColor;
+       
+        CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, YTY_DP_375(250), YTY_DP_375(44)) cornerRadius:2];
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btn.layer addSublayer:layer];
+        [self.view addSubview:btn];
         [self.btns addObject:btn];
     }
     
@@ -93,7 +119,7 @@
 }
 
 - (void)setAllSubViewLayout {
-   [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
           make.centerX.equalTo(self.view);
           make.top.equalTo(self.view).with.offset( SCREEN_NAV_BAR + YTY_DP_375(40));
           make.width.mas_equalTo(YTY_DP_375(70));   //equalTo(self.view).multipliedBy(0.7);
@@ -109,71 +135,107 @@
 
     [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            make.centerX.equalTo(self.view);
-           make.top.equalTo(self.typeLabel.mas_bottom).with.offset(YTY_DP_375(30));
+           make.top.equalTo(self.typeLabel.mas_bottom).with.offset(YTY_DP_375(10));
            make.width.mas_equalTo(YTY_DP_375(250));
            make.height.mas_equalTo(YTY_DP_375(50));
      }];
     
-    for (int j = 0; j < self.btns.count; j++) {
-        // + t   + h
-        CGFloat t = (j *10) + 10  + (j * (50 + 19));
-        
-        [self.btns[j] mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view);
-                make.top.equalTo(self.numLabel.mas_bottom).with.offset(t);
-                make.width.mas_equalTo(YTY_DP_375(250));
-                make.height.mas_equalTo(YTY_DP_375(44));
+     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper] ) {
+         [self.numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.left.equalTo(self.view);
+             make.top.equalTo(self.numLabel.mas_bottom).with.offset(YTY_DP_375(10));
+             make.width.equalTo(self.view.mas_width).with.multipliedBy(0.5);
+             make.height.mas_equalTo(YTY_DP_375(30));
          }];
-    }
+         [self.areaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.right.equalTo(self.view);
+             make.top.equalTo(self.numLabel.mas_bottom).with.offset(YTY_DP_375(10));
+             make.width.equalTo(self.view.mas_width).with.multipliedBy(0.5);
+             make.height.mas_equalTo(YTY_DP_375(30));
+         }];
+         
+         
+         
+         for (int j = 0; j < self.btns.count; j++) {
+               // + 头部距离   + 间距
+               CGFloat t = (j *10) + 30  + (j * (50 + 10));
+               
+               [self.btns[j] mas_makeConstraints:^(MASConstraintMaker *make) {
+                       make.centerX.equalTo(self.view);
+                       make.top.equalTo(self.areaLabel.mas_bottom).with.offset(t);
+                       make.width.mas_equalTo(YTY_DP_375(250));
+                       make.height.mas_equalTo(YTY_DP_375(44));
+                }];
+           }
+     
+     }else {
+         for (int j = 0; j < self.btns.count; j++) {
+                // + t   + h
+                CGFloat t = (j *10) + 10  + (j * (50 + 19));
+                
+                [self.btns[j] mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.centerX.equalTo(self.view);
+                        make.top.equalTo(self.numLabel.mas_bottom).with.offset(t);
+                        make.width.mas_equalTo(YTY_DP_375(250));
+                    
+                        make.height.mas_equalTo(YTY_DP_375(44));
+                 }];
+            }
+     
+     }
     
-//
-//    [self.inputPassword mas_makeConstraints:^(MASConstraintMaker *make) {
-//          make.centerX.equalTo(self.view);
-//          make.top.equalTo(self.inputE_mail.mas_bottom).with.offset(YTY_DP_375(32));
-//          make.width.mas_equalTo(YTY_DP_375(229));
-//          make.height.mas_equalTo(YTY_DP_375(38));
-//    }];
-//
-//    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.view);
-//        make.top.equalTo(self.inputPassword.mas_bottom).with.offset(YTY_DP_375(62));
-//        make.width.mas_equalTo(YTY_DP_375(229));
-//        make.height.mas_equalTo(YTY_DP_375(38));
-//    }];
-    
-    
+   
 }
 
 - (void)updateAllData {
     self.icon.image = [UIImage imageNamed:@"logo"];
-    self.typeLabel.text = @"管理员";
-    self.numLabel.text = @"陈主任\n983726";
-    [self.numLabel setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold] firstColor:UIColor.blackColor tailFont:[UIFont systemFontOfSize:15] tailColor:UIColor.grayColor];
+    self.typeLabel.text =  [NSUD objectForKey:LOGIN_ROLE_TYPE];
     
-//    [self.inputE_mail setDesLabelText:@"用戶名稱" desLabelFont:[UIFont systemFontOfSize:14.0 weight:UIFontWeightHeavy] desLabelColor:[UIColor blackColor]];
-//    [self.inputPassword setDesLabelText:@"密碼" desLabelFont:[UIFont systemFontOfSize:14.0 weight:UIFontWeightHeavy] desLabelColor:[UIColor blackColor]];
-//    [self.loginBtn setTitle:@"登錄" forState:UIControlStateNormal];
-}
-
-
-
-
-
-+ (UIBarButtonItem *)obtainBackItemWithTarget:(nullable id)target action:(nullable SEL)action {
-       UIImage *backImage = [[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper]) {
+      self.numLabel.text = @"陈主任";
+        self.numberLabel.text = @"員工編號 983726";
+        self.areaLabel.text = @"所屬倉庫 九龍";
         
-        // 自定义VIew
-        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame =CGRectMake(-50, 0, 45, 45); //CGRectMake(-40, 0, 45, 45);
-    //    button.backgroundColor =UIColor.redColor;
-        button.imageEdgeInsets =  UIEdgeInsetsMake(0, 0, 0, 26);
-    //    [button setTitle:@"返回" forState:UIControlStateNormal];
-        [button setImage:backImage forState:UIControlStateNormal];
-        [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-     //   self.navigationItem.leftBarButtonItem = backButtonItem;
-    return backButtonItem;
+        self.numLabel.textColor = UIColor.blackColor;
+        self.numLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+        [self.numberLabel setRangeOfString:@" " lineSpacing:0 firstFont:[UIFont systemFontOfSize:16] firstColor:UIColor.grayColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.blackColor];
+        [self.areaLabel setRangeOfString:@" " lineSpacing:0 firstFont:[UIFont systemFontOfSize:16] firstColor:UIColor.grayColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.blackColor];
+        
+        NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
+        for (int i = 0; i < lits.count; i++) {
+            [self.btns[i] setTitle:lits[i] forState:UIControlStateNormal];
+            self.btns[i].titleLabel.font =  [UIFont systemFontOfSize:19 weight:UIFontWeightBold];
+        }
+
+        
+    }else {
+            
+        self.numLabel.text = @"陈主任\n983726";
+        [self.numLabel setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold] firstColor:UIColor.blackColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.grayColor];
+         NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
+         for (int i = 0; i < lits.count; i++) {
+             [self.btns[i] setTitle:lits[i] forState:UIControlStateNormal];
+             self.btns[i].titleLabel.font =  [UIFont systemFontOfSize:19 weight:UIFontWeightBold];
+         }
+
+    }
+   
+    
+    
 }
+
+
+- (void)btnClick:(UIButton *)sender {
+    if(sender.tag == 3) {
+           QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
+           [self.navigationController  pushViewController:warehouse animated:YES];
+    }
+}
+
+
+
+
+
 
 - (void)logout {
     [AppDelegate logout];

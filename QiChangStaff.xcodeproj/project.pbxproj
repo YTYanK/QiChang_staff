@@ -10,6 +10,12 @@
 		379295AF67DCA5A7A2CD3C55 /* Pods_QiChangStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */; };
 		3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB7A243583AE00C68CFB /* Main.storyboard */; };
 		3C5CAB7D2435948500C68CFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB7C2435948500C68CFB /* Assets.xcassets */; };
+		3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB8324370D8C00C68CFB /* WarehouseCell.m */; };
+		3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB8424370D8D00C68CFB /* WarehouseCell.xib */; };
+		3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB882437345400C68CFB /* AreaCell.m */; };
+		3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB892437345400C68CFB /* AreaCell.xib */; };
+		3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */; };
+		3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB932437363A00C68CFB /* QCSAreaVC.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -24,6 +30,16 @@
 		26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QiChangStaff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5CAB7A243583AE00C68CFB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3C5CAB7C2435948500C68CFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C5CAB8224370D8C00C68CFB /* WarehouseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WarehouseCell.h; sourceTree = "<group>"; };
+		3C5CAB8324370D8C00C68CFB /* WarehouseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WarehouseCell.m; sourceTree = "<group>"; };
+		3C5CAB8424370D8D00C68CFB /* WarehouseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WarehouseCell.xib; sourceTree = "<group>"; };
+		3C5CAB872437345400C68CFB /* AreaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaCell.h; sourceTree = "<group>"; };
+		3C5CAB882437345400C68CFB /* AreaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaCell.m; sourceTree = "<group>"; };
+		3C5CAB892437345400C68CFB /* AreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaCell.xib; sourceTree = "<group>"; };
+		3C5CAB8F2437349900C68CFB /* QCSWarehouseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehouseVC.h; sourceTree = "<group>"; };
+		3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehouseVC.m; sourceTree = "<group>"; };
+		3C5CAB922437363A00C68CFB /* QCSAreaVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSAreaVC.h; sourceTree = "<group>"; };
+		3C5CAB932437363A00C68CFB /* QCSAreaVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSAreaVC.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +78,23 @@
 				26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C5CAB7E24370C8200C68CFB /* 管理员 */ = {
+			isa = PBXGroup;
+			children = (
+				3C5CAB8F2437349900C68CFB /* QCSWarehouseVC.h */,
+				3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */,
+				3C5CAB8224370D8C00C68CFB /* WarehouseCell.h */,
+				3C5CAB8324370D8C00C68CFB /* WarehouseCell.m */,
+				3C5CAB8424370D8D00C68CFB /* WarehouseCell.xib */,
+				3C5CAB922437363A00C68CFB /* QCSAreaVC.h */,
+				3C5CAB932437363A00C68CFB /* QCSAreaVC.m */,
+				3C5CAB872437345400C68CFB /* AreaCell.h */,
+				3C5CAB882437345400C68CFB /* AreaCell.m */,
+				3C5CAB892437345400C68CFB /* AreaCell.xib */,
+			);
+			path = "管理员";
 			sourceTree = "<group>";
 		};
 		3CB90FAD242CA29800819C3B = {
@@ -120,6 +153,7 @@
 		3CB90FD6242CB28B00819C3B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3C5CAB7E24370C8200C68CFB /* 管理员 */,
 				3CB91002242DFA4100819C3B /* 主页 */,
 				3CB90FD7242CB2A900819C3B /* 登录部分 */,
 			);
@@ -215,6 +249,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */,
+				3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */,
+				3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */,
 				3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */,
 				3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */,
 				3C5CAB7D2435948500C68CFB /* Assets.xcassets in Resources */,
@@ -273,8 +309,12 @@
 				3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */,
 				3CB90FFD242DE1BE00819C3B /* LoginVC.m in Sources */,
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
+				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
+				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
+				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
+				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

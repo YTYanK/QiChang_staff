@@ -14,7 +14,14 @@
 
 @implementation AppDelegate
 
-
+/// 管理员
+NSString * const RoleTypeAdminis = @"管理员";
+/// 司机
+NSString * const RoleTypeDriver = @"司機";
+/// 仓库管理员
+NSString * const RoleTypeStorekeeper = @"入貨員";
+/// 客服
+NSString * const RoleTypeCustomerService = @"銷售";
 
 - (LoginVC *)loginPage {
     if (_loginPage == nil) {
@@ -76,6 +83,7 @@
         [UIView setAnimationsEnabled:oldState];
     } completion:nil];
      [NSUD setValue:nil forKey:LOGIN_TOKEN];
+     [NSUD setValue:@"" forKey:LOGIN_ROLE_TYPE];
 }
 
 + (void)login:(NSString *)token {
@@ -98,7 +106,8 @@
 
                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
                     UINavigationController *nav = [storyboard instantiateInitialViewController];
-
+//               MainVC * main =  nav.viewControllers[0];
+//               main.role = RoleTypeAdminis;
                BOOL oldState = [UIView areAnimationsEnabled];
                [UIView setAnimationsEnabled:NO];
                window.rootViewController = nav;
@@ -106,5 +115,8 @@
                [UIView setAnimationsEnabled:oldState];
            } completion:nil];
           [NSUD setValue:token forKey:LOGIN_TOKEN];
+          [NSUD setValue:RoleTypeStorekeeper forKey:LOGIN_ROLE_TYPE];
 }
+
+
 @end

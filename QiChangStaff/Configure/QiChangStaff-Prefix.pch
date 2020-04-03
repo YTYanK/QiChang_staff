@@ -15,6 +15,7 @@
 #import <SDWebImage/SDWebImage.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YTYCoreFramework.h>
+#import <UILabel+Extension.h>
 //#import <YTYCoreFramework/YTYCoreFramework.h>
 //#import "QiChangApi.h"  //请求方法
 //#import "YTYUtilTools.h"
@@ -36,5 +37,23 @@
 
 #define LOGIN_TOKEN @"LoginToken"
 #define isLogin ([NSUD stringForKey:LOGIN_TOKEN])
+
+#define LOGIN_ROLE_TYPE @"RoleType"
+
+
+/**
+   这里
+ */
+typedef NSString *RoleType NS_STRING_ENUM;
+/** 管理员 */
+FOUNDATION_EXPORT RoleType const RoleTypeAdminis;
+/** 司机 */
+FOUNDATION_EXPORT RoleType const RoleTypeDriver;
+/** 仓库管理员 */
+FOUNDATION_EXPORT RoleType const RoleTypeStorekeeper;
+/** 客服 */
+FOUNDATION_EXPORT RoleType const RoleTypeCustomerService;
+
+
 
 #endif /* QiChangStaff_Prefix_pch */
