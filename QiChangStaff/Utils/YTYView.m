@@ -7,6 +7,7 @@
 //
 
 #import "YTYView.h"
+#import <YTYCore.h>
 //#import <YTYCoreFramework/UIView+RGSize.h>
 @interface YTYView ()<UITextFieldDelegate, UITextViewDelegate>
 {

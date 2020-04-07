@@ -9,7 +9,7 @@
 #import "MainVC.h"
 #import "AppDelegate.h"
 
-
+#import <YTYCore.h>
 #import "QCSWarehouseVC.h"
 
 
@@ -40,7 +40,11 @@
     //[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
       self.title = @"主页";
       self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-//      self.navigationItem.rightBarButtonItem = [AppDelegate obtainBackItemWithTarget:self action:@selector(logout) image:[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    
+    
+//    UIButton * item =  [YTYTools obtainBackItemWithTarget:self action:@selector(btnClick:) image:[UIImage imageNamed:@"退出"]];
+    
+      self.navigationItem.rightBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(logout) image:[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     
     NSLog(@"查看角色->%@", [NSUD objectForKey:LOGIN_ROLE_TYPE]);
     
@@ -224,7 +228,7 @@
     
 }
 
-
+// 按钮事件
 - (void)btnClick:(UIButton *)sender {
     if(sender.tag == 3) {
            QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];

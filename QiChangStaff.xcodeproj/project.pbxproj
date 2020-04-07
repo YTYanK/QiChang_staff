@@ -16,6 +16,10 @@
 		3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB892437345400C68CFB /* AreaCell.xib */; };
 		3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */; };
 		3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB932437363A00C68CFB /* QCSAreaVC.m */; };
+		3C8A912B243C7A0D00D99D4B /* QCSAreaDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A912A243C7A0D00D99D4B /* QCSAreaDetailsVC.m */; };
+		3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A912D243C7ADA00D99D4B /* AreaDetailsCell.m */; };
+		3C8A9130243C7ADA00D99D4B /* AreaDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */; };
+		3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9133243C7FE700D99D4B /* AreaHeadView.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -40,6 +44,13 @@
 		3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehouseVC.m; sourceTree = "<group>"; };
 		3C5CAB922437363A00C68CFB /* QCSAreaVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSAreaVC.h; sourceTree = "<group>"; };
 		3C5CAB932437363A00C68CFB /* QCSAreaVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSAreaVC.m; sourceTree = "<group>"; };
+		3C8A9129243C7A0D00D99D4B /* QCSAreaDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSAreaDetailsVC.h; sourceTree = "<group>"; };
+		3C8A912A243C7A0D00D99D4B /* QCSAreaDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSAreaDetailsVC.m; sourceTree = "<group>"; };
+		3C8A912C243C7ADA00D99D4B /* AreaDetailsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaDetailsCell.h; sourceTree = "<group>"; };
+		3C8A912D243C7ADA00D99D4B /* AreaDetailsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaDetailsCell.m; sourceTree = "<group>"; };
+		3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaDetailsCell.xib; sourceTree = "<group>"; };
+		3C8A9132243C7FE700D99D4B /* AreaHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaHeadView.h; sourceTree = "<group>"; };
+		3C8A9133243C7FE700D99D4B /* AreaHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaHeadView.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +94,7 @@
 		3C5CAB7E24370C8200C68CFB /* 管理员 */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A9131243C7F6A00D99D4B /* SubgroupViews */,
 				3C5CAB8F2437349900C68CFB /* QCSWarehouseVC.h */,
 				3C5CAB902437349900C68CFB /* QCSWarehouseVC.m */,
 				3C5CAB8224370D8C00C68CFB /* WarehouseCell.h */,
@@ -93,8 +105,22 @@
 				3C5CAB872437345400C68CFB /* AreaCell.h */,
 				3C5CAB882437345400C68CFB /* AreaCell.m */,
 				3C5CAB892437345400C68CFB /* AreaCell.xib */,
+				3C8A9129243C7A0D00D99D4B /* QCSAreaDetailsVC.h */,
+				3C8A912A243C7A0D00D99D4B /* QCSAreaDetailsVC.m */,
+				3C8A912C243C7ADA00D99D4B /* AreaDetailsCell.h */,
+				3C8A912D243C7ADA00D99D4B /* AreaDetailsCell.m */,
+				3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */,
 			);
 			path = "管理员";
+			sourceTree = "<group>";
+		};
+		3C8A9131243C7F6A00D99D4B /* SubgroupViews */ = {
+			isa = PBXGroup;
+			children = (
+				3C8A9132243C7FE700D99D4B /* AreaHeadView.h */,
+				3C8A9133243C7FE700D99D4B /* AreaHeadView.m */,
+			);
+			path = SubgroupViews;
 			sourceTree = "<group>";
 		};
 		3CB90FAD242CA29800819C3B = {
@@ -253,6 +279,7 @@
 				3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */,
 				3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */,
 				3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */,
+				3C8A9130243C7ADA00D99D4B /* AreaDetailsCell.xib in Resources */,
 				3C5CAB7D2435948500C68CFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,10 +339,13 @@
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
+				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
 				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
+				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
+				3C8A912B243C7A0D00D99D4B /* QCSAreaDetailsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +494,70 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Contacts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PGDatePicker\"",
+					"-framework",
+					"\"PGPickerView\"",
+					"-framework",
+					"\"PassKit\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"QBImagePickerController\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"STAlertView\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Stripe\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"Toast\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"YTYCoreFramework\"",
+					"-framework",
+					"\"YYCache\"",
+					"-framework",
+					"\"YYModel\"",
+					"-lObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.POPFREE.QiChangStaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -492,6 +586,70 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Contacts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PGDatePicker\"",
+					"-framework",
+					"\"PGPickerView\"",
+					"-framework",
+					"\"PassKit\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"QBImagePickerController\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"STAlertView\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Stripe\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"Toast\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+					"-framework",
+					"\"YTYCoreFramework\"",
+					"-framework",
+					"\"YYCache\"",
+					"-framework",
+					"\"YYModel\"",
+					"-lObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.POPFREE.QiChangStaff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

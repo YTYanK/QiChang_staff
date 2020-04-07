@@ -25,15 +25,13 @@
 }
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
-
-    
-//    self.isCustomTable = YES;
+    self.title = @"倉庫";
     self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//       self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick:)];
+    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
 }
 - (void)updateAllData {
    // 更新头部
@@ -107,6 +105,11 @@
 // 加载
 - (void)tableLoadDataWithPage:(int)page {
     [self.baseTableView.mj_footer endRefreshing];
+}
+
+
+- (void)backClick {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

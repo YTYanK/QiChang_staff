@@ -1,21 +1,20 @@
 //
-//  QCSAreaVC.m
+//  QCSAreaDetailsVC.m
 //  QiChangStaff
 //
-//  Created by POP3mac on 2020/4/3.
+//  Created by POP3mac on 2020/4/7.
 //  Copyright © 2020 YTYanK. All rights reserved.
 //
 
-#import "QCSAreaVC.h"
-#import "AreaCell.h"
-
 #import "QCSAreaDetailsVC.h"
+#import "AreaDetailsCell.h"
 
-@interface QCSAreaVC ()
+
+@interface QCSAreaDetailsVC ()
 
 @end
 
-@implementation QCSAreaVC
+@implementation QCSAreaDetailsVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +24,7 @@
 }
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
-    self.title = @"區域";
+    self.title = @"區域詳情";
     self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     // 需要创建对象之后使用
@@ -37,10 +36,7 @@
    // 更新头部
 }
 
-// 返回事件
-- (void)backClick {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -55,9 +51,19 @@
     return 170;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    v.backgroundColor = UIColor.redColor;
+    return v;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AreaCell *cell = [AreaCell initCellWithCellView:tableView reuseIdentifier:@"AreaCell"];
+    AreaDetailsCell *cell = [AreaDetailsCell initCellWithCellView:tableView reuseIdentifier:@"AreaDetailsCell"];
     cell.nestingTableView = tableView;
     
 //    cell.numLabel.text = @"產品編號\nR77368";
@@ -73,8 +79,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    QCSAreaDetailsVC * details = [[QCSAreaDetailsVC alloc] init];
-    [self.navigationController  pushViewController:details animated:YES];
+//    ProductDetailsVC * productVC = [[ProductDetailsVC alloc] init];
+//    [self.navigationController  pushViewController:productVC animated:YES];
  }
 
 
@@ -101,16 +107,9 @@
     [self.baseTableView.mj_footer endRefreshing];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// 返回事件
+- (void)backClick {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
-
 
 @end
