@@ -9,9 +9,11 @@
 #import "QCSAreaDetailsVC.h"
 #import "AreaDetailsCell.h"
 
+#import "YTYLabel.h"
+#import "AreaHeadView.h"
 
 @interface QCSAreaDetailsVC ()
-
+@property (strong, nonatomic)AreaHeadView * headView;
 @end
 
 @implementation QCSAreaDetailsVC
@@ -24,13 +26,31 @@
 }
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
+    
+    
+    self.headView = [[AreaHeadView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.headView];
+    
+    
     self.title = @"區域詳情";
+    self.isCustomTable = YES;
     self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+    [self.view addSubview:self.baseTableView];
+    
+    
+    
+    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.centerX.equalTo(self.view);
+              make.top.equalTo(self.view).with.offset(SCREEN_NAV_BAR);
+              make.height.mas_equalTo(140);
+              make.width.equalTo(self.view.mas_width);
+    }];
 }
 - (void)updateAllData {
    // 更新头部
@@ -48,22 +68,28 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 170;
+    return 180;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
+    return  30; //140;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    v.backgroundColor = UIColor.redColor;
-    return v;
+   YTYLabel * label = [[YTYLabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    label.text = @"區域內產品資料詳細";
+    label.backgroundColor = YTYRGBA(55, 141, 202,1);
+       label.textColor = UIColor.whiteColor;
+       label.font = [UIFont systemFontOfSize:15];
+       label.textInsets = UIEdgeInsetsMake(15, 18, 15.f, 0.f);
+//    v.backgroundColor = UIColor.redColor;
+    return label;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AreaDetailsCell *cell = [AreaDetailsCell initCellWithCellView:tableView reuseIdentifier:@"AreaDetailsCell"];
+    cell.indexPath = indexPath;
     cell.nestingTableView = tableView;
     
 //    cell.numLabel.text = @"產品編號\nR77368";

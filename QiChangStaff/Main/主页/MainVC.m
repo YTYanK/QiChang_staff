@@ -11,6 +11,7 @@
 
 #import <YTYCore.h>
 #import "QCSWarehouseVC.h"
+#import "QCSWarehouseRecordVC.h"
 
 
 @interface MainVC ()
@@ -61,7 +62,7 @@
 //    [[UINavigationBar appearance] setTranslucent:YES];
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 //    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    self.navigationController.navigationBar.barTintColor = YTYRGB(55, 157, 205);
+    self.navigationController.navigationBar.barTintColor = YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
   
 }
 
@@ -233,6 +234,9 @@
     if(sender.tag == 3) {
            QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
            [self.navigationController  pushViewController:warehouse animated:YES];
+    }else if (sender.tag == 2) {
+        QCSWarehouseRecordVC * wr = [[QCSWarehouseRecordVC alloc] init];
+        [self.navigationController pushViewController:wr animated:YES];
     }
 }
 

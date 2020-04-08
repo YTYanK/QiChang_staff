@@ -11,7 +11,7 @@
 
 @interface AreaHeadView()
 @property (strong, nonatomic) UIImageView *icon;
-
+@property (strong, nonatomic) YTYLabel *info;
 @end
 
 @implementation AreaHeadView
@@ -28,7 +28,7 @@
 {
     NSLog(@"???--%s",__func__);
     // 固定设置高度
-    frame = CGRectMake(0, 0, SCREEN_WIDTH, 140);
+//    frame = CGRectMake(0, 0, SCREEN_WIDTH, 140);
     self = [super initWithFrame:frame];
     if (self) {
         [self initAllView];
@@ -37,21 +37,35 @@
 }
 
 - (void)initAllView {
-    self.icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+    self.backgroundColor = UIColor.whiteColor;
+    self.info = [[YTYLabel alloc] initWithFrame:CGRectZero];
+    self.info.backgroundColor = YTYRGBA(55, 141, 202,0.8);
+    self.info.textColor = UIColor.whiteColor;
+    self.info.font = [UIFont systemFontOfSize:15];
+    self.info.textInsets = UIEdgeInsetsMake(15, 18, 15.f, 0.f);
+    [self addSubview:self.info];
+    
+    
+    self.icon = [[UIImageView alloc] initWithImage:[UIImage new]];
+//    self.icon.backgroundColor = UIColor.yellowColor;
     [self addSubview:self.icon];
     
     self.area = [[UILabel alloc] initWithFrame:CGRectZero];
+//    self.area.backgroundColor = UIColor.greenColor;
     [self addSubview:self.area];
     
     self.name = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.name.numberOfLines = 2;
     [self addSubview:self.name];
     
     
     self.cbm = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.cbm.numberOfLines = 2;
     [self addSubview:self.cbm];
     
     
     self.date = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.date.numberOfLines = 2;
     [self addSubview:self.date];
     
     
@@ -61,15 +75,87 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    
+    [self.info mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.top.equalTo(self).with.offset(0);
+        make.height.mas_equalTo(YTY_DP_375(30));
+        make.width.equalTo(self.mas_width);
+    }];
+
+    
+    [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(20);
+        make.top.equalTo(self.info.mas_bottom).with.offset(16);
+        make.height.mas_equalTo(YTY_DP_375(16.5));
+        make.width.mas_equalTo(YTY_DP_375(14.5));
+    }];
+    
+    
+    [self.area mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.icon.mas_centerY);
+        make.left.equalTo(self.icon.mas_right).with.offset(12);
+        make.height.mas_equalTo(YTY_DP_375(16.5));
+        make.width.equalTo(self).with.multipliedBy(0.5);
+    }];
+    
+
+    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+        make.left.equalTo(self).with.offset(20);
+        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+        make.width.equalTo(self).with.multipliedBy(0.3);
+    }];
+    [self.cbm mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+        make.left.equalTo(self.name.mas_right).with.offset(0);
+        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+        make.width.equalTo(self).with.multipliedBy(0.3);
+    }];
+    [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+        make.left.equalTo(self.cbm.mas_right).with.offset(0);
+        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+        make.width.equalTo(self).with.multipliedBy(0.3);
+    }];
+    
 }
 
 - (void)updateAllData {
+    self.info.text = @"當前區域基本資料";
+    self.icon.image = [UIImage imageNamed:@"区域"];
     self.date.text = @"最後更新時間\n 4/10/19 18:20";
     self.area.text = @"Area1";
-    self.cbm.text = @"目前可用CBM\n 100/300";
+    self.cbm.text = @"目前可用CBM\n100/300";
     self.name.text = @"所屬\n倉庫1";
+    
+//    [self.name setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:12] tailFont:[UIFont systemFontOfSize:15] tailColor:UIColor.blackColor];
+    
+    [self.name setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
+//    [self.cbm setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
+    
+    
+    
+    NSRange range = [self.cbm.text rangeOfString:@"\n"];
+    
+    NSMutableAttributedString * mutStr = [self setMutableAttributesWithText:self.cbm.text];
+    
+     NSRange typeRange = {0,range.location};
+        [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:typeRange];
+        [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
+      [mutStr addAttribute:NSForegroundColorAttributeName value:YTYRGBA(81, 165, 216, 1) range:typeRange];
+      [mutStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
+    [mutStr addAttribute:NSForegroundColorAttributeName value:YTYRGBA(221, 45, 50, 1) range:NSMakeRange(range.location, 4)];
+    self.cbm.attributedText = mutStr;
+    
+    [self.date setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
+    
+    
 }
-
+- (NSMutableAttributedString *)setMutableAttributesWithText:(NSString *)text  {
+    NSMutableAttributedString * mutStr = [[NSMutableAttributedString alloc] initWithString:text];
+    return mutStr;
+}
 
 
 @end

@@ -9,15 +9,106 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="AreaDetailsCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="177" id="KGk-i7-Jjw" customClass="AreaDetailsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="产品" translatesAutoresizingMaskIntoConstraints="NO" id="0Li-br-KPB">
+                        <rect key="frame" x="16" y="11" width="16" height="16.000000000000014"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="0NC-jL-RXw"/>
+                            <constraint firstAttribute="width" constant="16" id="vf0-fa-v5n"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美國 'Solo' &quot;BARE&quot; 四安蒸餾水捲邊尖杯(Eco- Forward) Packing: 1 x 25boxes x" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NM-aj-j1E">
+                        <rect key="frame" x="40" y="11" width="264" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="0pN-zu-n2n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMS-A3-GUE">
+                        <rect key="frame" x="208" y="65" width="96" height="36"/>
+                        <string key="text">產品數量
+10件</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEU-4x-UOX">
+                        <rect key="frame" x="112" y="65" width="96" height="36"/>
+                        <string key="text">產品種類
+紙杯</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6s-UH-nmc">
+                        <rect key="frame" x="16" y="116" width="156" height="36"/>
+                        <string key="text">所屬批次
+P20191011</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-n8-VWp">
+                        <rect key="frame" x="112" y="116" width="192" height="36"/>
+                        <string key="text">最後更新時間 
+4/10/19 18:20</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUl-cb-Oqp">
+                        <rect key="frame" x="16" y="65" width="96" height="36"/>
+                        <string key="text">佔用CBM 
+45</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VUl-cb-Oqp" firstAttribute="top" secondItem="8NM-aj-j1E" secondAttribute="bottom" constant="10" id="3CK-Qd-H1p"/>
+                    <constraint firstItem="VUl-cb-Oqp" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.3" id="6Rw-le-Xkf"/>
+                    <constraint firstItem="PEU-4x-UOX" firstAttribute="width" secondItem="VUl-cb-Oqp" secondAttribute="width" id="Az8-U4-Icz"/>
+                    <constraint firstItem="0Li-br-KPB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="BPj-rP-PpG"/>
+                    <constraint firstItem="0Li-br-KPB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="F4y-Wv-gsd"/>
+                    <constraint firstItem="t6s-UH-nmc" firstAttribute="top" secondItem="VUl-cb-Oqp" secondAttribute="bottom" constant="15" id="JsB-bL-NZW"/>
+                    <constraint firstItem="8NM-aj-j1E" firstAttribute="top" secondItem="0Li-br-KPB" secondAttribute="top" id="MdT-MZ-NKi"/>
+                    <constraint firstAttribute="trailing" secondItem="8NM-aj-j1E" secondAttribute="trailing" constant="16" id="NyS-Cc-MFN"/>
+                    <constraint firstItem="8sH-n8-VWp" firstAttribute="leading" secondItem="PEU-4x-UOX" secondAttribute="leading" id="Ool-vL-2VC"/>
+                    <constraint firstItem="8sH-n8-VWp" firstAttribute="top" secondItem="t6s-UH-nmc" secondAttribute="top" id="Qu4-m5-m06"/>
+                    <constraint firstItem="PEU-4x-UOX" firstAttribute="leading" secondItem="VUl-cb-Oqp" secondAttribute="trailing" id="RA1-Tj-ZO5"/>
+                    <constraint firstItem="VUl-cb-Oqp" firstAttribute="leading" secondItem="0Li-br-KPB" secondAttribute="leading" id="Rmw-YI-M4W"/>
+                    <constraint firstItem="8sH-n8-VWp" firstAttribute="trailing" secondItem="tMS-A3-GUE" secondAttribute="trailing" id="TTZ-6I-c5a"/>
+                    <constraint firstItem="t6s-UH-nmc" firstAttribute="leading" secondItem="VUl-cb-Oqp" secondAttribute="leading" id="Yfu-hX-mos"/>
+                    <constraint firstItem="tMS-A3-GUE" firstAttribute="leading" secondItem="PEU-4x-UOX" secondAttribute="trailing" id="cFk-KU-3Jd"/>
+                    <constraint firstItem="8NM-aj-j1E" firstAttribute="leading" secondItem="0Li-br-KPB" secondAttribute="trailing" constant="8" id="eQU-Yg-FCv"/>
+                    <constraint firstItem="PEU-4x-UOX" firstAttribute="top" secondItem="VUl-cb-Oqp" secondAttribute="top" id="qnG-ps-owk"/>
+                    <constraint firstItem="tMS-A3-GUE" firstAttribute="width" secondItem="VUl-cb-Oqp" secondAttribute="width" id="vYU-EO-1W9"/>
+                    <constraint firstItem="tMS-A3-GUE" firstAttribute="top" secondItem="VUl-cb-Oqp" secondAttribute="top" id="wmH-R8-yfo"/>
+                    <constraint firstItem="t6s-UH-nmc" firstAttribute="width" secondItem="VUl-cb-Oqp" secondAttribute="width" multiplier="1.625" id="zjR-ux-Sa7"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="131.8840579710145" y="112.16517857142857"/>
+            <connections>
+                <outlet property="batch" destination="t6s-UH-nmc" id="3j6-aM-8H3"/>
+                <outlet property="cbm" destination="VUl-cb-Oqp" id="DZx-9t-BZ7"/>
+                <outlet property="date" destination="8sH-n8-VWp" id="S2O-O5-q0x"/>
+                <outlet property="number" destination="tMS-A3-GUE" id="uRG-fi-SIb"/>
+                <outlet property="product" destination="8NM-aj-j1E" id="Uen-hY-PM3"/>
+                <outlet property="type" destination="PEU-4x-UOX" id="0xW-Ga-QG3"/>
+            </connections>
+            <point key="canvasLocation" x="-299" y="28"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="产品" width="48" height="49"/>
+    </resources>
 </document>

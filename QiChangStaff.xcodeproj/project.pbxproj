@@ -20,6 +20,9 @@
 		3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A912D243C7ADA00D99D4B /* AreaDetailsCell.m */; };
 		3C8A9130243C7ADA00D99D4B /* AreaDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */; };
 		3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9133243C7FE700D99D4B /* AreaHeadView.m */; };
+		3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9136243D610800D99D4B /* YTYLabel.m */; };
+		3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9139243DCED200D99D4B /* YTYSearchView.m */; };
+		3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -51,6 +54,12 @@
 		3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaDetailsCell.xib; sourceTree = "<group>"; };
 		3C8A9132243C7FE700D99D4B /* AreaHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaHeadView.h; sourceTree = "<group>"; };
 		3C8A9133243C7FE700D99D4B /* AreaHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaHeadView.m; sourceTree = "<group>"; };
+		3C8A9135243D610800D99D4B /* YTYLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTYLabel.h; sourceTree = "<group>"; };
+		3C8A9136243D610800D99D4B /* YTYLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTYLabel.m; sourceTree = "<group>"; };
+		3C8A9138243DCED200D99D4B /* YTYSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTYSearchView.h; sourceTree = "<group>"; };
+		3C8A9139243DCED200D99D4B /* YTYSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTYSearchView.m; sourceTree = "<group>"; };
+		3C8A913B243DD5F000D99D4B /* QCSWarehouseRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehouseRecordVC.h; sourceTree = "<group>"; };
+		3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehouseRecordVC.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +119,8 @@
 				3C8A912C243C7ADA00D99D4B /* AreaDetailsCell.h */,
 				3C8A912D243C7ADA00D99D4B /* AreaDetailsCell.m */,
 				3C8A912E243C7ADA00D99D4B /* AreaDetailsCell.xib */,
+				3C8A913B243DD5F000D99D4B /* QCSWarehouseRecordVC.h */,
+				3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */,
 			);
 			path = "管理员";
 			sourceTree = "<group>";
@@ -119,6 +130,8 @@
 			children = (
 				3C8A9132243C7FE700D99D4B /* AreaHeadView.h */,
 				3C8A9133243C7FE700D99D4B /* AreaHeadView.m */,
+				3C8A9138243DCED200D99D4B /* YTYSearchView.h */,
+				3C8A9139243DCED200D99D4B /* YTYSearchView.m */,
 			);
 			path = SubgroupViews;
 			sourceTree = "<group>";
@@ -154,6 +167,8 @@
 		3CB90FD2242CA42700819C3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A9135243D610800D99D4B /* YTYLabel.h */,
+				3C8A9136243D610800D99D4B /* YTYLabel.m */,
 				3CB90FFF242DEE1F00819C3B /* YTYView.h */,
 				3CB90FFE242DEE1F00819C3B /* YTYView.m */,
 			);
@@ -336,8 +351,10 @@
 				3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */,
 				3CB90FFD242DE1BE00819C3B /* LoginVC.m in Sources */,
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
+				3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */,
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
+				3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
 				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
 				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
@@ -345,6 +362,7 @@
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
+				3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */,
 				3C8A912B243C7A0D00D99D4B /* QCSAreaDetailsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
