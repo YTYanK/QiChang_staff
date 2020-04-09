@@ -40,6 +40,7 @@
 
 #define LOGIN_ROLE_TYPE @"RoleType"
 
+#define NAV_COLOR YTYRGBA(55, 141, 202,1)
 
 /**
    这里
@@ -53,6 +54,8 @@ FOUNDATION_EXPORT RoleType const RoleTypeDriver;
 FOUNDATION_EXPORT RoleType const RoleTypeStorekeeper;
 /** 客服 */
 FOUNDATION_EXPORT RoleType const RoleTypeCustomerService;
+
+
 
 
 

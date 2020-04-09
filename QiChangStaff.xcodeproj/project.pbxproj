@@ -23,6 +23,7 @@
 		3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9136243D610800D99D4B /* YTYLabel.m */; };
 		3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9139243DCED200D99D4B /* YTYSearchView.m */; };
 		3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */; };
+		3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -60,6 +61,8 @@
 		3C8A9139243DCED200D99D4B /* YTYSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTYSearchView.m; sourceTree = "<group>"; };
 		3C8A913B243DD5F000D99D4B /* QCSWarehouseRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehouseRecordVC.h; sourceTree = "<group>"; };
 		3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehouseRecordVC.m; sourceTree = "<group>"; };
+		3C8A913E243EF7E000D99D4B /* UIView+YTYBorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YTYBorderLine.h"; sourceTree = "<group>"; };
+		3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YTYBorderLine.m"; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				3C8A9133243C7FE700D99D4B /* AreaHeadView.m */,
 				3C8A9138243DCED200D99D4B /* YTYSearchView.h */,
 				3C8A9139243DCED200D99D4B /* YTYSearchView.m */,
+				3C8A913E243EF7E000D99D4B /* UIView+YTYBorderLine.h */,
+				3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */,
 			);
 			path = SubgroupViews;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
+				3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 				3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */,
 				3C8A912B243C7A0D00D99D4B /* QCSAreaDetailsVC.m in Sources */,

@@ -7,8 +7,13 @@
 //
 
 #import "QCSWarehouseRecordVC.h"
+#import "YTYSearchView.h"
+
 
 @interface QCSWarehouseRecordVC ()
+
+@property(nonatomic, assign) int index;
+@property (nonatomic, strong) YTYSearchView * searchView;
 
 @end
 
@@ -26,18 +31,29 @@
     self.title = @"入倉單";
     self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
     
-    self.isCustomTable = YES;
-    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR + 10, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR)];
-    // 需要创建对象之后使用
-    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
-    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     
-    [self.view addSubview:self.baseTableView];
+    self.searchView = [[YTYSearchView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR, SCREEN_WIDTH, 50)];
+    self.searchView.backgroundColor = UIColor.redColor;
+    [self.view addSubview:self.searchView];
     
-    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
-        cell.textLabel.text = [NSString stringWithFormat:@"--%ld",(long) cell.tag];
-    };
+    
+//    self.isCustomTable = YES;
+//    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR +44 +10, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 54)];
+//    // 需要创建对象之后使用
+//    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
+//    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+//
+//    [self.view addSubview:self.baseTableView];
+//
+//      __weak __typeof(self)weakSelf = self;
+//
+//    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
+//        weakSelf.index++;
+//        YTYBaseTableViewCell * _cell = (YTYBaseTableViewCell *)cell;
+////        NSLog(@"------->%d",weakSelf.index);
+//        cell.textLabel.text = [NSString stringWithFormat:@"--%d",weakSelf.index];
+//    };
     
 }
 - (void)updateAllData {
@@ -59,13 +75,56 @@
     return 44;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return  0;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return  40;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, 2);
-    return  nil;//[HeaderVIew obtainGradientLayerViewFrame:frame viewFrame:frame];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, 2);
+    UIView *subV = [[UIView alloc] init];
+    subV.backgroundColor = YTYRGBA(55, 141, 202,1);
+    
+    UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
+    l1.textAlignment = NSTextAlignmentCenter;
+    l1.textColor = UIColor.whiteColor;
+    l1.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
+    l2.textAlignment = NSTextAlignmentCenter;
+    l2.textColor = UIColor.whiteColor;
+    l2.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    UILabel *l3 = [[UILabel alloc] initWithFrame:CGRectZero];
+    l3.textAlignment = NSTextAlignmentCenter;
+    l3.textColor = UIColor.whiteColor;
+    l3.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+    [subV addSubview:l1];
+    [subV addSubview:l2];
+    [subV addSubview:l3];
+    
+    l1.text = @"入倉單編號";
+    l2.text = @"來貨日期";
+    l3.text = @"處理日期";
+    
+    
+    [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(subV).with.offset(0);
+        make.left.equalTo(subV).with.offset(0);
+        make.height.equalTo(subV.mas_height);
+        make.width.equalTo(subV).with.multipliedBy(0.3);
+    }];
+    [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.equalTo(subV).with.offset(0);
+       make.left.equalTo(l1.mas_right).with.offset(0);
+       make.height.equalTo(subV.mas_height);
+       make.width.equalTo(subV).with.multipliedBy(0.4);
+    }];
+    [l3 mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.equalTo(subV).with.offset(0);
+       make.left.equalTo(l2.mas_right).with.offset(0);
+       make.height.equalTo(subV.mas_height);
+       make.width.equalTo(subV).with.multipliedBy(0.3);
+    }];
+    
+    return  subV;
 }
 
 
