@@ -54,6 +54,16 @@
 }
 - (void)updateAllData {
    // 更新头部
+    
+    
+    self.headView.dicValue = @{
+        @"info": @"當前區域基本資料3",
+        @"icon": @"区域",
+        @"date": @"最後更新時間\n4/10/19 18:20",
+        @"area": @"Area1",
+        @"cbm": @"目前可用CBM\n300/300",
+        @"name": @"所屬\n倉庫2"
+    };
 }
 
 
@@ -91,14 +101,6 @@
     AreaDetailsCell *cell = [AreaDetailsCell initCellWithCellView:tableView reuseIdentifier:@"AreaDetailsCell"];
     cell.indexPath = indexPath;
     cell.nestingTableView = tableView;
-    
-//    cell.numLabel.text = @"產品編號\nR77368";
-//    cell.nameLabel.text = @"產品名稱\n 32oz DPE White Paper Cup";
-//    cell.priceLabel.text = @"$1000 /包";
-//    cell.priceLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightBold];
-//    cell.icon.image =  [UIImage imageNamed:@"paper"];
-//    [cell.numLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12] ];
-//     [cell.nameLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12]];
     return  cell;
     
 }

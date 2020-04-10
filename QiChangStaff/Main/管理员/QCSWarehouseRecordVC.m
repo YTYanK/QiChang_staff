@@ -8,7 +8,7 @@
 
 #import "QCSWarehouseRecordVC.h"
 #import "YTYSearchView.h"
-
+#import "QCSWarehuseRecordDetailsVC.h"
 
 @interface QCSWarehouseRecordVC ()
 
@@ -29,31 +29,93 @@
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
     self.title = @"入倉單";
-    self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
+    self.view.backgroundColor = YTYRGBA(62, 146, 198, 1);
     
     
     self.searchView = [[YTYSearchView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR, SCREEN_WIDTH, 50)];
-    self.searchView.backgroundColor = UIColor.redColor;
     [self.view addSubview:self.searchView];
     
     
-//    self.isCustomTable = YES;
-//    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR +44 +10, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 54)];
-//    // 需要创建对象之后使用
-//    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
-//    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
-//
-//    [self.view addSubview:self.baseTableView];
-//
-//      __weak __typeof(self)weakSelf = self;
-//
-//    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
-//        weakSelf.index++;
-//        YTYBaseTableViewCell * _cell = (YTYBaseTableViewCell *)cell;
-////        NSLog(@"------->%d",weakSelf.index);
+    self.isCustomTable = YES;
+    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR +44 +10, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 54)];
+    // 需要创建对象之后使用
+    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [self.view addSubview:self.baseTableView];
+
+    __weak __typeof(self)weakSelf = self;
+    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
+        weakSelf.index++;
+    
+        UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
+        subView.backgroundColor = UIColor.whiteColor;  //YTYRGBA(62, 146, 198, 1);
+          
+        UIView *line = [[UIView alloc] initWithFrame:CGRectZero];
+        line.backgroundColor = YTYRGBA(220, 220, 220, 1);
+        
+        
+          UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
+          l1.textAlignment = NSTextAlignmentCenter;
+          l1.textColor = UIColor.blackColor;
+          l1.font = [UIFont systemFontOfSize:13];
+          UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
+          l2.textAlignment = NSTextAlignmentCenter;
+          l2.textColor = UIColor.blackColor;
+          l2.font = [UIFont systemFontOfSize:13 ];
+          UILabel *l3 = [[UILabel alloc] initWithFrame:CGRectZero];
+          l3.textAlignment = NSTextAlignmentCenter;
+          l3.textColor = UIColor.blackColor;
+          l3.font = [UIFont systemFontOfSize:13];
+          [subView addSubview:l1];
+          [subView addSubview:l2];
+          [subView addSubview:l3];
+          [subView addSubview:line];
+         
+          l1.text = @"2319821";
+          l2.text = @"1/10/2019 15:30";
+          l3.text = @"3/12/2019 13:32";
+          
+          
+          [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.top.equalTo(subView).with.offset(0);
+              make.left.equalTo(subView).with.offset(0);
+              make.height.equalTo(subView.mas_height);
+              make.width.equalTo(subView).with.multipliedBy(0.3);
+          }];
+          [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.top.equalTo(subView).with.offset(0);
+             make.left.equalTo(l1.mas_right).with.offset(0);
+             make.height.equalTo(subView.mas_height);
+             make.width.equalTo(subView).with.multipliedBy(0.4);
+          }];
+          [l3 mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.top.equalTo(subView).with.offset(0);
+             make.left.equalTo(l2.mas_right).with.offset(0);
+             make.height.equalTo(subView.mas_height);
+             make.width.equalTo(subView).with.multipliedBy(0.3);
+          }];
+         
+         [line mas_makeConstraints:^(MASConstraintMaker *make) {
+
+            make.left.equalTo(subView).with.offset(0);
+            make.bottom.equalTo(subView).with.offset(1);
+            make.height.mas_equalTo(1);
+            make.width.equalTo(subView).with.multipliedBy(1);
+         }];
+        
+        [cell addSubview:subView];
+        
+        [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(cell).with.offset(0);
+            make.left.equalTo(cell).with.offset(0);
+            make.height.equalTo(cell);
+            make.width.equalTo(cell);
+        }];
+        
+        
 //        cell.textLabel.text = [NSString stringWithFormat:@"--%d",weakSelf.index];
-//    };
+    };
     
 }
 - (void)updateAllData {
@@ -82,7 +144,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, 2);
     UIView *subV = [[UIView alloc] init];
-    subV.backgroundColor = YTYRGBA(55, 141, 202,1);
+    subV.backgroundColor = YTYRGBA(62, 146, 198, 1);
     
     UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
     l1.textAlignment = NSTextAlignmentCenter;
@@ -143,10 +205,9 @@
 //
 //}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    QCSAreaVC * area = [[QCSAreaVC alloc] init];
-//    [self.navigationController  pushViewController:area animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
+    QCSWarehuseRecordDetailsVC * details = [[QCSWarehuseRecordDetailsVC alloc] init];
+    [self.navigationController  pushViewController:details animated:YES];
  }
 
 

@@ -12,6 +12,10 @@
 @interface AreaHeadView()
 @property (strong, nonatomic) UIImageView *icon;
 @property (strong, nonatomic) YTYLabel *info;
+@property (strong, nonatomic) UILabel *area;
+@property (strong, nonatomic) UILabel *name;
+@property (strong, nonatomic) UILabel *cbm;
+@property (strong, nonatomic) UILabel *date;
 @end
 
 @implementation AreaHeadView
@@ -67,9 +71,6 @@
     self.date = [[UILabel alloc] initWithFrame:CGRectZero];
     self.date.numberOfLines = 2;
     [self addSubview:self.date];
-    
-    
-    [self updateAllData];
 }
 
 - (void)layoutSubviews {
@@ -79,7 +80,7 @@
     [self.info mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.top.equalTo(self).with.offset(0);
-        make.height.mas_equalTo(YTY_DP_375(30));
+        make.height.mas_equalTo(YTY_DP_375(32));
         make.width.equalTo(self.mas_width);
     }];
 
@@ -122,32 +123,25 @@
 }
 
 - (void)updateAllData {
-    self.info.text = @"當前區域基本資料";
-    self.icon.image = [UIImage imageNamed:@"区域"];
-    self.date.text = @"最後更新時間\n 4/10/19 18:20";
-    self.area.text = @"Area1";
-    self.cbm.text = @"目前可用CBM\n100/300";
-    self.name.text = @"所屬\n倉庫1";
-    
-//    [self.name setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:12] tailFont:[UIFont systemFontOfSize:15] tailColor:UIColor.blackColor];
+//    self.info.text = @"---";
+//    self.icon.image = [UIImage imageNamed:@"区域"];
+//    self.date.text = @"最後更新時間\n 4/10/19 18:20";
+//    self.area.text = @"Area1";
+//    self.cbm.text = @"目前可用CBM\n100/300";
+//    self.name.text = @"所屬\n倉庫1";
     
     [self.name setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
-//    [self.cbm setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
-    
-    
-    
+
     NSRange range = [self.cbm.text rangeOfString:@"\n"];
-    
     NSMutableAttributedString * mutStr = [self setMutableAttributesWithText:self.cbm.text];
-    
-     NSRange typeRange = {0,range.location};
-        [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:typeRange];
-        [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
-      [mutStr addAttribute:NSForegroundColorAttributeName value:YTYRGBA(81, 165, 216, 1) range:typeRange];
-      [mutStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
+    NSRange typeRange = {0,range.location};
+    [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:typeRange];
+    [mutStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
+    [mutStr addAttribute:NSForegroundColorAttributeName value:YTYRGBA(81, 165, 216, 1) range:typeRange];
+    [mutStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(range.location, [self.cbm.text length] - range.location)];
     [mutStr addAttribute:NSForegroundColorAttributeName value:YTYRGBA(221, 45, 50, 1) range:NSMakeRange(range.location, 4)];
     self.cbm.attributedText = mutStr;
-    
+
     [self.date setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
     
     
@@ -155,6 +149,21 @@
 - (NSMutableAttributedString *)setMutableAttributesWithText:(NSString *)text  {
     NSMutableAttributedString * mutStr = [[NSMutableAttributedString alloc] initWithString:text];
     return mutStr;
+}
+
+
+- (void)setDicValue:(NSDictionary *)dicValue {
+    if (_dicValue != dicValue) {
+        _dicValue = dicValue;
+        
+        self.info.text = _dicValue[@"info"]; // @"當前區域基本資料";
+        self.icon.image = [UIImage imageNamed:_dicValue[@"icon"]]; //@"区域"
+        self.date.text = _dicValue[@"date"];//@"最後更新時間\n 4/10/19 18:20";
+        self.area.text = _dicValue[@"area"];//@"Area1";
+        self.cbm.text = _dicValue[@"cbm"];//@"目前可用CBM\n100/300";
+        self.name.text = _dicValue[@"name"]; //@"所屬\n倉庫1";
+        [self updateAllData];
+    }
 }
 
 

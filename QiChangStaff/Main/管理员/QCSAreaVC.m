@@ -59,14 +59,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AreaCell *cell = [AreaCell initCellWithCellView:tableView reuseIdentifier:@"AreaCell"];
     cell.nestingTableView = tableView;
-    
-//    cell.numLabel.text = @"產品編號\nR77368";
-//    cell.nameLabel.text = @"產品名稱\n 32oz DPE White Paper Cup";
-//    cell.priceLabel.text = @"$1000 /包";
-//    cell.priceLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightBold];
-//    cell.icon.image =  [UIImage imageNamed:@"paper"];
-//    [cell.numLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12] ];
-//     [cell.nameLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12]];
     return  cell;
     
 }

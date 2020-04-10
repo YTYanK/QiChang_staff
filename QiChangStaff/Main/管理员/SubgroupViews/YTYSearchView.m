@@ -33,15 +33,17 @@
 
 - (void)initAllView {
      // 搜索
+    
+    
+    self.backgroundColor = YTYRGBA(55, 141, 202,1);
+    
+    
     self.searchField = [[UITextField alloc] initWithFrame:CGRectZero];
     self.searchField.placeholder = @"搜索";
     self.searchField.backgroundColor = UIColor.whiteColor;
-
-
-
     CGFloat h = self.size.height * 0.4;
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, h + 10,  h)];
-    UIImageView * imageView= [[UIImageView alloc] initWithImage: [self image:[UIImage imageNamed:@"search"] ChangeColor:NAV_COLOR]];
+    UIImageView * imageView= [[UIImageView alloc] initWithImage: [self image:[UIImage imageNamed:@"search"] ChangeColor:YTYRGBA(100, 100, 100,1)]];
     imageView.frame = CGRectMake(8, 0, h, h);//CGRectMake(12, -7, 12, 16);
     [leftView addSubview:imageView];
     leftView.backgroundColor = UIColor.clearColor;

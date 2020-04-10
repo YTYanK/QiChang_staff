@@ -59,10 +59,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [[UINavigationBar appearance] setTranslucent:YES];
-//    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    self.navigationController.navigationBar.barTintColor = YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    self.navigationController.navigationBar.barTintColor =  YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
   
 }
 

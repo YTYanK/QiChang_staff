@@ -14,11 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AreaHeadView : UIView
 
 
+/**
+        
+     self.info.text = @"當前區域基本資料";
+     self.icon.image = [UIImage imageNamed:@"区域"];
+     self.date.text = @"最後更新時間\n 4/10/19 18:20";
+     self.area.text = @"Area1";
+     self.cbm.text = @"目前可用CBM\n100/300";
+     self.name.text = @"所屬\n倉庫1";
+ */
 
-@property (strong, nonatomic) UILabel *area;
-@property (strong, nonatomic) UILabel *name;
-@property (strong, nonatomic) UILabel *cbm;
-@property (strong, nonatomic) UILabel *date;
+@property (strong, nonatomic) NSDictionary *dicValue;
+
 
 @end
 
