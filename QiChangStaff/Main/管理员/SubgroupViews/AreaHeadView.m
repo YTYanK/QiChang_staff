@@ -51,11 +51,10 @@
     
     
     self.icon = [[UIImageView alloc] initWithImage:[UIImage new]];
-//    self.icon.backgroundColor = UIColor.yellowColor;
+    
     [self addSubview:self.icon];
     
     self.area = [[UILabel alloc] initWithFrame:CGRectZero];
-//    self.area.backgroundColor = UIColor.greenColor;
     [self addSubview:self.area];
     
     self.name = [[UILabel alloc] initWithFrame:CGRectZero];

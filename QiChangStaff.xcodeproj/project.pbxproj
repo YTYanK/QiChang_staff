@@ -25,6 +25,10 @@
 		3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */; };
 		3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */; };
 		3C8A914324401A2D00D99D4B /* QCSWarehuseRecordDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A914224401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.m */; };
+		3C8A91472444000600D99D4B /* RecordRenewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91452444000500D99D4B /* RecordRenewCell.m */; };
+		3C8A91482444000600D99D4B /* RecordRenewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A91462444000600D99D4B /* RecordRenewCell.xib */; };
+		3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A914A2444003800D99D4B /* RecordReceivingCell.m */; };
+		3C8A914D2444003800D99D4B /* RecordReceivingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A914B2444003800D99D4B /* RecordReceivingCell.xib */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -66,6 +70,12 @@
 		3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YTYBorderLine.m"; sourceTree = "<group>"; };
 		3C8A914124401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehuseRecordDetailsVC.h; sourceTree = "<group>"; };
 		3C8A914224401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehuseRecordDetailsVC.m; sourceTree = "<group>"; };
+		3C8A91442444000500D99D4B /* RecordRenewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordRenewCell.h; sourceTree = "<group>"; };
+		3C8A91452444000500D99D4B /* RecordRenewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordRenewCell.m; sourceTree = "<group>"; };
+		3C8A91462444000600D99D4B /* RecordRenewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordRenewCell.xib; sourceTree = "<group>"; };
+		3C8A91492444003800D99D4B /* RecordReceivingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordReceivingCell.h; sourceTree = "<group>"; };
+		3C8A914A2444003800D99D4B /* RecordReceivingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordReceivingCell.m; sourceTree = "<group>"; };
+		3C8A914B2444003800D99D4B /* RecordReceivingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordReceivingCell.xib; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -129,6 +139,12 @@
 				3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */,
 				3C8A914124401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.h */,
 				3C8A914224401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.m */,
+				3C8A91492444003800D99D4B /* RecordReceivingCell.h */,
+				3C8A914A2444003800D99D4B /* RecordReceivingCell.m */,
+				3C8A914B2444003800D99D4B /* RecordReceivingCell.xib */,
+				3C8A91442444000500D99D4B /* RecordRenewCell.h */,
+				3C8A91452444000500D99D4B /* RecordRenewCell.m */,
+				3C8A91462444000600D99D4B /* RecordRenewCell.xib */,
 			);
 			path = "管理员";
 			sourceTree = "<group>";
@@ -301,8 +317,10 @@
 			files = (
 				3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */,
 				3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */,
+				3C8A914D2444003800D99D4B /* RecordReceivingCell.xib in Resources */,
 				3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */,
 				3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */,
+				3C8A91482444000600D99D4B /* RecordRenewCell.xib in Resources */,
 				3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */,
 				3C8A9130243C7ADA00D99D4B /* AreaDetailsCell.xib in Resources */,
 				3C5CAB7D2435948500C68CFB /* Assets.xcassets in Resources */,
@@ -363,6 +381,7 @@
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
 				3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */,
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
+				3C8A91472444000600D99D4B /* RecordRenewCell.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
@@ -372,6 +391,7 @@
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
+				3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */,
 				3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 				3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */,
