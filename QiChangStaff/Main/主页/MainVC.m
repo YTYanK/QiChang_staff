@@ -12,6 +12,7 @@
 #import <YTYCore.h>
 #import "QCSWarehouseVC.h"
 #import "QCSWarehouseRecordVC.h"
+#import "QCSDeliveryReportVC.h"
 
 
 @interface MainVC ()
@@ -39,11 +40,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    
+      
+        if (IS_IPHONE_X) {
+            NSLog(@"YES");
+        }else {
+            NSLog(@"NO");
+        }
+    
       self.title = @"主页";
       self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-    
-    
-//    UIButton * item =  [YTYTools obtainBackItemWithTarget:self action:@selector(btnClick:) image:[UIImage imageNamed:@"退出"]];
+
     
       self.navigationItem.rightBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(logout) image:[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     
@@ -232,11 +239,15 @@
 // 按钮事件
 - (void)btnClick:(UIButton *)sender {
     if(sender.tag == 3) {
-           QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
-           [self.navigationController  pushViewController:warehouse animated:YES];
+       QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
+       [self.navigationController  pushViewController:warehouse animated:YES];
     }else if (sender.tag == 2) {
         QCSWarehouseRecordVC * wr = [[QCSWarehouseRecordVC alloc] init];
         [self.navigationController pushViewController:wr animated:YES];
+    }else if (sender.tag == 1) {
+        QCSDeliveryReportVC *dr = [[QCSDeliveryReportVC alloc] init];
+        [self.navigationController pushViewController:dr animated:YES];
+    
     }
 }
 

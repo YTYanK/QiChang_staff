@@ -11,112 +11,66 @@
 
 @implementation RecordReceivingCell
 
+
+- (UIImageView *)icon {
+    if (_icon == nil) {
+        _icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"产品"]];
+        [self addSubview:_icon];
+    }
+    return _icon;
+}
+- (YTYLabel *)title {
+    if (_title == nil) {
+         _title = [[YTYLabel alloc] initWithFrame:CGRectZero];
+             _title.font = [UIFont systemFontOfSize:12 weight:UIFontWeightBold];
+              _title.textColor = UIColor.blackColor;
+              _title.numberOfLines = 5;
+              [self addSubview:_title];
+    }
+    return _title;
+}
+- (UIImageView *)icon2 {
+    if (_icon2 == nil) {
+           _icon2 = [[UIImageView alloc] initWithFrame:CGRectZero];
+           [self addSubview:_icon2];
+       }
+       return _icon2;
+}
+- (UILabel *)area {
+    if (_area == nil) {
+          _area = [[UILabel alloc] initWithFrame:CGRectZero];
+             _area.font = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
+             [self addSubview:_area];
+    }
+    return _area;
+}
+- (UILabel *)type {
+    if (_type == nil) {
+        _type = [[UILabel alloc] initWithFrame:CGRectZero];
+              _type.numberOfLines = 2;
+              [self addSubview:_type];
+    }
+    return _type;
+}
+- (UILabel *)number{
+    if (_number == nil) {
+
+        _number = [[UILabel alloc] initWithFrame:CGRectZero];
+              _number.numberOfLines = 2;
+              [self addSubview:_number];
+    }
+    return _number;
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    
-    RecordReceivingCell *cell = self;
-     UIImageView * icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"产品"]];
-        [cell addSubview:icon];
-        
-        YTYLabel *title = [[YTYLabel alloc] initWithFrame:CGRectZero];
-        title.backgroundColor = UIColor.redColor;
-        title.font = [UIFont systemFontOfSize:12 weight:UIFontWeightBold];
-        title.textColor = UIColor.blackColor;
-        title.numberOfLines = 5;
-        title.text = @"美國 'Solo' \"BARE\" 四安蒸餾水捲邊 尖杯(Eco-Forward) Packing: 1 x 25 boxes ";
-    //    title.textInsets = UIEdgeInsetsMake(-10, 0, -10, 0);
-    //    title.yf_contentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-        [cell addSubview:title];
-        
-        
-        UIImageView * icon2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"仓库"]];
-        [cell addSubview:icon2];
-        
-        UILabel *area = [[UILabel alloc] initWithFrame:CGRectZero];
-        area.text =[NSString stringWithFormat:@"Area%ld",(long)self.indexPath.row];
-        area.font = [UIFont systemFontOfSize:12];
-        area.backgroundColor = UIColor.greenColor;
-        [cell addSubview:area];
-        
-        
-        UILabel *type = [[UILabel alloc] initWithFrame:CGRectZero];
-        type.numberOfLines = 2;
-        type.text = [NSString stringWithFormat:@"產品種類\n紙杯"];
-    //    type.backgroundColor = UIColor.greenColor;
-        [cell addSubview:type];
-         [type setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
-        
-        
-        UILabel *number = [[UILabel alloc] initWithFrame:CGRectZero];
-        number.numberOfLines = 2;
-        number.text = [NSString stringWithFormat:@"產品數量\n10箱"];
-    //    number.backgroundColor = UIColor.blueColor;
-        [cell addSubview:number];
-         [number setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
-        
-        CGFloat icon_wh = YTY_DP_375(16);
-        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell).with.offset(16);
-            make.left.equalTo(cell).with.offset(20);
-            make.height.mas_equalTo(icon_wh);
-            make.width.mas_equalTo(icon_wh);
-        }];
-        
-        [title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell).with.offset(16);
-            make.left.equalTo(icon.mas_right).with.offset(10);
-            make.width.equalTo(cell).with.multipliedBy(0.7);
-        }];
-        
-    
-    if(self.indexPath.section == 0) {
-        [icon2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell).with.offset(16);
-            make.left.equalTo(title.mas_right).with.offset(10);
-            make.height.mas_equalTo(icon_wh);
-            make.width.mas_equalTo(icon_wh);
-        }];
-        [area mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell).with.offset(16);
-            make.left.equalTo(icon2.mas_right).with.offset(5);
-            make.right.equalTo(cell).with.offset(-5);
-            make.height.mas_equalTo(22);
-        }];
-        [type mas_makeConstraints:^(MASConstraintMaker *make) {
-           make.top.equalTo(title.mas_bottom).with.offset(10);
-           make.bottom.equalTo(cell).with.offset(-8);
-           make.left.equalTo(cell).with.offset(20);
-           make.width.equalTo(cell).with.multipliedBy(0.4);
-        }];
-        [number mas_makeConstraints:^(MASConstraintMaker *make) {
-              make.top.equalTo(title.mas_bottom).with.offset(10);
-              make.bottom.equalTo(cell).with.offset(-8);
-              make.left.equalTo(type.mas_right).with.offset(5);
-           make.right.equalTo(cell).with.offset(-20);
-        }];
-        
-        
-    }else {
-        [icon2 mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(cell).with.offset(0);
-                make.left.equalTo(title.mas_right).with.offset(10);
-                make.height.mas_equalTo(icon_wh);
-                make.width.mas_equalTo(icon_wh);
-            }];
-            [area mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(icon2).with.offset(0);
-                make.left.equalTo(icon2.mas_right).with.offset(5);
-                make.right.equalTo(cell).with.offset(-5);
-                make.height.mas_equalTo(22);
-            }];
-    }
-    
-    
-       
-    
-    
-    
+    [self icon];
+    [self title];
+    [self icon2];
+    [self area];
+    [self type];
+    [self number];
 }
 - (void)setFrame:(CGRect)frame {
      if (self.indexPath.row == 0) {
@@ -125,8 +79,8 @@
          frame.origin.y += 15;
         frame.size.height -= 15;
         [super setFrame:frame];
+         
      }
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -134,5 +88,72 @@
 
     // Configure the view for the selected state
 }
+
+
++ (instancetype)initCellWithCellView:(UITableView *)tableView reuseIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)index {
+    RecordReceivingCell *cell = [super initCellWithCellView:tableView reuseIdentifier:identifier];
+    cell.indexPath = index;
+
+    CGFloat icon_wh = YTY_DP_375(16);
+              [cell.icon mas_makeConstraints:^(MASConstraintMaker *make) {
+                  make.top.equalTo(cell).with.offset(16);
+                  make.left.equalTo(cell).with.offset(20);
+                  make.height.mas_equalTo(icon_wh);
+                  make.width.mas_equalTo(icon_wh);
+              }];
+
+              [cell.title mas_makeConstraints:^(MASConstraintMaker *make) {
+                  make.top.equalTo(cell).with.offset(16);
+                  make.left.equalTo(cell.icon.mas_right).with.offset(10);
+                  make.width.equalTo(cell.contentView).with.multipliedBy(0.65);
+              }];
+              
+            [cell.number mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(cell).with.offset(-8);
+                make.left.equalTo(cell.type.mas_right).with.offset(5);
+                make.right.equalTo(cell).with.offset(-20);
+            }];
+    
+    
+    
+      if (index.section == 0) {
+//          [cell.areaCenterY uninstall]; //删除样式
+//          [cell.areaTop install]; // 添加
+          [cell.number setHidden:NO];
+            [cell.type mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(cell).with.offset(-8);
+                make.left.equalTo(cell).with.offset(20);
+                make.width.mas_equalTo(SCREEN_WIDTH * 0.4);
+            }];
+          
+            [cell.area mas_remakeConstraints:^(MASConstraintMaker *make) {
+              cell.areaTop =  make.top.equalTo(cell).with.offset(16);
+              make.right.equalTo(cell).with.offset(-20);
+              make.height.mas_offset(22);
+            }];
+          
+      }else {
+            [cell.number setHidden:YES];
+            [cell.type mas_remakeConstraints:^(MASConstraintMaker *make) {
+                 make.bottom.equalTo(cell).with.offset(-8);
+                 make.left.equalTo(cell).with.offset(20);
+                 make.width.mas_equalTo(SCREEN_WIDTH * 0.8);
+             }];
+            [cell.area mas_remakeConstraints:^(MASConstraintMaker *make) {
+                cell.areaCenterY =  make.centerY.equalTo(cell).with.offset(0);
+                make.right.equalTo(cell).with.offset(-20);
+                make.height.mas_offset(22);
+            }];
+      }
+   [cell.icon2 mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.centerY.equalTo(cell.area.mas_centerY).with.offset(0);
+       make.right.equalTo(cell.area.mas_left).with.offset(-5);
+       make.height.mas_equalTo(icon_wh);
+       make.width.mas_equalTo(icon_wh);
+   }];
+    NSLog(@"----->-->%ld",(long)index.section);
+    return cell;
+}
+
 
 @end

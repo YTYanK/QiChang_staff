@@ -39,46 +39,78 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F0CC74CA-103F-4986-933F-B6289797690D"
+            uuid = "1830A663-1DF6-46C0-A64D-F9B9D82CBCED"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiChangStaff/Main/&#x7ba1;&#x7406;&#x5458;/RecordReceivingCell.m"
+            filePath = "QiChangStaff/Main/&#x7ba1;&#x7406;&#x5458;/QCSDeliveryDetailsVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-awakeFromNib"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-setAllInitSubView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9D70A7C-5FB8-4DD7-90C4-ECFAB47E2838"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiChangStaff/Main/&#x7ba1;&#x7406;&#x5458;/SubgroupViews/QCSCardView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-initAllView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31D50D55-AE5D-49F7-8B5F-69689C2032BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiChangStaff/Main/&#x7ba1;&#x7406;&#x5458;/SubgroupViews/QCSCardView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F0CC74CA-103F-4986-933F-B6289797690D - fbffc2cd29f43e61"
+                  uuid = "31D50D55-AE5D-49F7-8B5F-69689C2032BA - 422e5a76eef33567"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[RecordReceivingCell awakeFromNib]"
+                  symbolName = "-[QCSCardView layoutSubviews]"
                   moduleName = "QiChangStaff"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pop3mac/QiChang_staff/QiChangStaff/Main/%E7%AE%A1%E7%90%86%E5%91%98/RecordReceivingCell.m"
+                  urlString = "file:///Users/pop3mac/QiChang_staff/QiChangStaff/Main/%E7%AE%A1%E7%90%86%E5%91%98/SubgroupViews/QCSCardView.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "3226">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "54">
                </Location>
                <Location
-                  uuid = "F0CC74CA-103F-4986-933F-B6289797690D - fb6ed100f3f43dc5"
+                  uuid = "31D50D55-AE5D-49F7-8B5F-69689C2032BA - 3d001a139930c8d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__35-[RecordReceivingCell awakeFromNib]_block_invoke.87"
+                  symbolName = "__29-[QCSCardView layoutSubviews]_block_invoke"
                   moduleName = "QiChangStaff"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pop3mac/QiChang_staff/QiChangStaff/Main/%E7%AE%A1%E7%90%86%E5%91%98/RecordReceivingCell.m"
+                  urlString = "file:///Users/pop3mac/QiChang_staff/QiChangStaff/Main/%E7%AE%A1%E7%90%86%E5%91%98/SubgroupViews/QCSCardView.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
                   offsetFromSymbolStart = "15">
                </Location>
             </Locations>

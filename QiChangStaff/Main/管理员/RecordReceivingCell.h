@@ -7,13 +7,26 @@
 //
 
 #import <YTYCoreFramework/YTYCoreFramework.h>
+#import "YTYLabel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/** 已收貨*/
 @interface RecordReceivingCell : YTYBaseTableViewCell
 
-@property (strong, nonatomic) NSIndexPath *indexPath;
 
+@property(strong, nonatomic) MASConstraint *areaTop;
+@property(strong, nonatomic) MASConstraint *areaCenterY;
+
+
+@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic)  UIImageView * icon;
+@property (strong, nonatomic) YTYLabel *title;
+@property (strong, nonatomic) UIImageView * icon2;
+@property (strong, nonatomic) UILabel *area;
+@property (strong, nonatomic)  UILabel *type;
+@property (strong, nonatomic)  UILabel *number;
+
+
++ (instancetype)initCellWithCellView:(UITableView *)tableView reuseIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)index;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -125,7 +125,7 @@
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.address.mas_bottom).with.offset(10);
         make.left.equalTo(self.view).with.offset(0);
-        make.bottom.equalTo(self.view).with.offset(0);
+        make.bottom.equalTo(self.view).with.offset(22);
         make.width.equalTo(self.view).with.multipliedBy(1);
     }];
     
@@ -165,9 +165,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        return 11;
     }else {
-        return 2;
+        return 12;
     }
     
 }
@@ -199,113 +199,37 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecordReceivingCell *cell = [RecordReceivingCell initCellWithCellView:tableView reuseIdentifier:@"RecordReceivingCell"];
+    RecordReceivingCell *cell = [RecordReceivingCell initCellWithCellView:tableView reuseIdentifier:@"RecordReceivingCell" indexPath:indexPath];
     cell.nestingTableView = tableView;
-    cell.indexPath = indexPath;
+//    cell.indexPath = indexPath;
+
+      
     
-//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"newCell"];
-    
-//    cell.frame.origin.y += 15;
-//       cell.frame.size.height -= 15;
-//       [cell setFrame:frame];
-//    if (indexPath.section == 0) {
-//
-//    }else {
-//
-//    }
+   if(indexPath.section == 0) {
     
     
-//    UIImageView * icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"产品"]];
-//    [cell addSubview:icon];
-//    
-//    YTYLabel *title = [[YTYLabel alloc] initWithFrame:CGRectZero];
-//    title.backgroundColor = UIColor.redColor;
-//    title.font = [UIFont systemFontOfSize:12 weight:UIFontWeightBold];
-//    title.textColor = UIColor.blackColor;
-//    title.numberOfLines = 5;
-//    title.text = @"美國 'Solo' \"BARE\" 四安蒸餾水捲邊 尖杯(Eco-Forward) Packing: 1 x 25 boxes ";
-////    title.textInsets = UIEdgeInsetsMake(-10, 0, -10, 0);
-////    title.yf_contentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-//    [cell addSubview:title];
-//    
-//    
-//    UIImageView * icon2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"仓库"]];
-//    [cell addSubview:icon2];
-//    
-//    UILabel *area = [[UILabel alloc] initWithFrame:CGRectZero];
-//    area.text =[NSString stringWithFormat:@"Area%ld",(long)indexPath.row];
-//    area.font = [UIFont systemFontOfSize:12];
-//    area.backgroundColor = UIColor.greenColor;
-//    [cell addSubview:area];
-//    
-//    
-//    UILabel *type = [[UILabel alloc] initWithFrame:CGRectZero];
-//    type.numberOfLines = 2;
-//    type.text = [NSString stringWithFormat:@"產品種類\n紙杯"];
-////    type.backgroundColor = UIColor.greenColor;
-//    [cell addSubview:type];
-//     [type setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
-//    
-//    
-//    UILabel *number = [[UILabel alloc] initWithFrame:CGRectZero];
-//    number.numberOfLines = 2;
-//    number.text = [NSString stringWithFormat:@"產品數量\n10箱"];
-////    number.backgroundColor = UIColor.blueColor;
-//    [cell addSubview:number];
-//     [number setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
-//    
-//    CGFloat icon_wh = YTY_DP_375(16);
-//    [icon mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cell).with.offset(16);
-//        make.left.equalTo(cell).with.offset(20);
-//        make.height.mas_equalTo(icon_wh);
-//        make.width.mas_equalTo(icon_wh);
-//    }];
-//    
-//    [title mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cell).with.offset(16);
-//        make.left.equalTo(icon.mas_right).with.offset(10);
-//        make.width.equalTo(cell).with.multipliedBy(0.7);
-//    }];
-//    
-//    [icon2 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cell).with.offset(16);
-//        make.left.equalTo(title.mas_right).with.offset(10);
-//        make.height.mas_equalTo(icon_wh);
-//        make.width.mas_equalTo(icon_wh);
-//    }];
-//    [area mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(cell).with.offset(16);
-//        make.left.equalTo(icon2.mas_right).with.offset(5);
-//        make.right.equalTo(cell).with.offset(-5);
-//        make.height.mas_equalTo(22);
-//    }];
-//    [type mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(title.mas_bottom).with.offset(10);
-//        make.bottom.equalTo(cell).with.offset(-8);
-//        make.left.equalTo(cell).with.offset(20);
-//        make.width.equalTo(cell).with.multipliedBy(0.4);
-//    }];
-//    [number mas_makeConstraints:^(MASConstraintMaker *make) {
-//           make.top.equalTo(title.mas_bottom).with.offset(10);
-//           make.bottom.equalTo(cell).with.offset(-8);
-//           make.left.equalTo(type.mas_right).with.offset(5);
-//        make.right.equalTo(cell).with.offset(-20);
-////           make.width.equalTo(cell).with.multipliedBy(0.5);
-//    }];
-    
-    
-    
-//    cell.numLabel.text = @"產品編號\nR77368";
-//    cell.nameLabel.text = @"產品名稱\n 32oz DPE White Paper Cup";
-//    cell.priceLabel.text = @"$1000 /包";
-//    cell.priceLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightBold];
-//    cell.icon.image =  [UIImage imageNamed:@"paper"];
-//    [cell.numLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12] ];
-//     [cell.nameLabel  setRangeOfString:@"\n" lineSpacing:5 firstFont:setArialFont(12) tailFont:[UIFont systemFontOfSize:12]];
-    
-   
-    
+       
+       cell.title.text = @"美國 'Solo' \"BARE\" 四安蒸餾水捲邊 尖杯(Eco-Forward) Packing: 1 x 25 boxes ";
+       cell.icon2.image = [UIImage imageNamed:@"仓库"];
+       cell.area.textColor = UIColor.blackColor;
+       cell.area.text =[NSString stringWithFormat:@"Area%ld",(long)indexPath.row];
+       cell.type.text = [NSString stringWithFormat:@"產品種類\n紙杯"];
+       [cell.type setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
+       cell.number.text = [NSString stringWithFormat:@"產品數量\n10箱"];
+       [cell.number setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
+       
+   }else {
+           
+       
+       
+       cell.title.text = @"美國 'Solo' \"BARE\" 四安蒸餾水捲邊 尖杯(Eco-Forward) Packing: 1 x 25 boxes ";
+       cell.icon2.image = [UIImage imageNamed:@"error"];
+       cell.area.textColor = YTYRGBA(221, 45, 50, 1);
+       cell.area.text = [NSString stringWithFormat:@"收不齊"];
+       cell.type.text = [NSString stringWithFormat:@"備忘\n有一些產品有問題"];
+       [cell.type setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
+       cell.number.text = [NSString stringWithFormat:@"產品數量\n10箱"];
+   }
     
     return  cell;
 
