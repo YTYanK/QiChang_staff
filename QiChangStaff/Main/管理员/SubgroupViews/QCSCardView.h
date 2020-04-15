@@ -15,7 +15,7 @@ typedef void(^QCSCardViewBlock)(UIView * view);
 /** 其昌 特殊卡片view */
 @interface QCSCardView : UIView
 
-@property (weak, nonatomic) QCSCardViewBlock viewBlock;
+@property (nonatomic, strong) QCSCardViewBlock viewBlock;
 
 @end
 

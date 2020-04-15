@@ -43,7 +43,7 @@
 - (void)initAllView {
     self.backgroundColor = UIColor.whiteColor;
     self.info = [[YTYLabel alloc] initWithFrame:CGRectZero];
-    self.info.backgroundColor = YTYRGBA(55, 141, 202,0.8);
+    self.info.backgroundColor = NAV_COLOR;
     self.info.textColor = UIColor.whiteColor;
     self.info.font = [UIFont systemFontOfSize:15];
     self.info.textInsets = UIEdgeInsetsMake(15, 18, 15.f, 0.f);

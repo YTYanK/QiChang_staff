@@ -42,6 +42,12 @@
 
 #define NAV_COLOR YTYRGBA(55, 141, 202,1)
 
+//#define NAV_COLOR2 YTYRGBA(62, 146, 198, 1)
+// 背景浅灰色
+#define TABLE_VIEW_BG_COLOR YTYRGBA(242, 242, 242, 1)
+// 字体浅蓝色
+#define TEXT_COLOR YTYRGBA(81, 165, 216, 1)
+
 /**
    这里
  */

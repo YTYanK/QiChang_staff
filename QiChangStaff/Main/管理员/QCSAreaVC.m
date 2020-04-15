@@ -26,7 +26,7 @@
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
     self.title = @"區域";
-    self.view.backgroundColor = YTYRGBA(242, 242, 242, 1);
+    self.view.backgroundColor = NAV_COLOR;
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);

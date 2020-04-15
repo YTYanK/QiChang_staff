@@ -17,6 +17,14 @@
 @implementation QCSCardView
 
 
+- (void)setViewBlock:(QCSCardViewBlock)viewBlock {
+    if (_viewBlock != viewBlock) {
+        _viewBlock = viewBlock;
+        _viewBlock(self.mainView);
+    }
+}
+
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     NSLog(@"???--%s",__func__);
@@ -32,7 +40,7 @@
     self.backgroundColor = YTYRGBA(242, 242, 242, 1);
     
     self.firstBgView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.firstBgView.backgroundColor =  YTYRGBA(62, 146, 198, 1);
+    self.firstBgView.backgroundColor =  YTYRGBA(55, 141, 202,1);
     [self addSubview:self.firstBgView];
     
     self.mainView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -40,9 +48,6 @@
     [self.mainView setViewBorderCornerRadius:6 borderWidth:1 borderColor:UIColor.whiteColor];
     [self addSubview:self.mainView];
     
-    if(self.viewBlock != nil){
-        self.viewBlock(self.mainView);
-    }
 }
 
 

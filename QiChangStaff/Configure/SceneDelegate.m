@@ -16,6 +16,11 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
    // NSLog(@"%@", isLogin);
+    [[UINavigationBar appearance] setTranslucent:YES];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    
+    
      if (!isLogin) {
          AppDelegate * appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
          self.window.rootViewController = appDelegate.loginPage;

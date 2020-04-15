@@ -32,6 +32,9 @@
 		3C8A91552445A29900D99D4B /* QCSDeliveryReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91542445A29900D99D4B /* QCSDeliveryReportVC.m */; };
 		3C8A91582445ADE300D99D4B /* QCSCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91572445ADE300D99D4B /* QCSCardView.m */; };
 		3C8A915B2445B8B500D99D4B /* QCSDeliveryDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A915A2445B8B500D99D4B /* QCSDeliveryDetailsVC.m */; };
+		3C8A915E2446FFF700D99D4B /* CKSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A915D2446FFF700D99D4B /* CKSlideMenu.m */; };
+		3C8A9162244700ED00D99D4B /* QCSOrderListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */; };
+		3C8A916524470A5D00D99D4B /* QCSOrderMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -85,6 +88,12 @@
 		3C8A91572445ADE300D99D4B /* QCSCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSCardView.m; sourceTree = "<group>"; };
 		3C8A91592445B8B500D99D4B /* QCSDeliveryDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSDeliveryDetailsVC.h; sourceTree = "<group>"; };
 		3C8A915A2445B8B500D99D4B /* QCSDeliveryDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSDeliveryDetailsVC.m; sourceTree = "<group>"; };
+		3C8A915C2446FFF600D99D4B /* CKSlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSlideMenu.h; sourceTree = "<group>"; };
+		3C8A915D2446FFF700D99D4B /* CKSlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSlideMenu.m; sourceTree = "<group>"; };
+		3C8A9160244700ED00D99D4B /* QCSOrderListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSOrderListVC.h; sourceTree = "<group>"; };
+		3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSOrderListVC.m; sourceTree = "<group>"; };
+		3C8A916324470A5D00D99D4B /* QCSOrderMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSOrderMainVC.h; sourceTree = "<group>"; };
+		3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSOrderMainVC.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -177,6 +186,17 @@
 			path = SubgroupViews;
 			sourceTree = "<group>";
 		};
+		3C8A915F2447007800D99D4B /* 订单部分 */ = {
+			isa = PBXGroup;
+			children = (
+				3C8A9160244700ED00D99D4B /* QCSOrderListVC.h */,
+				3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */,
+				3C8A916324470A5D00D99D4B /* QCSOrderMainVC.h */,
+				3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */,
+			);
+			path = "订单部分";
+			sourceTree = "<group>";
+		};
 		3CB90FAD242CA29800819C3B = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +228,8 @@
 		3CB90FD2242CA42700819C3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A915C2446FFF600D99D4B /* CKSlideMenu.h */,
+				3C8A915D2446FFF700D99D4B /* CKSlideMenu.m */,
 				3C8A9135243D610800D99D4B /* YTYLabel.h */,
 				3C8A9136243D610800D99D4B /* YTYLabel.m */,
 				3CB90FFF242DEE1F00819C3B /* YTYView.h */,
@@ -235,6 +257,7 @@
 		3CB90FD6242CB28B00819C3B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3C8A915F2447007800D99D4B /* 订单部分 */,
 				3CB90FD7242CB2A900819C3B /* 登录部分 */,
 				3C5CAB7E24370C8200C68CFB /* 管理员 */,
 				3CB91002242DFA4100819C3B /* 主页 */,
@@ -393,8 +416,10 @@
 			files = (
 				3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */,
 				3CB90FFD242DE1BE00819C3B /* LoginVC.m in Sources */,
+				3C8A9162244700ED00D99D4B /* QCSOrderListVC.m in Sources */,
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
 				3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */,
+				3C8A915E2446FFF700D99D4B /* CKSlideMenu.m in Sources */,
 				3C8A91582445ADE300D99D4B /* QCSCardView.m in Sources */,
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
@@ -407,6 +432,7 @@
 				3C8A91512445A27D00D99D4B /* DeliveryReportCell.m in Sources */,
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
+				3C8A916524470A5D00D99D4B /* QCSOrderMainVC.m in Sources */,
 				3C8A915B2445B8B500D99D4B /* QCSDeliveryDetailsVC.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */,

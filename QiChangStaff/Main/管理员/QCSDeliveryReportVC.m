@@ -31,8 +31,7 @@
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
     self.title = @"本日派送記錄報告";
-    self.view.backgroundColor = YTYRGBA(62, 146, 198, 1);
-    
+    self.view.backgroundColor = NAV_COLOR;
     
     self.searchView = [[YTYSearchView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR, SCREEN_WIDTH, 50)];
     [self.view addSubview:self.searchView];

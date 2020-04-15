@@ -37,7 +37,7 @@
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
     self.title = @"入倉記錄";
-    self.view.backgroundColor = UIColor.whiteColor;
+    self.view.backgroundColor = NAV_COLOR;
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
 
      // 头部
@@ -46,29 +46,35 @@
     
     // 子标题
     self.staffDetails = [[YTYLabel alloc] initWithFrame:CGRectZero];
-    self.staffDetails.backgroundColor = YTYRGBA(55, 141, 202,0.8);
+    self.staffDetails.backgroundColor = NAV_COLOR;
     self.staffDetails.textColor = UIColor.whiteColor;
     self.staffDetails.font = [UIFont systemFontOfSize:15];
     self.staffDetails.textInsets = UIEdgeInsetsMake(15, 18, 15, 0);
     [self.view addSubview:self.staffDetails];
     
     
+    
+    
     //人员信息
+    UIView *bg = [[UIView alloc] initWithFrame:CGRectZero];
+    bg.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:bg];
+    
     self.staff = [[UILabel alloc] initWithFrame:CGRectZero];
     self.staff.numberOfLines = 2;
-    [self.view addSubview:self.staff];
+    [bg addSubview:self.staff];
     
     self.number = [[UILabel alloc] initWithFrame:CGRectZero];
     self.number.numberOfLines = 2;
-    [self.view addSubview:self.number];
+    [bg addSubview:self.number];
     
     self.date = [[UILabel alloc] initWithFrame:CGRectZero];
     self.date.numberOfLines = 2;
-    [self.view addSubview:self.date];
+    [bg addSubview:self.date];
     
     self.address = [[UILabel alloc] initWithFrame:CGRectZero];
     self.address.numberOfLines = 2;
-    [self.view addSubview:self.address];
+    [bg addSubview:self.address];
     
     
     self.isCustomTable = YES;
@@ -95,35 +101,42 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
     
+    [bg mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.top.equalTo(self.staffDetails.mas_bottom).with.offset(0);
+         make.left.equalTo(self.view).with.offset(0);
+         make.width.equalTo(self.view).with.multipliedBy(1);
+         make.height.equalTo(self.view).with.multipliedBy(0.18);
+    }];
+    
     // 人员信息
     [self.staff mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.staffDetails.mas_bottom).with.offset(0);
-        make.left.equalTo(self.view).with.offset(20);
+        make.top.equalTo(bg).with.offset(20);
+        make.left.equalTo(bg).with.offset(20);
         make.height.mas_equalTo(44);
-        make.width.equalTo(self.view).with.multipliedBy(0.3);
+        make.width.equalTo(bg).with.multipliedBy(0.3);
     }];
     [self.number mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.staffDetails.mas_bottom).with.offset(0);
+        make.top.equalTo(bg).with.offset(20);
         make.left.equalTo(self.staff.mas_right).with.offset(0);
         make.height.mas_equalTo(44);
-        make.width.equalTo(self.view).with.multipliedBy(0.3);
+        make.width.equalTo(bg).with.multipliedBy(0.3);
     }];
     [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.top.equalTo(self.staffDetails.mas_bottom).with.offset(0);
+          make.top.equalTo(bg).with.offset(20);
           make.left.equalTo(self.number.mas_right).with.offset(0);
           make.height.mas_equalTo(44);
-          make.width.equalTo(self.view).with.multipliedBy(0.3);
+          make.width.equalTo(bg).with.multipliedBy(0.3);
       }];
     [self.address mas_makeConstraints:^(MASConstraintMaker *make) {
           make.top.equalTo(self.staff.mas_bottom).with.offset(10);
-          make.left.equalTo(self.view).with.offset(20);
+          make.left.equalTo(bg).with.offset(20);
           make.height.mas_equalTo(44);
-          make.width.equalTo(self.view).with.multipliedBy(0.3);
+          make.width.equalTo(bg).with.multipliedBy(0.3);
       }];
     
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.address.mas_bottom).with.offset(10);
+        make.top.equalTo(bg.mas_bottom).with.offset(0);
         make.left.equalTo(self.view).with.offset(0);
         make.bottom.equalTo(self.view).with.offset(22);
         make.width.equalTo(self.view).with.multipliedBy(1);

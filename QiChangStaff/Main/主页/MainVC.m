@@ -13,6 +13,7 @@
 #import "QCSWarehouseVC.h"
 #import "QCSWarehouseRecordVC.h"
 #import "QCSDeliveryReportVC.h"
+#import "QCSOrderMainVC.h"
 
 
 @interface MainVC ()
@@ -66,9 +67,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[UINavigationBar appearance] setTranslucent:NO];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+
     self.navigationController.navigationBar.barTintColor =  YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
   
 }
@@ -248,6 +247,9 @@
         QCSDeliveryReportVC *dr = [[QCSDeliveryReportVC alloc] init];
         [self.navigationController pushViewController:dr animated:YES];
     
+    }else {
+        QCSOrderMainVC *main = [[QCSOrderMainVC alloc] init];
+        [self.navigationController pushViewController:main animated:YES];
     }
 }
 
