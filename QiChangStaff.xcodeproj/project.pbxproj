@@ -35,6 +35,9 @@
 		3C8A915E2446FFF700D99D4B /* CKSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A915D2446FFF700D99D4B /* CKSlideMenu.m */; };
 		3C8A9162244700ED00D99D4B /* QCSOrderListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */; };
 		3C8A916524470A5D00D99D4B /* QCSOrderMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */; };
+		3C8A91692448007F00D99D4B /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91672448007F00D99D4B /* OrderListCell.m */; };
+		3C8A916A2448007F00D99D4B /* OrderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A91682448007F00D99D4B /* OrderListCell.xib */; };
+		3C8A916D24485BBC00D99D4B /* QCSOrderDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A916C24485BBB00D99D4B /* QCSOrderDetailsVC.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -94,6 +97,11 @@
 		3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSOrderListVC.m; sourceTree = "<group>"; };
 		3C8A916324470A5D00D99D4B /* QCSOrderMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSOrderMainVC.h; sourceTree = "<group>"; };
 		3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSOrderMainVC.m; sourceTree = "<group>"; };
+		3C8A91662448007F00D99D4B /* OrderListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
+		3C8A91672448007F00D99D4B /* OrderListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
+		3C8A91682448007F00D99D4B /* OrderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListCell.xib; sourceTree = "<group>"; };
+		3C8A916B24485BBB00D99D4B /* QCSOrderDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSOrderDetailsVC.h; sourceTree = "<group>"; };
+		3C8A916C24485BBB00D99D4B /* QCSOrderDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSOrderDetailsVC.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,6 +201,11 @@
 				3C8A9161244700ED00D99D4B /* QCSOrderListVC.m */,
 				3C8A916324470A5D00D99D4B /* QCSOrderMainVC.h */,
 				3C8A916424470A5D00D99D4B /* QCSOrderMainVC.m */,
+				3C8A91662448007F00D99D4B /* OrderListCell.h */,
+				3C8A91672448007F00D99D4B /* OrderListCell.m */,
+				3C8A91682448007F00D99D4B /* OrderListCell.xib */,
+				3C8A916B24485BBB00D99D4B /* QCSOrderDetailsVC.h */,
+				3C8A916C24485BBB00D99D4B /* QCSOrderDetailsVC.m */,
 			);
 			path = "订单部分";
 			sourceTree = "<group>";
@@ -353,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8A916A2448007F00D99D4B /* OrderListCell.xib in Resources */,
 				3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */,
 				3C8A91522445A27D00D99D4B /* DeliveryReportCell.xib in Resources */,
 				3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */,
@@ -425,6 +439,7 @@
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
+				3C8A91692448007F00D99D4B /* OrderListCell.m in Sources */,
 				3C8A91552445A29900D99D4B /* QCSDeliveryReportVC.m in Sources */,
 				3C8A914324401A2D00D99D4B /* QCSWarehuseRecordDetailsVC.m in Sources */,
 				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
@@ -433,6 +448,7 @@
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
 				3C5CAB8A2437345400C68CFB /* AreaCell.m in Sources */,
 				3C8A916524470A5D00D99D4B /* QCSOrderMainVC.m in Sources */,
+				3C8A916D24485BBC00D99D4B /* QCSOrderDetailsVC.m in Sources */,
 				3C8A915B2445B8B500D99D4B /* QCSDeliveryDetailsVC.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */,

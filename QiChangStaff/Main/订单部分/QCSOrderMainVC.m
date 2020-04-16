@@ -39,7 +39,10 @@
    NSMutableArray *_arrVC = [NSMutableArray array];
    for (int i = 0;  i < titles.count; i++) {
        QCSOrderListVC *vc = [[QCSOrderListVC alloc] init];
-       vc.view.backgroundColor = UIColor.redColor;  //YTYRGB_RANDOM;
+       vc.view.backgroundColor = YTYRGB_RANDOM;
+       vc.stringTag = titles[i];
+       vc.view.tag = i;
+       [self addChildViewController:vc];
        [_arrVC addObject:vc];
    }
      

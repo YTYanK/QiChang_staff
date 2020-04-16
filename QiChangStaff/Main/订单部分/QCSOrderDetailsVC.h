@@ -1,8 +1,8 @@
 //
-//  QCSOrderListVC.h
+//  QCSOrderDetailsVC.h
 //  QiChangStaff
 //
-//  Created by POP3mac on 2020/4/15.
+//  Created by POP3mac on 2020/4/16.
 //  Copyright © 2020 YTYanK. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QCSOrderListVC : YTYBaseViewController
-
-@property (strong, nonatomic) NSString *stringTag;
+@interface QCSOrderDetailsVC : YTYBaseViewController
 
 @end
 

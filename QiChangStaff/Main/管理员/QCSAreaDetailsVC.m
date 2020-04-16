@@ -34,13 +34,20 @@
     
     self.title = @"區域詳情";
     self.isCustomTable = YES;
+    
+    if (IS_IPHONE_X) {
+        self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+      }else {
+        self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+      }
+    
     self.view.backgroundColor = NAV_COLOR;
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
-    self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+   
     [self.view addSubview:self.baseTableView];
     
     

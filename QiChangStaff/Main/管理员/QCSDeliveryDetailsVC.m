@@ -73,7 +73,7 @@
        CGFloat leftW =  SCREEN_WIDTH * 0.2;
         CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
         self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
-            weakSelf.index++;
+           
         
             UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
             subView.backgroundColor = UIColor.whiteColor;
@@ -103,14 +103,17 @@
               [subView addSubview:icon];
               [subView addSubview:line];
              
+               
+               
               l0.text = [NSString stringWithFormat:@"%d",weakSelf.index];
               l1.text = @"2319821";
               l2.text = @"1/10/2019 15:30";
-            if(weakSelf.index == 0) {
-              icon.image = [UIImage imageNamed:@"no"];
-            }else {
-                icon.image = [UIImage imageNamed:@"ok"];
-            }
+              if(weakSelf.index == 0) {
+                            icon.image = [UIImage imageNamed:@"no"];
+                       }else {
+                           icon.image = [UIImage imageNamed:@"ok"];
+                       }
+            
               [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
                   make.top.equalTo(subView).with.offset(0);
                   make.left.equalTo(subView).with.offset(0);
@@ -153,6 +156,8 @@
                 make.height.equalTo(cell);
                 make.width.equalTo(cell);
             }];
+            
+            weakSelf.index++;
         };
         
     
