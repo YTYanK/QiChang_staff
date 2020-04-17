@@ -50,7 +50,6 @@
 
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
-//    self.title = @"倉庫";
     
     NSLog(@"？？？==》%@", self.title);
     
@@ -133,6 +132,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QCSOrderDetailsVC * details = [[QCSOrderDetailsVC alloc] init];
+    details.state = self.stringTag;
     [self.navigationController  pushViewController:details animated:YES];
  }
 

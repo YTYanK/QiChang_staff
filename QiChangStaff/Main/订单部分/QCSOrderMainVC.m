@@ -53,7 +53,7 @@
         self.slideMenu.bgColor = NO;
         self.slideMenu.selectedBgColor = NAV_COLOR;
         self.slideMenu.selectedColor = UIColor.whiteColor;
-        self.slideMenu.unSelectedColor = UIColor.greenColor;
+        self.slideMenu.unSelectedColor = UIColor.blueColor;
         self.slideMenu.indicatorStyle = styleStretch;  //stfollowText
         self.slideMenu.bottomPadding = 0;
     [self.slideMenu.line setHidden:YES];
