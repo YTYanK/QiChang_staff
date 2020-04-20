@@ -133,6 +133,12 @@
     
     QCSOrderDetailsVC * details = [[QCSOrderDetailsVC alloc] init];
     details.state = self.stringTag;
+    if (self.view.tag == 0) {
+        details.isAudit = YES;
+    }else {
+        details.isAudit = NO;
+    }
+   
     [self.navigationController  pushViewController:details animated:YES];
  }
 

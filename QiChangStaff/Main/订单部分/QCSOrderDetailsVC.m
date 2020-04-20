@@ -10,6 +10,9 @@
 #import "QCSCardView.h"
 #import "YTYLabel.h"
 
+#import "OrderCheckView.h"
+
+
 @interface QCSOrderDetailsVC ()
 @property (strong, nonatomic)QCSCardView *cardView;
 @property (strong, nonatomic)YTYLabel *dataLabel;
@@ -20,6 +23,8 @@
 
 
 @property (strong, nonatomic)UIButton * auditBtn;
+
+@property (strong, nonatomic)OrderCheckView * checkView;
 
 @end
 
@@ -37,9 +42,29 @@
         _state = state;
          
     }
-    
-  
 }
+
+//isAudit
+-  (void)setIsAudit:(BOOL)isAudit {
+        _isAudit = isAudit;
+}
+
+- (void)initAuditView:(UIView *)view {
+    [self.auditBtn setHidden:self.isAudit];
+    
+    
+    self.checkView = [[OrderCheckView alloc] initWithFrame:CGRectZero];
+//    self.checkView.backgroundColor =  UIColor.blueColor;
+    [view addSubview:self.checkView];
+    
+      [self.checkView mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.top.equalTo(view).with.offset(0);
+          make.left.equalTo(view).with.offset(0);
+          make.height.mas_equalTo(200);
+          make.right.equalTo(view);
+      }];
+}
+
 
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
@@ -137,7 +162,7 @@
     }];
     
     self.isCustomTable = YES;
-    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -290,7 +315,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -298,45 +323,78 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return  40;
+    
+    if (self.isAudit == YES) {
+         return  240;
+//        [self initAuditView:_isAudit];
+    }else {
+         return  40;
+    }
+   
 }
 
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-     UIView *subV = [[UIView alloc] init];
-     subV.backgroundColor = NAV_COLOR;
-     
-     UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
-     l1.textAlignment = NSTextAlignmentCenter;
-     l1.textColor = UIColor.whiteColor;
-     l1.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+       UIView *subV = [[UIView alloc] init];
+       subV.backgroundColor = NAV_COLOR;
+       
+       UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
+       l1.textAlignment = NSTextAlignmentCenter;
+       l1.textColor = UIColor.whiteColor;
+       l1.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+      
+       UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
+       l2.textAlignment = NSTextAlignmentCenter;
+       l2.textColor = UIColor.whiteColor;
+       l2.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+       [subV addSubview:l1];
+       [subV addSubview:l2];
+       
+       l1.text = @"產品名稱";
+       l2.text = @"數量";
+      
+       CGFloat leftW =  SCREEN_WIDTH * 0.2;
+       CGFloat w =   SCREEN_WIDTH * 0.8;
+       [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+           make.top.equalTo(subV).with.offset(0);
+           make.left.equalTo(subV).with.offset(leftW);
+           make.height.equalTo(subV.mas_height);
+           make.width.mas_equalTo(w * 0.6);
+       }];
+       [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.top.equalTo(subV).with.offset(0);
+          make.left.equalTo(l1.mas_right).with.offset(0);
+          make.height.equalTo(subV.mas_height);
+          make.width.mas_equalTo(w * 0.4);
+       }];
     
-     UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
-     l2.textAlignment = NSTextAlignmentCenter;
-     l2.textColor = UIColor.whiteColor;
-     l2.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
-     [subV addSubview:l1];
-     [subV addSubview:l2];
-     
-     l1.text = @"產品名稱";
-     l2.text = @"數量";
     
-     CGFloat leftW =  SCREEN_WIDTH * 0.2;
-     CGFloat w =   SCREEN_WIDTH * 0.8;
-     [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(subV).with.offset(0);
-         make.left.equalTo(subV).with.offset(leftW);
-         make.height.equalTo(subV.mas_height);
-         make.width.mas_equalTo(w * 0.6);
-     }];
-     [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(subV).with.offset(0);
-        make.left.equalTo(l1.mas_right).with.offset(0);
-        make.height.equalTo(subV.mas_height);
-        make.width.mas_equalTo(w * 0.4);
-     }];
+    
+    if (self.isAudit == YES) {
+        UIView *bgView = [[UIView alloc] init];
+        bgView.backgroundColor =  YTYRGBA(242, 242, 242, 1);
+        [self initAuditView: bgView];
+        [bgView addSubview:subV];
+        [subV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.checkView.mas_bottom).with.offset(0);
+            make.left.equalTo(bgView);
+            make.height.mas_equalTo(40);
+            make.width.equalTo(bgView);
+        }];
+        
+        
+        
+        return bgView;
+    }else {
+       return  subV;
+    }
+    
+    
+    
+
     
      
-     return  subV;
+     
 }
 
 
@@ -396,14 +454,5 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
