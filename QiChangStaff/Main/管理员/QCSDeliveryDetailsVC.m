@@ -111,7 +111,7 @@
               if(weakSelf.index == 0) {
                             icon.image = [UIImage imageNamed:@"no"];
                        }else {
-                           icon.image = [UIImage imageNamed:@"ok"];
+                           icon.image = [UIImage imageNamed:@"yes"];
                        }
             
               [l0 mas_makeConstraints:^(MASConstraintMaker *make) {

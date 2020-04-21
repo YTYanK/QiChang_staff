@@ -28,8 +28,8 @@
 }
 - (void)initAllView {
     
-    self.backgroundColor = UIColor.greenColor;
-//    self.backgroundColor = YTYRGBA(242, 242, 242, 1);
+//    self.backgroundColor = UIColor.greenColor;
+    self.backgroundColor = YTYRGBA(242, 242, 242, 1);
 //
 //    self.firstBgView = [[UIView alloc] initWithFrame:CGRectZero];
 //    self.firstBgView.backgroundColor =  YTYRGBA(55, 141, 202,1);
@@ -53,7 +53,7 @@
     [self addSubview:self.title];
     
     self.checkView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    self.checkView.backgroundColor = UIColor.redColor;
+    self.checkView.backgroundColor = UIColor.grayColor;
     [self addSubview:self.checkView];
     
     

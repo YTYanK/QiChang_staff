@@ -48,19 +48,18 @@
 -  (void)setIsAudit:(BOOL)isAudit {
         _isAudit = isAudit;
 }
-
+// 插入 单据视图
 - (void)initAuditView:(UIView *)view {
     [self.auditBtn setHidden:self.isAudit];
     
     
     self.checkView = [[OrderCheckView alloc] initWithFrame:CGRectZero];
-//    self.checkView.backgroundColor =  UIColor.blueColor;
     [view addSubview:self.checkView];
     
       [self.checkView mas_makeConstraints:^(MASConstraintMaker *make) {
           make.top.equalTo(view).with.offset(0);
           make.left.equalTo(view).with.offset(0);
-          make.height.mas_equalTo(200);
+          make.height.mas_equalTo(220);
           make.right.equalTo(view);
       }];
 }
@@ -124,14 +123,15 @@
          make.height.mas_equalTo(18);
     }];
     
-
+//    self.dataMutAry = [NSMutableArray array];
+    self.dataMutAry = [NSMutableArray arrayWithArray:@[@{@"name": @"大白菜", @"date":@"3/10/19 15:45", @"isAudit":@"no"}]];
     NSArray * textAry = @[@"派送日期 2019/11/27", @"派送地區 港島",@"聯絡人電話 1928389210",@"派送地點 LADIES RECREATION AND CLUB 10 OLD PEAK       ROAD, HONG KONG. \n 香港山顶道10号"];
     //CGRectMake(0, SCREEN_NAV_BAR + 76, SCREEN_WIDTH, 250)
     self.cardView = [[QCSCardView alloc] initWithFrame:CGRectZero];
     self.cardView.viewBlock = ^(UIView * _Nonnull view) {
        
            for (int i = 0; i < textAry.count; i++) {
-               
+                
                CGFloat y = (i * 30) + (i * 2) + 16;
                UILabel * text = [[UILabel alloc] initWithFrame:CGRectZero];
                text.font = [UIFont systemFontOfSize:14];
@@ -162,92 +162,19 @@
     }];
     
     self.isCustomTable = YES;
-    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
+    // UITableViewStyleGrouped 模式
+    self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero  style:UITableViewStyleGrouped];
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.baseTableView];
     
        __weak __typeof(self)weakSelf = self;
-       CGFloat leftW =  SCREEN_WIDTH * 0.2;
-        CGFloat w =   (SCREEN_WIDTH * 0.8);
-        self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
-           
-        
-            UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
-            subView.backgroundColor = UIColor.whiteColor;
-              
-            UIView *line = [[UIView alloc] initWithFrame:CGRectZero];
-            line.backgroundColor = YTYRGBA(220, 220, 220, 1);
-            
-              UILabel *l0 = [[UILabel alloc] initWithFrame:CGRectZero];
-              l0.textAlignment = NSTextAlignmentCenter;
-              l0.textColor = UIColor.blackColor;
-              l0.font = [UIFont systemFontOfSize:13];
-            
-              UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
-              l1.textAlignment = NSTextAlignmentCenter;
-              l1.textColor = UIColor.blackColor;
-              l1.numberOfLines = 6;
-              l1.font = [UIFont systemFontOfSize:13];
-              UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
-              l2.textAlignment = NSTextAlignmentCenter;
-              l2.textColor = UIColor.blackColor;
-              l2.font = [UIFont systemFontOfSize:13];
-              
+    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
+        [weakSelf initStyleWithCell:cell audit:weakSelf.isAudit];
+    };
     
-              [subView addSubview:l0];
-              [subView addSubview:l1];
-              [subView addSubview:l2];
-              [subView addSubview:line];
-             
-               
-              l0.text = [NSString stringWithFormat:@"%d",weakSelf.index];
-              l1.text = @"美國 'Solo' \"BARE\" 四安蒸餾水 捲邊尖杯(Eco-Forward)Packing:  1 x 25boxes x";
-              l2.text = @"10件";
-        
-              [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
-                  make.top.equalTo(subView).with.offset(0);
-                  make.left.equalTo(subView).with.offset(0);
-                  make.height.equalTo(subView.mas_height);
-                  make.width.mas_equalTo(leftW);
-              }];
-            
-              [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
-                  make.top.equalTo(subView).with.offset(0);
-                  make.left.equalTo(l0.mas_right).with.offset(0);
-                  make.height.equalTo(subView.mas_height);
-                  make.width.mas_equalTo(w * 0.6);
-              }];
-              [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
-                 make.top.equalTo(subView).with.offset(0);
-                 make.left.equalTo(l1.mas_right).with.offset(0);
-                 make.height.equalTo(subView.mas_height);
-                 make.width.mas_equalTo(w * 0.4);
-              }];
-    
-             
-             [line mas_makeConstraints:^(MASConstraintMaker *make) {
-
-                make.left.equalTo(subView).with.offset(0);
-                make.bottom.equalTo(subView).with.offset(1);
-                make.height.mas_equalTo(1);
-                make.width.equalTo(subView).with.multipliedBy(1);
-             }];
-            
-            [cell addSubview:subView];
-            
-            [subView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(cell).with.offset(0);
-                make.left.equalTo(cell).with.offset(0);
-                make.height.equalTo(cell);
-                make.width.equalTo(cell);
-            }];
-            
-            weakSelf.index++;
-        };
-    
-    
+    // 审核按钮
     if ([self.state isEqualToString:@"已派送"]) {
             self.auditBtn = [[UIButton alloc] initWithFrame:CGRectZero];
             self.auditBtn.backgroundColor = NAV_COLOR;
@@ -268,6 +195,7 @@
             }];
        }
     
+    // 适配
     if (IS_IPHONE_X) {
         [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.cardView.mas_bottom).with.offset(0);
@@ -287,17 +215,15 @@
               make.width.equalTo(self.view);
             
               if ([self.state isEqualToString:@"已派送"]) {
-                         make.bottom.equalTo(self.auditBtn.mas_top);
-                     }else {
-                       make.bottom.equalTo(self.view.mas_bottom);
-                     }
+                make.bottom.equalTo(self.auditBtn.mas_top);
+              }else {
+                make.bottom.equalTo(self.view.mas_bottom);
+              }
            
           }];
     }
     
-    
-    
-    
+
 }
 - (void)updateAllData {
     self.title = @"訂單詳情"; //标题
@@ -306,6 +232,132 @@
     self.stateLabel.text = self.state;
     [self.auditBtn setTitle:@"審核" forState:UIControlStateNormal];
 }
+// 初始化 Cell 内容
+- (void)initStyleWithCell:(UITableViewCell *)cell audit:(BOOL)isAudit {
+           CGFloat leftW =  SCREEN_WIDTH * 0.2;
+           CGFloat w =   (SCREEN_WIDTH * 0.8);
+    
+    
+           
+           UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
+           subView.backgroundColor = UIColor.whiteColor;
+               
+           UIView *line = [[UIView alloc] initWithFrame:CGRectZero];
+           line.backgroundColor = YTYRGBA(220, 220, 220, 1);
+           [subView addSubview:line];
+    
+           UILabel *l0 = [[UILabel alloc] initWithFrame:CGRectZero];
+           l0.textAlignment = NSTextAlignmentCenter;
+           l0.textColor = UIColor.blackColor;
+           l0.font = [UIFont systemFontOfSize:13];
+           [subView addSubview:l0];
+           UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
+           l1.textAlignment = NSTextAlignmentCenter;
+           l1.textColor = UIColor.blackColor;
+           l1.numberOfLines = 6;
+           l1.font = [UIFont systemFontOfSize:13];
+           [subView addSubview:l1];
+            
+    
+      
+           
+            [line mas_makeConstraints:^(MASConstraintMaker *make) {
+                         make.left.equalTo(subView).with.offset(0);
+                         make.bottom.equalTo(subView).with.offset(1);
+                         make.height.mas_equalTo(1);
+                         make.width.equalTo(subView).with.multipliedBy(1);
+                     }];
+    
+            if (isAudit) {
+                
+               CGFloat  newAveW =  (leftW  + w)/3;
+                
+                UIImageView * icon = [[UIImageView alloc] initWithFrame:CGRectZero];
+                [subView addSubview:icon];
+                
+                
+                l0.text = [self.dataMutAry[0] objectForKey:@"name"];
+                l1.text = @"3/10/19 15:45";
+ 
+                
+                if(self.index == 0) {
+                      icon.image = [UIImage imageNamed:@"no"];
+                 }else {
+                     icon.image = [UIImage imageNamed:@"yes"];
+                 }
+                
+                
+                [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
+                   make.top.equalTo(subView).with.offset(0);
+                   make.left.equalTo(subView).with.offset(0);
+                   make.height.equalTo(subView.mas_height);
+                   make.width.mas_equalTo(newAveW);
+                }];
+                [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                  make.top.equalTo(subView).with.offset(0);
+                  make.left.equalTo(l0.mas_right).with.offset(0);
+                  make.height.equalTo(subView.mas_height);
+                  make.width.mas_equalTo(newAveW);
+                }];
+                
+                [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.equalTo(subView).with.offset(0);
+                    make.left.equalTo(l1.mas_right).with.offset(newAveW/2 - 10);
+                    make.height.mas_equalTo(20);
+                    make.width.mas_equalTo(20);
+                 }];
+                
+                
+                
+                
+            }else {
+                UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
+                l2.textAlignment = NSTextAlignmentCenter;
+                l2.textColor = UIColor.blackColor;
+                l2.font = [UIFont systemFontOfSize:13];
+                [subView addSubview:l2];
+                
+                
+                l0.text = [NSString stringWithFormat:@"%d",self.index];
+                l1.text = @"美國 'Solo' \"BARE\" 四安蒸餾水 捲邊尖杯(Eco-Forward)Packing:  1 x 25boxes x";
+                l2.text = @"10件";
+
+                
+                [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
+                   make.top.equalTo(subView).with.offset(0);
+                   make.left.equalTo(subView).with.offset(0);
+                   make.height.equalTo(subView.mas_height);
+                   make.width.mas_equalTo(leftW);
+                }];
+                [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                  make.top.equalTo(subView).with.offset(0);
+                  make.left.equalTo(l0.mas_right).with.offset(0);
+                  make.height.equalTo(subView.mas_height);
+                  make.width.mas_equalTo(w * 0.6);
+                }];
+                
+                [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+                     make.top.equalTo(subView).with.offset(0);
+                     make.left.equalTo(l1.mas_right).with.offset(0);
+                     make.height.equalTo(subView.mas_height);
+                     make.width.mas_equalTo(w * 0.4);
+                }];
+            }
+        
+           [cell addSubview:subView];
+           
+           [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+               make.top.equalTo(cell).with.offset(0);
+               make.left.equalTo(cell).with.offset(0);
+               make.height.equalTo(cell);
+               make.width.equalTo(cell);
+           }];
+           
+           self.index++;
+}
+
+// 已审核状态
+
 
 
 
@@ -315,7 +367,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataMutAry.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -325,8 +377,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     if (self.isAudit == YES) {
-         return  240;
-//        [self initAuditView:_isAudit];
+         return  260;
     }else {
          return  40;
     }
@@ -355,18 +406,55 @@
       
        CGFloat leftW =  SCREEN_WIDTH * 0.2;
        CGFloat w =   SCREEN_WIDTH * 0.8;
-       [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
-           make.top.equalTo(subV).with.offset(0);
-           make.left.equalTo(subV).with.offset(leftW);
-           make.height.equalTo(subV.mas_height);
-           make.width.mas_equalTo(w * 0.6);
-       }];
-       [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.top.equalTo(subV).with.offset(0);
-          make.left.equalTo(l1.mas_right).with.offset(0);
-          make.height.equalTo(subV.mas_height);
-          make.width.mas_equalTo(w * 0.4);
-       }];
+       if (self.isAudit == YES) {
+           // 添加新标题，并且重新布局
+          UILabel *l0 = [[UILabel alloc] initWithFrame:CGRectZero];
+          l0.textAlignment = NSTextAlignmentCenter;
+          l0.textColor = UIColor.whiteColor;
+          l0.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+          [subV addSubview:l0];
+           
+           l0.text = @"上傳人";
+           l1.text = @"上傳時間";
+           l2.text = @"審核情況";
+           
+           CGFloat  newAveW =  (leftW  + w)/3;
+           
+            [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.top.equalTo(subV).with.offset(0);
+              make.left.equalTo(subV).with.offset(0);
+              make.height.equalTo(subV.mas_height);
+              make.width.mas_equalTo(newAveW);
+            }];
+            [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+               make.top.equalTo(subV).with.offset(0);
+               make.left.equalTo(l0.mas_right).with.offset(0);
+               make.height.equalTo(subV.mas_height);
+               make.width.mas_equalTo(newAveW);
+            }];
+           [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+               make.top.equalTo(subV).with.offset(0);
+               make.left.equalTo(l1.mas_right).with.offset(0);
+               make.height.equalTo(subV.mas_height);
+               make.width.mas_equalTo(newAveW);
+           }];
+       }else {
+            [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(subV).with.offset(0);
+                make.left.equalTo(subV).with.offset(leftW);
+                make.height.equalTo(subV.mas_height);
+                make.width.mas_equalTo(w * 0.6);
+            }];
+            [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(subV).with.offset(0);
+                make.left.equalTo(l1.mas_right).with.offset(0);
+                make.height.equalTo(subV.mas_height);
+                make.width.mas_equalTo(w * 0.4);
+            }];
+       }
+    
+    
+      
     
     
     

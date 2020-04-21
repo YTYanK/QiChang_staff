@@ -38,6 +38,24 @@
 
 @implementation MainVC
 
+
+- (NSMutableArray *)lists {
+    if (_lists == nil) {
+        // 司机 --  送貨單 、 本日派送記錄報告
+        // 入仓员 --  掃描入倉、倉存記錄、檢查已入倉單、新來貨單到達時間
+        // 客服 -- 客戶列表
+        // 管理员 -- 客戶列表、本日派送記錄報告、 倉存記錄、 檢查已入倉單
+
+        if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper]) {
+            _lists = [NSMutableArray arrayWithArray: @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"]];
+        }
+        
+    }
+    return _lists;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
@@ -111,7 +129,8 @@
     
     
     self.btns = [NSMutableArray array];
-    for (int i = 0; i < 4; i++) {
+    
+    for (int i = 0; i < self.lists.count; i++) {
        UIButton *btn = [[UIButton alloc] init];
         btn.tag = i;
         btn.backgroundColor = YTYRGBA(81, 165, 216, 1);
@@ -202,6 +221,7 @@
     self.icon.image = [UIImage imageNamed:@"logo"];
     self.typeLabel.text =  [NSUD objectForKey:LOGIN_ROLE_TYPE];
     
+    // 获取登录角色类型
     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper]) {
       self.numLabel.text = @"陈主任";
         self.numberLabel.text = @"員工編號 983726";
@@ -223,9 +243,13 @@
             
         self.numLabel.text = @"陈主任\n983726";
         [self.numLabel setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold] firstColor:UIColor.blackColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.grayColor];
-         NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
-         for (int i = 0; i < lits.count; i++) {
-             [self.btns[i] setTitle:lits[i] forState:UIControlStateNormal];
+        
+        
+        
+        
+         //NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
+         for (int i = 0; i < self.lists.count; i++) {
+             [self.btns[i] setTitle:self.lists[i] forState:UIControlStateNormal];
              self.btns[i].titleLabel.font =  [UIFont systemFontOfSize:19 weight:UIFontWeightBold];
          }
 

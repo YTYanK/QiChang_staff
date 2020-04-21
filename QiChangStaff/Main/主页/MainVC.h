@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainVC : YTYBaseViewController
+@property (strong, nonatomic) NSMutableArray * lists;
 
 @end
 

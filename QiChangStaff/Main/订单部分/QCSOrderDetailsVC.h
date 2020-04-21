@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic)  NSString *state;
 /// 是否审核 - 如果审核过，页面布局进行调整及页面数据更新
 @property (assign, nonatomic) BOOL isAudit;
+
+@property (strong, nonatomic) NSMutableArray * dataMutAry;
 @end
 
 NS_ASSUME_NONNULL_END

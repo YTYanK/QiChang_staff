@@ -107,7 +107,8 @@ NSString * const RoleTypeCustomerService = @"銷售";
 
                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
                     UINavigationController *nav = [storyboard instantiateInitialViewController];
-//               MainVC * main =  nav.viewControllers[0];
+              // MainVC * main =  nav.viewControllers[0];
+             
 //               main.role = RoleTypeAdminis;
                BOOL oldState = [UIView areAnimationsEnabled];
                [UIView setAnimationsEnabled:NO];
@@ -116,6 +117,7 @@ NSString * const RoleTypeCustomerService = @"銷售";
                [UIView setAnimationsEnabled:oldState];
            } completion:nil];
           [NSUD setValue:token forKey:LOGIN_TOKEN];
+    // 角色类型
           [NSUD setValue:RoleTypeStorekeeper forKey:LOGIN_ROLE_TYPE];
 }
 
