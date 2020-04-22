@@ -32,6 +32,26 @@
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    
+    
+//    __weak __typeof(self)weakSelf = self;
+//          CGFloat leftW =  SCREEN_WIDTH * 0.2;
+//           CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
+          self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
+             
+               UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
+               subView.backgroundColor = UIColor.redColor;
+               
+                [cell addSubview:subView];
+              
+              [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+                  make.top.equalTo(cell).with.offset(10);
+                  make.left.equalTo(cell).with.offset(12);
+                  make.width.mas_offset(100);
+                  make.height.mas_offset(30);
+              }];
+          };
+           
 }
 - (void)updateAllData {
    // 更新头部

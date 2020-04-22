@@ -9,7 +9,7 @@
 #import <YTYCoreFramework/YTYCoreFramework.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+/** 入倉記錄页面 */
 @interface QCSWarehuseRecordDetailsVC : YTYBaseViewController
 
 @end

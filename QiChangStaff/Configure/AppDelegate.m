@@ -117,8 +117,8 @@ NSString * const RoleTypeCustomerService = @"銷售";
                [UIView setAnimationsEnabled:oldState];
            } completion:nil];
           [NSUD setValue:token forKey:LOGIN_TOKEN];
-    // 角色类型
-          [NSUD setValue:RoleTypeStorekeeper forKey:LOGIN_ROLE_TYPE];
+    // 角色类型  RoleTypeStorekeeper
+          [NSUD setValue:RoleTypeAdminis forKey:LOGIN_ROLE_TYPE];
 }
 
 

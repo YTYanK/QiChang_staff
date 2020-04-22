@@ -72,20 +72,7 @@
         [mutDic setObject:@(YES) forKey:@"twoPlace"];
     }
     
-    
     self.headView.dicValue = mutDic;
-    
-
-    
-//    self.headView.dicValue = @{
-//        @"info": @"當前區域基本資料3",
-//        @"icon": @"区域",
-//        @"date": @"最後更新時間\n4/10/19 18:20",
-//        @"area": @"Area1",
-//        @"cbm": @"目前可用CBM\n300/300",
-//        @"name": @"所屬\n倉庫2",
-////        @"twoPlace" : @(YES)
-//    };
 }
 
 
