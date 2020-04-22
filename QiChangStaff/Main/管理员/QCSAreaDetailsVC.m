@@ -34,15 +34,13 @@
     
     self.title = @"區域詳情";
     self.isCustomTable = YES;
-    
-    if (IS_IPHONE_X) {
-        self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
-      }else {
-        self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
-      }
-    
     self.view.backgroundColor = NAV_COLOR;
     self.baseTableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    if (IS_IPHONE_X) {
+         self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+       }else {
+         self.baseTableView.frame = CGRectMake(0, SCREEN_NAV_BAR + 140, SCREEN_WIDTH,  SCREEN_HEIGHT - SCREEN_NAV_BAR - 140);
+       }
     // 需要创建对象之后使用
     self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -62,15 +60,32 @@
 - (void)updateAllData {
    // 更新头部
     
+    NSMutableDictionary * mutDic = [NSMutableDictionary dictionary];
+    [mutDic setObject:@"當前區域基本資料3" forKey:@"info"];
+    [mutDic setObject:@"区域" forKey:@"icon"];
+    [mutDic setObject:@"最後更新時間\n4/10/19 18:20" forKey:@"date"];
+    [mutDic setObject:@"Area1" forKey:@"area"];
+    [mutDic setObject:@"目前可用CBM\n300/300" forKey:@"cbm"];
+    [mutDic setObject:@"所屬\n倉庫2" forKey:@"name"];
+     
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+        [mutDic setObject:@(YES) forKey:@"twoPlace"];
+    }
     
-    self.headView.dicValue = @{
-        @"info": @"當前區域基本資料3",
-        @"icon": @"区域",
-        @"date": @"最後更新時間\n4/10/19 18:20",
-        @"area": @"Area1",
-        @"cbm": @"目前可用CBM\n300/300",
-        @"name": @"所屬\n倉庫2"
-    };
+    
+    self.headView.dicValue = mutDic;
+    
+
+    
+//    self.headView.dicValue = @{
+//        @"info": @"當前區域基本資料3",
+//        @"icon": @"区域",
+//        @"date": @"最後更新時間\n4/10/19 18:20",
+//        @"area": @"Area1",
+//        @"cbm": @"目前可用CBM\n300/300",
+//        @"name": @"所屬\n倉庫2",
+////        @"twoPlace" : @(YES)
+//    };
 }
 
 
@@ -89,7 +104,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return  30; //140;
+    return  40;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

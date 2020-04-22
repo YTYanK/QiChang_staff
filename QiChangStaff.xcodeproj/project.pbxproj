@@ -23,7 +23,6 @@
 		3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9136243D610800D99D4B /* YTYLabel.m */; };
 		3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9139243DCED200D99D4B /* YTYSearchView.m */; };
 		3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */; };
-		3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */; };
 		3C8A914324401A2D00D99D4B /* QCSWarehuseRecordDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A914224401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.m */; };
 		3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A914A2444003800D99D4B /* RecordReceivingCell.m */; };
 		3C8A914D2444003800D99D4B /* RecordReceivingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A914B2444003800D99D4B /* RecordReceivingCell.xib */; };
@@ -76,8 +75,6 @@
 		3C8A9139243DCED200D99D4B /* YTYSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTYSearchView.m; sourceTree = "<group>"; };
 		3C8A913B243DD5F000D99D4B /* QCSWarehouseRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehouseRecordVC.h; sourceTree = "<group>"; };
 		3C8A913C243DD5F000D99D4B /* QCSWarehouseRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehouseRecordVC.m; sourceTree = "<group>"; };
-		3C8A913E243EF7E000D99D4B /* UIView+YTYBorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YTYBorderLine.h"; sourceTree = "<group>"; };
-		3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YTYBorderLine.m"; sourceTree = "<group>"; };
 		3C8A914124401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehuseRecordDetailsVC.h; sourceTree = "<group>"; };
 		3C8A914224401A2C00D99D4B /* QCSWarehuseRecordDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehuseRecordDetailsVC.m; sourceTree = "<group>"; };
 		3C8A91492444003800D99D4B /* RecordReceivingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordReceivingCell.h; sourceTree = "<group>"; };
@@ -189,8 +186,6 @@
 				3C8A9133243C7FE700D99D4B /* AreaHeadView.m */,
 				3C8A9138243DCED200D99D4B /* YTYSearchView.h */,
 				3C8A9139243DCED200D99D4B /* YTYSearchView.m */,
-				3C8A913E243EF7E000D99D4B /* UIView+YTYBorderLine.h */,
-				3C8A913F243EF7E000D99D4B /* UIView+YTYBorderLine.m */,
 				3C8A91562445ADE300D99D4B /* QCSCardView.h */,
 				3C8A91572445ADE300D99D4B /* QCSCardView.m */,
 				3C8A9171244D737F00D99D4B /* OrderCheckView.h */,
@@ -474,7 +469,6 @@
 				3C8A915B2445B8B500D99D4B /* QCSDeliveryDetailsVC.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
 				3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */,
-				3C8A9140243EF7E000D99D4B /* UIView+YTYBorderLine.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 				3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */,
 				3C8A912B243C7A0D00D99D4B /* QCSAreaDetailsVC.m in Sources */,

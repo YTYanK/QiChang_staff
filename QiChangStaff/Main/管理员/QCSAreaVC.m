@@ -52,13 +52,20 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 170;
+    //return 170;
+    return 100;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AreaCell *cell = [AreaCell initCellWithCellView:tableView reuseIdentifier:@"AreaCell"];
     cell.nestingTableView = tableView;
+    //cell.cbm.isHidden = YES
+//    [cell.cbm setHidden:YES];
+//    [cell.date setHidden:YES];
+    [cell.cbm removeFromSuperview];
+    [cell.date removeFromSuperview];
+    [cell removeConstraint:cell.nameAndDateSpacing];
     return  cell;
     
 }

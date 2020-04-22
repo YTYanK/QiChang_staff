@@ -14,6 +14,7 @@
 #import "QCSWarehouseRecordVC.h"
 #import "QCSDeliveryReportVC.h"
 #import "QCSOrderMainVC.h"
+#import "QCSAreaVC.h"
 
 
 @interface MainVC ()
@@ -27,6 +28,9 @@
 @property (strong, nonatomic) UILabel *numberLabel;
 @property (strong, nonatomic) UILabel *areaLabel;
 
+
+// 背景图片
+@property (strong, nonatomic) UIImageView * bgImageView;
 
 @property (strong, nonatomic) NSMutableArray<UIButton *> *btns;
 
@@ -46,8 +50,14 @@
         // 客服 -- 客戶列表
         // 管理员 -- 客戶列表、本日派送記錄報告、 倉存記錄、 檢查已入倉單
 
-        if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeStorekeeper]) {
-            _lists = [NSMutableArray arrayWithArray: @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"]];
+        if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeDriver]) { //司机
+           _lists = [NSMutableArray arrayWithArray: @[@"送貨單",@"本日派送記錄報告"]];
+        }else if([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) { // 入仓员
+           _lists = [NSMutableArray arrayWithArray: @[@"掃描入倉",@"倉存記錄",@"檢查已入倉單",@"新來貨單到達時間"]];
+        }else if([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeCustomerService]) { // 客服
+           _lists = [NSMutableArray arrayWithArray: @[@"客戶列表"]];
+        }else { // 管理员
+           _lists = [NSMutableArray arrayWithArray: @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"]];
         }
         
     }
@@ -69,11 +79,10 @@
     
       self.title = @"主页";
       self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
-
-    
+      // 右item
       self.navigationItem.rightBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(logout) image:[[UIImage imageNamed:@"退出"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
-    
-    NSLog(@"查看角色->%@", [NSUD objectForKey:LOGIN_ROLE_TYPE]);
+       self.view.backgroundColor = NAV_COLOR;
+   // NSLog(@"查看角色->%@", [NSUD objectForKey:LOGIN_ROLE_TYPE]);
     
     // 初始化view
     [self setAllInitSubView];
@@ -85,14 +94,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    self.navigationController.navigationBar.backgroundColor = UIColor.redColor
 
-    self.navigationController.navigationBar.barTintColor =  YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
+    
+// 无效
+//    self.navigationController.navigationBar.barTintColor =  YTYRGBA(55, 141, 202,1);   //YTYRGB(55, 157, 205);
   
 }
 
 #pragma mark - 初始化设置
 - (void)setAllInitSubView {
-  
+   
+    self.bgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.bgImageView.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:self.bgImageView];
+    
+    
     self.icon = [[UIImageView alloc] initWithImage:[UIImage new]];
     self.icon.contentMode = UIViewContentModeScaleAspectFit;
     [self.icon setViewBorderCornerRadius:(YTY_DP_375(70)/2) borderWidth:1 borderColor:UIColor.grayColor];
@@ -130,15 +147,15 @@
     
     self.btns = [NSMutableArray array];
     
+    
+    NSLog(@"----》%@",self.lists);
+    
     for (int i = 0; i < self.lists.count; i++) {
        UIButton *btn = [[UIButton alloc] init];
         btn.tag = i;
         btn.backgroundColor = YTYRGBA(81, 165, 216, 1);
-        btn.layer.cornerRadius = 2;
-        btn.layer.borderWidth = 2;
-        btn.layer.borderColor = YTYRGBA(229, 229, 229, 1).CGColor;
-       
-        CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, YTY_DP_375(250), YTY_DP_375(44)) cornerRadius:2];
+        [btn setViewBorderCornerRadius:6 borderWidth:2 borderColor:YTYRGBA(217, 213, 212, 1)];
+        CAGradientLayer * layer = [YTYTools obtainGradientLayerWithFrame:CGRectMake(0, 0, YTY_DP_375(250), YTY_DP_375(44)) cornerRadius:6];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn.layer addSublayer:layer];
         [self.view addSubview:btn];
@@ -149,12 +166,20 @@
 }
 
 - (void)setAllSubViewLayout {
+    [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.top.equalTo(self.view).with.offset( SCREEN_NAV_BAR);
+             make.width.equalTo(self.view);
+             make.height.equalTo(self.view);
+    }];
+    
+    
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
           make.centerX.equalTo(self.view);
           make.top.equalTo(self.view).with.offset( SCREEN_NAV_BAR + YTY_DP_375(40));
           make.width.mas_equalTo(YTY_DP_375(70));   //equalTo(self.view).multipliedBy(0.7);
           make.height.mas_equalTo(YTY_DP_375(70));
-   }];
+    }];
     
     [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -232,9 +257,8 @@
         [self.numberLabel setRangeOfString:@" " lineSpacing:0 firstFont:[UIFont systemFontOfSize:16] firstColor:UIColor.grayColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.blackColor];
         [self.areaLabel setRangeOfString:@" " lineSpacing:0 firstFont:[UIFont systemFontOfSize:16] firstColor:UIColor.grayColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.blackColor];
         
-        NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
-        for (int i = 0; i < lits.count; i++) {
-            [self.btns[i] setTitle:lits[i] forState:UIControlStateNormal];
+        for (int i = 0; i <  self.lists.count; i++) {
+            [self.btns[i] setTitle:self.lists[i] forState:UIControlStateNormal];
             self.btns[i].titleLabel.font =  [UIFont systemFontOfSize:19 weight:UIFontWeightBold];
         }
 
@@ -243,10 +267,7 @@
             
         self.numLabel.text = @"陈主任\n983726";
         [self.numLabel setRangeOfString:@"\n" lineSpacing:8 firstFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold] firstColor:UIColor.blackColor tailFont:[UIFont systemFontOfSize:16] tailColor:UIColor.grayColor];
-        
-        
-        
-        
+
          //NSArray *lits = @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"];
          for (int i = 0; i < self.lists.count; i++) {
              [self.btns[i] setTitle:self.lists[i] forState:UIControlStateNormal];
@@ -261,17 +282,34 @@
 
 // 按钮事件
 - (void)btnClick:(UIButton *)sender {
-    if(sender.tag == 3) {
-       QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
-       [self.navigationController  pushViewController:warehouse animated:YES];
-    }else if (sender.tag == 2) {
-        QCSWarehouseRecordVC * wr = [[QCSWarehouseRecordVC alloc] init];
-        [self.navigationController pushViewController:wr animated:YES];
-    }else if (sender.tag == 1) {
+//     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeDriver]) { //司机
+//             _lists = [NSMutableArray arrayWithArray: @[@"送貨單",@"本日派送記錄報告"]];
+//          }else if([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) { // 入仓员
+//             _lists = [NSMutableArray arrayWithArray: @[@"掃描入倉",@"倉存記錄",@"檢查已入倉單",@"新來貨單到達時間"]];
+//          }else if([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual:RoleTypeCustomerService]) { // 客服
+//             _lists = [NSMutableArray arrayWithArray: @[@"客戶列表"]];
+//          }else { // 管理员
+//             _lists = [NSMutableArray arrayWithArray: @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"]];
+//          }
+    
+    
+    if([sender.titleLabel.text isEqualToString:@"檢查已入倉單"]) {
+          if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+              QCSAreaVC *area = [[QCSAreaVC alloc] init];
+              [self.navigationController pushViewController:area animated:YES];
+          }else {
+             QCSWarehouseVC * warehouse = [[QCSWarehouseVC alloc] init];
+             [self.navigationController  pushViewController:warehouse animated:YES];
+          }
+    }else if ([sender.titleLabel.text isEqualToString:@"倉存記錄"]) {
+            QCSWarehouseRecordVC * wr = [[QCSWarehouseRecordVC alloc] init];
+            [self.navigationController pushViewController:wr animated:YES];
+        
+    }else if ([sender.titleLabel.text isEqualToString:@"本日派送記錄報告"]) {
         QCSDeliveryReportVC *dr = [[QCSDeliveryReportVC alloc] init];
         [self.navigationController pushViewController:dr animated:YES];
     
-    }else {
+    }else if([sender.titleLabel.text isEqualToString:@"訂單列表"]){
         QCSOrderMainVC *main = [[QCSOrderMainVC alloc] init];
         [self.navigationController pushViewController:main animated:YES];
     }

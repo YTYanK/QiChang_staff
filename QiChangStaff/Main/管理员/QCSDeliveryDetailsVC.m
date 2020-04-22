@@ -72,8 +72,7 @@
        __weak __typeof(self)weakSelf = self;
        CGFloat leftW =  SCREEN_WIDTH * 0.2;
         CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
-        self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
-           
+       self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
         
             UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
             subView.backgroundColor = UIColor.whiteColor;

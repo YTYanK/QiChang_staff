@@ -121,6 +121,7 @@
                 <outlet property="cbm" destination="ATL-vo-9LT" id="e8A-YY-mFi"/>
                 <outlet property="date" destination="900-Fy-X71" id="fW4-jl-936"/>
                 <outlet property="line" destination="N24-VY-hJl" id="Sdx-On-suE"/>
+                <outlet property="nameAndDateSpacing" destination="Dcy-l2-rN5" id="t9j-Rd-iE1"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="144.97767857142856"/>
         </tableViewCell>

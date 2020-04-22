@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AreaCell : YTYBaseTableViewCell
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameAndDateSpacing;
 @property (weak, nonatomic) IBOutlet UILabel *areaName;
 @property (weak, nonatomic) IBOutlet UIView *line;
 @property (weak, nonatomic) IBOutlet UILabel *ascription;

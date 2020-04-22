@@ -51,7 +51,6 @@
     
     
     self.icon = [[UIImageView alloc] initWithImage:[UIImage new]];
-    
     [self addSubview:self.icon];
     
     self.area = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -79,7 +78,7 @@
     [self.info mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.top.equalTo(self).with.offset(0);
-        make.height.mas_equalTo(YTY_DP_375(32));
+        make.height.mas_equalTo(40);
         make.width.equalTo(self.mas_width);
     }];
 
@@ -99,25 +98,7 @@
         make.width.equalTo(self).with.multipliedBy(0.5);
     }];
     
-
-    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
-        make.left.equalTo(self).with.offset(20);
-        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
-        make.width.equalTo(self).with.multipliedBy(0.3);
-    }];
-    [self.cbm mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
-        make.left.equalTo(self.name.mas_right).with.offset(0);
-        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
-        make.width.equalTo(self).with.multipliedBy(0.3);
-    }];
-    [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
-        make.left.equalTo(self.cbm.mas_right).with.offset(0);
-        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
-        make.width.equalTo(self).with.multipliedBy(0.3);
-    }];
+    
     
 }
 
@@ -144,6 +125,46 @@
     [self.date setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:15] tailColor:[UIColor blackColor]];
     
     
+//    CGFloat aveW = SCREEN_WIDTH/3;
+
+    CGFloat leftValue = 20;
+    CGFloat aveW = (SCREEN_WIDTH)/3;
+    
+
+    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+        make.left.equalTo(self).with.offset(leftValue);
+        make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+        make.width.mas_equalTo(aveW - leftValue);
+    }];
+    
+       // 设置两位空间的布局
+      if(_dicValue[@"twoPlace"] != nil) {
+          [self.cbm setHidden:YES];
+            [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+                make.left.equalTo(self.name.mas_right).with.offset(0);
+                make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+                make.width.mas_equalTo(aveW *2);
+            }];
+      }else {
+        [self.cbm mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+              make.left.equalTo(self.name.mas_right).with.offset(0);
+              make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+              make.width.mas_equalTo(aveW);
+          }];
+          [self.date mas_makeConstraints:^(MASConstraintMaker *make) {
+              make.top.equalTo(self.icon.mas_bottom).with.offset(4);
+              make.left.equalTo(self.cbm.mas_right).with.offset(0);
+              make.bottom.equalTo(self.mas_bottom).with.offset(0);   //mas_equalTo(YTY_DP_375(50));
+              make.width.mas_equalTo(aveW);
+          }];
+      }
+    
+    
+  
+    
 }
 - (NSMutableAttributedString *)setMutableAttributesWithText:(NSString *)text  {
     NSMutableAttributedString * mutStr = [[NSMutableAttributedString alloc] initWithString:text];
@@ -154,7 +175,7 @@
 - (void)setDicValue:(NSDictionary *)dicValue {
     if (_dicValue != dicValue) {
         _dicValue = dicValue;
-        
+
         self.info.text = _dicValue[@"info"]; // @"當前區域基本資料";
         self.icon.image = [UIImage imageNamed:_dicValue[@"icon"]]; //@"区域"
         self.date.text = _dicValue[@"date"];//@"最後更新時間\n 4/10/19 18:20";

@@ -49,7 +49,7 @@
     [self.view addSubview:self.baseTableView];
 
     __weak __typeof(self)weakSelf = self;
-    self.additionalBlock = ^(UITableViewCell * _Nonnull cell) {
+    self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
         weakSelf.index++;
     
         UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];

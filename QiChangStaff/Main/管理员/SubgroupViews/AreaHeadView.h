@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
      self.area.text = @"Area1";
      self.cbm.text = @"目前可用CBM\n100/300";
      self.name.text = @"所屬\n倉庫1";
+ 
+          @"twoPlace" // 变成两个label
  */
 
 @property (strong, nonatomic) NSDictionary *dicValue;

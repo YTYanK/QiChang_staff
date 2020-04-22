@@ -16,6 +16,8 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
    // NSLog(@"%@", isLogin);
+    // 全局设置
+//    [[UINavigationBar appearance] setTintColor:[UIColor yellowColor]];
     [[UINavigationBar appearance] setTranslucent:YES];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
