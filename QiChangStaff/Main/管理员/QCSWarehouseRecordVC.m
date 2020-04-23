@@ -130,11 +130,22 @@
 
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    // 入仓员
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+      return 2;
+    }else {
+      return 1;
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    if (section == 0) {
+        return 20;
+    }else {
+        return 100;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,12 +176,7 @@
     [subV addSubview:l1];
     [subV addSubview:l2];
     [subV addSubview:l3];
-    
-    l1.text = @"入倉單編號";
-    l2.text = @"來貨日期";
-    l3.text = @"處理日期";
-    
-    
+
     [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(subV).with.offset(0);
         make.left.equalTo(subV).with.offset(0);
@@ -190,12 +196,36 @@
        make.width.equalTo(subV).with.multipliedBy(0.3);
     }];
     
+
+    
+     // 入仓员
+     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+         if (section == 0) {
+             l1.text = @"入倉單編號";
+             l2.text = @"來貨日期";
+             l3.text = @"處理日期";
+         }else {
+            l1.text = @"欠入倉單編號";
+            l2.text = @"來貨日期";
+            l3.text = @"處理日期";
+         }
+     }else {
+          l1.text = @"入倉單編號";
+          l2.text = @"來貨日期";
+          l3.text = @"處理日期";
+     }
+    
     return  subV;
+    
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
-    QCSWarehuseRecordDetailsVC * details = [[QCSWarehuseRecordDetailsVC alloc] init];
-    [self.navigationController  pushViewController:details animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeAdminis]) {
+       QCSWarehuseRecordDetailsVC * details = [[QCSWarehuseRecordDetailsVC alloc] init];
+         [self.navigationController  pushViewController:details animated:YES];
+    }
+    
+   
  }
 
 

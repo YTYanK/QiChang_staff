@@ -34,23 +34,24 @@
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     
     
-//    __weak __typeof(self)weakSelf = self;
-//          CGFloat leftW =  SCREEN_WIDTH * 0.2;
-//           CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
-          self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
-             
-               UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
-               subView.backgroundColor = UIColor.redColor;
-               
-                [cell addSubview:subView];
-              
-              [subView mas_makeConstraints:^(MASConstraintMaker *make) {
-                  make.top.equalTo(cell).with.offset(10);
-                  make.left.equalTo(cell).with.offset(12);
-                  make.width.mas_offset(100);
-                  make.height.mas_offset(30);
-              }];
-          };
+        self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
+            AreaCell *newCell = (AreaCell *)cell;
+            [newCell.cbm removeFromSuperview];
+            [newCell.date removeFromSuperview];
+            [newCell.ascription removeFromSuperview];
+
+            
+//            UILabel *ascriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+            
+            newCell.ascription.text = [NSString stringWithFormat:@"所屬\n倉庫%ld",(long)indexPath.row];
+            [newCell.ascription mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(newCell.line.mas_bottom).with.offset(0);
+//                make.left.equalTo(cell).with.offset(20);
+                make.width.mas_offset(100);
+                make.height.mas_offset(40);
+            }];
+        [newCell.ascription setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:10 weight:UIFontWeightBold] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.blackColor];
+        };
            
 }
 - (void)updateAllData {
@@ -68,7 +69,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 20;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,12 +81,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AreaCell *cell = [AreaCell initCellWithCellView:tableView reuseIdentifier:@"AreaCell"];
     cell.nestingTableView = tableView;
-    //cell.cbm.isHidden = YES
-//    [cell.cbm setHidden:YES];
-//    [cell.date setHidden:YES];
-    [cell.cbm removeFromSuperview];
-    [cell.date removeFromSuperview];
-    [cell removeConstraint:cell.nameAndDateSpacing];
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+         self.additionalBlock(cell, indexPath);
+    }
+   
     return  cell;
     
 }

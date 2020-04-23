@@ -48,14 +48,21 @@
    
     [self.view addSubview:self.baseTableView];
     
-    
-    
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
-              make.centerX.equalTo(self.view);
-              make.top.equalTo(self.view).with.offset(SCREEN_NAV_BAR);
-              make.height.mas_equalTo(140);
-              make.width.equalTo(self.view.mas_width);
+      make.centerX.equalTo(self.view);
+      make.top.equalTo(self.view).with.offset(SCREEN_NAV_BAR);
+      make.height.mas_equalTo(140);
+      make.width.equalTo(self.view.mas_width);
     }];
+    
+    self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
+        AreaDetailsCell *newCell = (AreaDetailsCell *)cell;
+        newCell.batch.text = @"採購單編號\nP20191011";
+        [newCell.batch setRangeOfString:@"\n" lineSpacing:6 firstFont:[UIFont systemFontOfSize:12] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:13] tailColor:UIColor.blackColor];
+//
+    };
+    
+    
 }
 - (void)updateAllData {
    // 更新头部
@@ -110,6 +117,9 @@
     AreaDetailsCell *cell = [AreaDetailsCell initCellWithCellView:tableView reuseIdentifier:@"AreaDetailsCell"];
     cell.indexPath = indexPath;
     cell.nestingTableView = tableView;
+    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+          self.additionalBlock(cell, indexPath);
+    }
     return  cell;
     
 }
