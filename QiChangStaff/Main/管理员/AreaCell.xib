@@ -118,11 +118,14 @@
             <connections>
                 <outlet property="areaName" destination="RwL-RX-v2G" id="A0J-u1-VFm"/>
                 <outlet property="ascription" destination="oUy-Ny-OsJ" id="aB7-Q8-dxw"/>
+                <outlet property="ascriptionH" destination="9fw-wt-c4v" id="54Z-OR-qKs"/>
+                <outlet property="ascriptionTop" destination="8Oo-u0-75I" id="Ac5-LW-0ec"/>
+                <outlet property="ascriptionW" destination="4l9-7X-3gf" id="jFF-OU-ErU"/>
                 <outlet property="cbm" destination="ATL-vo-9LT" id="e8A-YY-mFi"/>
                 <outlet property="date" destination="900-Fy-X71" id="fW4-jl-936"/>
                 <outlet property="line" destination="N24-VY-hJl" id="Sdx-On-suE"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="144.97767857142856"/>
+            <point key="canvasLocation" x="131.8840579710145" y="144.30803571428569"/>
         </tableViewCell>
     </objects>
 </document>

@@ -17,6 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *date;
 @property (weak, nonatomic) IBOutlet UILabel *cbm;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ascriptionH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ascriptionW;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ascriptionTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ascriptionBottom;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

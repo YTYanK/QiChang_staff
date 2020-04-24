@@ -38,20 +38,15 @@
             AreaCell *newCell = (AreaCell *)cell;
             [newCell.cbm removeFromSuperview];
             [newCell.date removeFromSuperview];
-            [newCell.ascription removeFromSuperview];
-
+            [newCell.ascription removeConstraints:@[newCell.ascriptionH]];
+            newCell.ascription.numberOfLines = 2;
+            newCell.ascriptionTop.constant = 0;
+            newCell.ascriptionW.constant = 200;
+            newCell.ascriptionH.constant = 18;
             
-//            UILabel *ascriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-            
-            newCell.ascription.text = [NSString stringWithFormat:@"所屬\n倉庫%ld",(long)indexPath.row];
-            [newCell.ascription mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.top.equalTo(newCell.line.mas_bottom).with.offset(0);
-//                make.left.equalTo(cell).with.offset(20);
-                make.width.mas_offset(100);
-                make.height.mas_offset(40);
-            }];
-        [newCell.ascription setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:10 weight:UIFontWeightBold] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.blackColor];
-        };
+            newCell.ascription.text = [NSString stringWithFormat:@"所属\n仓库%ld",(long)indexPath.row];
+            [newCell.ascription setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:10 weight:UIFontWeightBold] firstColor:YTYRGBA(81, 165, 216, 1) tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.blackColor];
+            };
            
 }
 - (void)updateAllData {
@@ -84,7 +79,6 @@
     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
          self.additionalBlock(cell, indexPath);
     }
-   
     return  cell;
     
 }
