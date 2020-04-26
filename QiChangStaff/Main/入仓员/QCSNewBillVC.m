@@ -8,6 +8,7 @@
 
 #import "QCSNewBillVC.h"
 #import "YTYSearchView.h"
+#import "NewBillCell.h"
 
 @interface QCSNewBillVC ()
 
@@ -45,78 +46,7 @@
     self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
     [self.view addSubview:self.baseTableView];
 
-    __weak __typeof(self)weakSelf = self;
-    self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
-    
-        UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
-        subView.backgroundColor = UIColor.whiteColor;  //YTYRGBA(62, 146, 198, 1);
-          
-        UIView *line = [[UIView alloc] initWithFrame:CGRectZero];
-        line.backgroundColor = YTYRGBA(220, 220, 220, 1);
-        
-        
-          UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
-          l1.textAlignment = NSTextAlignmentCenter;
-          l1.textColor = UIColor.blackColor;
-          l1.font = [UIFont systemFontOfSize:13];
-          UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
-          l2.textAlignment = NSTextAlignmentCenter;
-          l2.textColor = UIColor.blackColor;
-          l2.font = [UIFont systemFontOfSize:13 ];
-          UILabel *l3 = [[UILabel alloc] initWithFrame:CGRectZero];
-          l3.textAlignment = NSTextAlignmentCenter;
-          l3.textColor = UIColor.blackColor;
-          l3.font = [UIFont systemFontOfSize:13];
-          [subView addSubview:l1];
-          [subView addSubview:l2];
-          [subView addSubview:l3];
-          [subView addSubview:line];
-         
-          l1.text = @"2319821";
-          l2.text = @"1/10/2019 15:30";
-          l3.text = @"3/12/2019 13:32";
-          
-          
-          [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
-              make.top.equalTo(subView).with.offset(0);
-              make.left.equalTo(subView).with.offset(0);
-              make.height.equalTo(subView.mas_height);
-              make.width.equalTo(subView).with.multipliedBy(0.3);
-          }];
-          [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.top.equalTo(subView).with.offset(0);
-             make.left.equalTo(l1.mas_right).with.offset(0);
-             make.height.equalTo(subView.mas_height);
-             make.width.equalTo(subView).with.multipliedBy(0.4);
-          }];
-          [l3 mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.top.equalTo(subView).with.offset(0);
-             make.left.equalTo(l2.mas_right).with.offset(0);
-             make.height.equalTo(subView.mas_height);
-             make.width.equalTo(subView).with.multipliedBy(0.3);
-          }];
-         
-         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-
-            make.left.equalTo(subView).with.offset(0);
-            make.bottom.equalTo(subView).with.offset(1);
-            make.height.mas_equalTo(1);
-            make.width.equalTo(subView).with.multipliedBy(1);
-         }];
-        
-        [cell addSubview:subView];
-        
-        [subView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell).with.offset(0);
-            make.left.equalTo(cell).with.offset(0);
-            make.height.equalTo(cell);
-            make.width.equalTo(cell);
-        }];
-        
-        
-//        cell.textLabel.text = [NSString stringWithFormat:@"--%d",weakSelf.index];
-    };
-    
+ 
 }
 - (void)updateAllData {
    // 更新头部
@@ -126,26 +56,16 @@
 
 #pragma mark - tableView delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // 入仓员
-    if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
-      return 2;
-    }else {
       return 1;
-    }
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 20;
-    }else {
-        return 100;
-    }
-    
+   return 200;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -155,15 +75,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, 2);
     UIView *subV = [[UIView alloc] init];
-    subV.backgroundColor = NAV_COLOR;
+    subV.backgroundColor =  NAV_COLOR;
     
     UILabel *l1 = [[UILabel alloc] initWithFrame:CGRectZero];
     l1.textAlignment = NSTextAlignmentCenter;
     l1.textColor = UIColor.whiteColor;
-    l1.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+  
+    l1.font = [UIFont systemFontOfSize:12 weight:UIFontWeightBold];
     UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
     l2.textAlignment = NSTextAlignmentCenter;
     l2.textColor = UIColor.whiteColor;
+  
     l2.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
     UILabel *l3 = [[UILabel alloc] initWithFrame:CGRectZero];
     l3.textAlignment = NSTextAlignmentCenter;
@@ -195,30 +117,29 @@
 
     
      // 入仓员
-     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
-         if (section == 0) {
-             l1.text = @"入倉單編號";
-             l2.text = @"來貨日期";
-             l3.text = @"處理日期";
-         }else {
-            l1.text = @"欠入倉單編號";
-            l2.text = @"來貨日期";
-            l3.text = @"處理日期";
-         }
-     }else {
-          l1.text = @"入倉單編號";
-          l2.text = @"來貨日期";
-          l3.text = @"處理日期";
-     }
+    // if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
+             l1.text = @"新來貨單基本資訊";
+             l2.text = @"到貨日";
+             l3.text = @"預期到貨日";
     
     return  subV;
     
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NewBillCell *cell = [NewBillCell initCellWithCellView:tableView reuseIdentifier:@"NewBillCell"];
+    cell.nestingTableView = tableView;
+   
+
+    return  cell;
+    
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeAdminis]) {
-       QCSWarehuseRecordDetailsVC * details = [[QCSWarehuseRecordDetailsVC alloc] init];
-         [self.navigationController  pushViewController:details animated:YES];
+//       QCSWarehuseRecordDetailsVC * details = [[QCSWarehuseRecordDetailsVC alloc] init];
+//         [self.navigationController  pushViewController:details animated:YES];
     }
     
    

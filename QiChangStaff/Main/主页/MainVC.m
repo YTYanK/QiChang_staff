@@ -17,6 +17,10 @@
 #import "QCSAreaVC.h"
 
 
+#import "QCSNewBillVC.h"
+// 掃描入倉
+#import "QCSWarehousingVC.h"
+
 @interface MainVC ()
 
 @property (strong, nonatomic) UIImageView * icon;
@@ -292,6 +296,8 @@
 //             _lists = [NSMutableArray arrayWithArray: @[@"訂單列表",@"本日派送記錄報告",@"倉存記錄",@"檢查已入倉單"]];
 //          }
     
+    NSLog(@"---%@", sender.titleLabel.text);
+    
     
     if([sender.titleLabel.text isEqualToString:@"檢查已入倉單"]) {
           if ([[NSUD objectForKey:LOGIN_ROLE_TYPE] isEqual: RoleTypeStorekeeper]) {
@@ -312,6 +318,15 @@
     }else if([sender.titleLabel.text isEqualToString:@"訂單列表"]){
         QCSOrderMainVC *main = [[QCSOrderMainVC alloc] init];
         [self.navigationController pushViewController:main animated:YES];
+        
+        // if([sender.titleLabel.text isEqualToString:@"新來到貨單到達時間"])
+    }else if([sender.titleLabel.text isEqualToString:@"新來貨單到達時間"]) {
+        QCSNewBillVC *bill = [[QCSNewBillVC alloc] init];
+        [self.navigationController pushViewController:bill animated:YES];
+        
+    }else if([sender.titleLabel.text isEqualToString:@"掃描入倉"]) {
+        QCSWarehousingVC *ware = [[QCSWarehousingVC alloc] init];
+        [self.navigationController pushViewController:ware animated:YES];
     }
 }
 

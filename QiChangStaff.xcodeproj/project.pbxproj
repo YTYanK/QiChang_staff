@@ -39,6 +39,9 @@
 		3C8A916D24485BBC00D99D4B /* QCSOrderDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A916C24485BBB00D99D4B /* QCSOrderDetailsVC.m */; };
 		3C8A9173244D737F00D99D4B /* OrderCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A9172244D737F00D99D4B /* OrderCheckView.m */; };
 		3C8A91CD245296C700D99D4B /* QCSNewBillVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91CC245296C700D99D4B /* QCSNewBillVC.m */; };
+		3C8A91D1245523AF00D99D4B /* NewBillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91CF245523AF00D99D4B /* NewBillCell.m */; };
+		3C8A91D2245523AF00D99D4B /* NewBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A91D0245523AF00D99D4B /* NewBillCell.xib */; };
+		3C8A91D524553A5D00D99D4B /* QCSWarehousingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -105,6 +108,11 @@
 		3C8A9172244D737F00D99D4B /* OrderCheckView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderCheckView.m; sourceTree = "<group>"; };
 		3C8A91CB245296C700D99D4B /* QCSNewBillVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSNewBillVC.h; sourceTree = "<group>"; };
 		3C8A91CC245296C700D99D4B /* QCSNewBillVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSNewBillVC.m; sourceTree = "<group>"; };
+		3C8A91CE245523AF00D99D4B /* NewBillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewBillCell.h; sourceTree = "<group>"; };
+		3C8A91CF245523AF00D99D4B /* NewBillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewBillCell.m; sourceTree = "<group>"; };
+		3C8A91D0245523AF00D99D4B /* NewBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBillCell.xib; sourceTree = "<group>"; };
+		3C8A91D324553A5D00D99D4B /* QCSWarehousingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehousingVC.h; sourceTree = "<group>"; };
+		3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehousingVC.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -225,6 +233,11 @@
 			children = (
 				3C8A91CB245296C700D99D4B /* QCSNewBillVC.h */,
 				3C8A91CC245296C700D99D4B /* QCSNewBillVC.m */,
+				3C8A91CE245523AF00D99D4B /* NewBillCell.h */,
+				3C8A91CF245523AF00D99D4B /* NewBillCell.m */,
+				3C8A91D0245523AF00D99D4B /* NewBillCell.xib */,
+				3C8A91D324553A5D00D99D4B /* QCSWarehousingVC.h */,
+				3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */,
 			);
 			path = "入仓员";
 			sourceTree = "<group>";
@@ -388,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C8A916A2448007F00D99D4B /* OrderListCell.xib in Resources */,
+				3C8A91D2245523AF00D99D4B /* NewBillCell.xib in Resources */,
 				3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */,
 				3C8A91522445A27D00D99D4B /* DeliveryReportCell.xib in Resources */,
 				3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */,
@@ -464,6 +478,7 @@
 				3C8A91552445A29900D99D4B /* QCSDeliveryReportVC.m in Sources */,
 				3C8A914324401A2D00D99D4B /* QCSWarehuseRecordDetailsVC.m in Sources */,
 				3C8A9173244D737F00D99D4B /* OrderCheckView.m in Sources */,
+				3C8A91D524553A5D00D99D4B /* QCSWarehousingVC.m in Sources */,
 				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
 				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
 				3C8A91512445A27D00D99D4B /* DeliveryReportCell.m in Sources */,
@@ -474,6 +489,7 @@
 				3C8A91CD245296C700D99D4B /* QCSNewBillVC.m in Sources */,
 				3C8A915B2445B8B500D99D4B /* QCSDeliveryDetailsVC.m in Sources */,
 				3C5CAB912437349900C68CFB /* QCSWarehouseVC.m in Sources */,
+				3C8A91D1245523AF00D99D4B /* NewBillCell.m in Sources */,
 				3C8A914C2444003800D99D4B /* RecordReceivingCell.m in Sources */,
 				3CB91000242DEE1F00819C3B /* YTYView.m in Sources */,
 				3C8A913A243DCED200D99D4B /* YTYSearchView.m in Sources */,
