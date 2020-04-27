@@ -8,6 +8,7 @@
 
 #import "QCSWarehousingVC.h"
 #import "QCSCardView.h"
+#import "QCSProcessingOrderVC.h"
 
 @interface QCSWarehousingVC ()
 @property (strong, nonatomic) QCSCardView *cardView;
@@ -81,35 +82,38 @@
     [self.view addSubview:self.cardView];
     
     
-    self.listsTitle = [[UIButton alloc] initWithFrame:CGRectMake(20, self.cardView.maxY, SCREEN_WIDTH - 40, 40)];
-    
+    self.listsTitle = [[UIButton alloc] initWithFrame:CGRectMake(0, self.cardView.maxY, SCREEN_WIDTH, 40)];
     [self.listsTitle setTitle:@"產品列表" forState:UIControlStateNormal];
-    
-    UIImage * image = [[UIImage imageNamed:@"产品"] scaleImageWithSize:CGSizeMake(25, 25)];
+    self.listsTitle.backgroundColor = YTYRGBA(242, 242, 242, 1);
+    [self.listsTitle setTitleColor:NAV_COLOR forState:UIControlStateNormal];
+    UIImage * image = [[UIImage imageNamed:@"产品"] scaleImageWithSize:CGSizeMake(20, 20)];
     [self.listsTitle setImage:image forState:(UIControlStateNormal)];
-    [self.listsTitle setImageEdgeInsets:UIEdgeInsetsMake(20, 20, -20, -20)];
+    [self.listsTitle setImageEdgeInsets:UIEdgeInsetsMake(-10, 20, 0, 40)];
+    [self.listsTitle setTitleEdgeInsets:UIEdgeInsetsMake(-10, 30, 0, 30)];
+    self.listsTitle.enabled = NO;
+    self.listsTitle.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.view addSubview:self.listsTitle];
     
     
-//    self.isCustomTable = YES;
+    self.isCustomTable = YES;
   
-//    if (IS_IPHONE_X) {
-//      self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR +self.cardView.size.height, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 26)];
-//    }else {
-//      self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_NAV_BAR +self.cardView.size.height, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 300)];
-//    }
-//
-//    // 需要创建对象之后使用
-//    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
-//    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
-//    [self.view addSubview:self.baseTableView];
+    if (IS_IPHONE_X) {
+//      self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.listsTitle.maxY, SCREEN_WIDTH, SCREEN_HEIGHT - SCREEN_NAV_BAR - 26)];
+    }else {
+      self.baseTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.listsTitle.maxY, SCREEN_WIDTH, SCREEN_HEIGHT - self.listsTitle.maxY - 40)];
+    }
+
+    // 需要创建对象之后使用
+    self.baseTableView.backgroundColor = YTYRGBA(242, 242, 242, 1);
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.navigationItem.leftBarButtonItem = [YTYTools obtainBackItemWithTarget:self action:@selector(backClick) image:[[UIImage imageNamed:@"back.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+    [self.view addSubview:self.baseTableView];
     
     
-       __weak __typeof(self)weakSelf = self;
-       CGFloat leftW =  SCREEN_WIDTH * 0.2;
-        CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
-    /*   self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
+//    __weak __typeof(self)weakSelf = self;
+    CGFloat leftW =  SCREEN_WIDTH * 0.2;
+    CGFloat avew =   (SCREEN_WIDTH * 0.6);
+    self.additionalBlock = ^(UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
         
             UIView *subView = [[UIView alloc] initWithFrame:CGRectZero];
             subView.backgroundColor = UIColor.whiteColor;
@@ -126,6 +130,7 @@
               l1.textAlignment = NSTextAlignmentCenter;
               l1.textColor = UIColor.blackColor;
               l1.font = [UIFont systemFontOfSize:13];
+              l1.numberOfLines = 4;
               UILabel *l2 = [[UILabel alloc] initWithFrame:CGRectZero];
               l2.textAlignment = NSTextAlignmentCenter;
               l2.textColor = UIColor.blackColor;
@@ -140,15 +145,10 @@
               [subView addSubview:line];
              
                
-               
-              l0.text = [NSString stringWithFormat:@"%d",weakSelf.index];
-              l1.text = @"2319821";
-              l2.text = @"1/10/2019 15:30";
-              if(weakSelf.index == 0) {
-                            icon.image = [UIImage imageNamed:@"no"];
-                       }else {
-                           icon.image = [UIImage imageNamed:@"yes"];
-                       }
+              l0.text = [NSString stringWithFormat:@"%d",indexPath.row];
+              l1.text = @"美國 'Solo' \"BARE\" 四安蒸餾水 捲邊尖杯(Eco-Forward)Packing:  1 x 25boxes x";
+              l2.text = @"10件";
+              
             
               [l0 mas_makeConstraints:^(MASConstraintMaker *make) {
                   make.top.equalTo(subView).with.offset(0);
@@ -167,14 +167,9 @@
                  make.top.equalTo(subView).with.offset(0);
                  make.left.equalTo(l1.mas_right).with.offset(0);
                  make.height.equalTo(subView.mas_height);
-                 make.width.mas_equalTo(avew);
+                 make.width.mas_equalTo(leftW);
               }];
-              [icon mas_makeConstraints:^(MASConstraintMaker *make) {
-                 make.centerY.equalTo(subView).with.offset(0);
-                 make.left.equalTo(l2.mas_right).with.offset(avew/2 - 10);
-                 make.height.mas_equalTo(20);
-                 make.width.mas_equalTo(20);
-              }];
+        
              
              [line mas_makeConstraints:^(MASConstraintMaker *make) {
 
@@ -193,14 +188,14 @@
                 make.width.equalTo(cell);
             }];
             
-            weakSelf.index++;
         };
-        */
+    
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.baseTableView.maxY, SCREEN_WIDTH, 40)];
+    [btn setTitle:@"處理貨單" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(processingClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
     
     
-    
-
- 
 }
 - (void)updateAllData {
    // 更新头部
@@ -212,11 +207,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    return 100;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return  40;
@@ -243,17 +238,17 @@
     [subV addSubview:l2];
     [subV addSubview:l3];
     
-    l1.text = @"訂單編號";
-    l2.text = @"派送時間";
-    l3.text = @"審核";
+    l1.text = @"";
+    l2.text = @"產品名稱";
+    l3.text = @"數量";
    
     CGFloat leftW =  SCREEN_WIDTH * 0.2;
-    CGFloat avew =   (SCREEN_WIDTH * 0.8)/3;
+    CGFloat avew =   (SCREEN_WIDTH * 0.6);
     [l1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(subV).with.offset(0);
-        make.left.equalTo(subV).with.offset(leftW);
+        make.left.equalTo(subV).with.offset(0);
         make.height.equalTo(subV.mas_height);
-        make.width.mas_equalTo(avew);
+        make.width.mas_equalTo(leftW);
     }];
     [l2 mas_makeConstraints:^(MASConstraintMaker *make) {
        make.top.equalTo(subV).with.offset(0);
@@ -265,7 +260,7 @@
        make.top.equalTo(subV).with.offset(0);
        make.left.equalTo(l2.mas_right).with.offset(0);
        make.height.equalTo(subV.mas_height);
-       make.width.mas_equalTo(avew);
+       make.width.mas_equalTo(leftW);
     }];
     
     return  subV;
@@ -323,5 +318,9 @@
     NSLog(@"点击");
 }
 
-
+- (void)processingClick:(UIButton *)sender {
+    NSLog(@"----处理");
+    QCSProcessingOrderVC * order = [[QCSProcessingOrderVC alloc] init];
+    [self.navigationController pushViewController:order animated:YES];
+}
 @end

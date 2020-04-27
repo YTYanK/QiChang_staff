@@ -42,6 +42,8 @@
 		3C8A91D1245523AF00D99D4B /* NewBillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91CF245523AF00D99D4B /* NewBillCell.m */; };
 		3C8A91D2245523AF00D99D4B /* NewBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8A91D0245523AF00D99D4B /* NewBillCell.xib */; };
 		3C8A91D524553A5D00D99D4B /* QCSWarehousingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */; };
+		3C8A91D824568A3100D99D4B /* QCSProcessingOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91D724568A3100D99D4B /* QCSProcessingOrderVC.m */; };
+		3C8A91DE2456B55200D99D4B /* ProductListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8A91DD2456B55200D99D4B /* ProductListView.m */; };
 		3CB90FBB242CA29800819C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBA242CA29800819C3B /* AppDelegate.m */; };
 		3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB90FBD242CA29800819C3B /* SceneDelegate.m */; };
 		3CB90FC9242CA29900819C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB90FC7242CA29900819C3B /* LaunchScreen.storyboard */; };
@@ -113,6 +115,10 @@
 		3C8A91D0245523AF00D99D4B /* NewBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBillCell.xib; sourceTree = "<group>"; };
 		3C8A91D324553A5D00D99D4B /* QCSWarehousingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSWarehousingVC.h; sourceTree = "<group>"; };
 		3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSWarehousingVC.m; sourceTree = "<group>"; };
+		3C8A91D624568A3100D99D4B /* QCSProcessingOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCSProcessingOrderVC.h; sourceTree = "<group>"; };
+		3C8A91D724568A3100D99D4B /* QCSProcessingOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCSProcessingOrderVC.m; sourceTree = "<group>"; };
+		3C8A91DC2456B55200D99D4B /* ProductListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductListView.h; sourceTree = "<group>"; };
+		3C8A91DD2456B55200D99D4B /* ProductListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductListView.m; sourceTree = "<group>"; };
 		3CB90FB6242CA29800819C3B /* QiChangStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiChangStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB90FB9242CA29800819C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB90FBA242CA29800819C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -238,6 +244,10 @@
 				3C8A91D0245523AF00D99D4B /* NewBillCell.xib */,
 				3C8A91D324553A5D00D99D4B /* QCSWarehousingVC.h */,
 				3C8A91D424553A5D00D99D4B /* QCSWarehousingVC.m */,
+				3C8A91D624568A3100D99D4B /* QCSProcessingOrderVC.h */,
+				3C8A91D724568A3100D99D4B /* QCSProcessingOrderVC.m */,
+				3C8A91DC2456B55200D99D4B /* ProductListView.h */,
+				3C8A91DD2456B55200D99D4B /* ProductListView.m */,
 			);
 			path = "入仓员";
 			sourceTree = "<group>";
@@ -473,6 +483,7 @@
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
 				3C8A9137243D610800D99D4B /* YTYLabel.m in Sources */,
+				3C8A91D824568A3100D99D4B /* QCSProcessingOrderVC.m in Sources */,
 				3CB90FBE242CA29800819C3B /* SceneDelegate.m in Sources */,
 				3C8A91692448007F00D99D4B /* OrderListCell.m in Sources */,
 				3C8A91552445A29900D99D4B /* QCSDeliveryReportVC.m in Sources */,
@@ -480,6 +491,7 @@
 				3C8A9173244D737F00D99D4B /* OrderCheckView.m in Sources */,
 				3C8A91D524553A5D00D99D4B /* QCSWarehousingVC.m in Sources */,
 				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
+				3C8A91DE2456B55200D99D4B /* ProductListView.m in Sources */,
 				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
 				3C8A91512445A27D00D99D4B /* DeliveryReportCell.m in Sources */,
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
