@@ -7,9 +7,12 @@
 //
 
 #import "ProductListView.h"
+#import "ProductCell.h"
 
-@interface ProductListView()
 
+@interface ProductListView()<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) UITableView * tableView;
 
 @end
 
@@ -31,7 +34,45 @@
 
 - (void)initAllView {
    
+    UIImageView * icon = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self addSubview:icon];
     
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self addSubview:self.tableView];
+    
+      [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.top.equalTo(self).with.offset(0);
+         make.left.equalTo(self).with.offset(0);
+         make.height.mas_equalTo(40 * 3);
+         make.width.equalTo(self);
+     }];
+    
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}// numberOfRowsInSection:(NSInteger)section
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section  {
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    ProductCell *cell = [ProductCell initCellWithCellView:tableView reuseIdentifier:@"ProductCell"];
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
 }
 
 /*

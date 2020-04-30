@@ -9,6 +9,7 @@
 #import "QCSProcessingOrderVC.h"
 #import "AreaHeadView.h"
 #import "YTYLabel.h"
+#import "ProductListView.h"
 
 @interface QCSProcessingOrderVC ()
 @property (strong, nonatomic) AreaHeadView *headView;
@@ -18,6 +19,9 @@
 @property (strong, nonatomic) UILabel *number;
 @property (strong, nonatomic) UILabel *date;
 @property (strong, nonatomic) UILabel *address;
+
+@property (strong, nonatomic) ProductListView * productList;
+
 @end
 
 @implementation QCSProcessingOrderVC
@@ -81,6 +85,12 @@
 //    [self.view addSubview:self.baseTableView];
     
     
+    self.productList = [[ProductListView alloc] initWithFrame:CGRectZero];
+    self.productList.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:self.productList];
+    
+    
+    
     
     // layoutSubviews
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -130,7 +140,12 @@
           make.width.equalTo(bg).with.multipliedBy(0.3);
       }];
     
-    
+    [self.productList mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bg.mas_bottom).with.offset(0);
+        make.left.equalTo(self.view).with.offset(0);
+        make.bottom.equalTo(self.view).with.offset(0);
+        make.width.equalTo(self.view);
+    }];
 //    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(bg.mas_bottom).with.offset(0);
 //        make.left.equalTo(self.view).with.offset(0);

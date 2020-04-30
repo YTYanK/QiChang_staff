@@ -177,7 +177,7 @@
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
-// 释放
+// 释放soupbb_adhoc
 - (void)dealloc {
    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
