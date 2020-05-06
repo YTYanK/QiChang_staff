@@ -87,6 +87,7 @@
     self.loginBtn.layer.cornerRadius = 3;
     [self.loginBtn addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginBtn];
+    
 }
 
 - (void)setAllSubViewLayout {

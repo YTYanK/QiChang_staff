@@ -50,7 +50,7 @@
                             <action selector="add:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="H9w-2o-rkV"/>
                         </connections>
                     </button>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxM-bA-byf">
+                    <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="ProductCell" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxM-bA-byf">
                         <rect key="frame" x="362.5" y="9" width="73.5" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -86,7 +86,7 @@
                 <outlet property="numberValue" destination="LxM-bA-byf" id="EQh-Ia-EAR"/>
                 <outlet property="product" destination="nrw-iE-aId" id="ldg-cn-mHj"/>
             </connections>
-            <point key="canvasLocation" x="255.79710144927537" y="86.383928571428569"/>
+            <point key="canvasLocation" x="40" y="39"/>
         </tableViewCell>
     </objects>
 </document>

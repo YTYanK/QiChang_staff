@@ -86,10 +86,11 @@
     
     
     self.productList = [[ProductListView alloc] initWithFrame:CGRectZero];
-    self.productList.backgroundColor = UIColor.whiteColor;
+//    self.productList.backgroundColor = UIColor.whiteColor;
+      self.productList.backgroundColor = UIColor.grayColor;
     [self.view addSubview:self.productList];
     
-    
+  
     
     
     // layoutSubviews
@@ -203,7 +204,6 @@
 - (void)tableLoadDataWithPage:(int)page {
     [self.baseTableView.mj_footer endRefreshing];
 }
-
 
 - (void)backClick {
     [self.navigationController popViewControllerAnimated:YES];

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		379295AF67DCA5A7A2CD3C55 /* Pods_QiChangStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */; };
+		3C4F03312462A0F4000EFE87 /* ProductCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F032F2462A0F4000EFE87 /* ProductCollectCell.m */; };
+		3C4F03362462A13C000EFE87 /* ProductNotCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4F03342462A13C000EFE87 /* ProductNotCollectCell.m */; };
+		3C4F03372462A13C000EFE87 /* ProductNotCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F03352462A13C000EFE87 /* ProductNotCollectCell.xib */; };
+		3C4F03392462A80D000EFE87 /* ProductCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4F03382462A80D000EFE87 /* ProductCollectCell.xib */; };
 		3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB7A243583AE00C68CFB /* Main.storyboard */; };
 		3C5CAB7D2435948500C68CFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5CAB7C2435948500C68CFB /* Assets.xcassets */; };
 		3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5CAB8324370D8C00C68CFB /* WarehouseCell.m */; };
@@ -58,6 +62,12 @@
 
 /* Begin PBXFileReference section */
 		26664FAB71F300662E62E23F /* Pods_QiChangStaff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QiChangStaff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C4F032E2462A0F4000EFE87 /* ProductCollectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCollectCell.h; sourceTree = "<group>"; };
+		3C4F032F2462A0F4000EFE87 /* ProductCollectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductCollectCell.m; sourceTree = "<group>"; };
+		3C4F03332462A13C000EFE87 /* ProductNotCollectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductNotCollectCell.h; sourceTree = "<group>"; };
+		3C4F03342462A13C000EFE87 /* ProductNotCollectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductNotCollectCell.m; sourceTree = "<group>"; };
+		3C4F03352462A13C000EFE87 /* ProductNotCollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductNotCollectCell.xib; sourceTree = "<group>"; };
+		3C4F03382462A80D000EFE87 /* ProductCollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCollectCell.xib; sourceTree = "<group>"; };
 		3C5CAB7A243583AE00C68CFB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3C5CAB7C2435948500C68CFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C5CAB8224370D8C00C68CFB /* WarehouseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WarehouseCell.h; sourceTree = "<group>"; };
@@ -253,6 +263,12 @@
 				3C8A91D724568A3100D99D4B /* QCSProcessingOrderVC.m */,
 				3C8A91DC2456B55200D99D4B /* ProductListView.h */,
 				3C8A91DD2456B55200D99D4B /* ProductListView.m */,
+				3C4F032E2462A0F4000EFE87 /* ProductCollectCell.h */,
+				3C4F032F2462A0F4000EFE87 /* ProductCollectCell.m */,
+				3C4F03382462A80D000EFE87 /* ProductCollectCell.xib */,
+				3C4F03332462A13C000EFE87 /* ProductNotCollectCell.h */,
+				3C4F03342462A13C000EFE87 /* ProductNotCollectCell.m */,
+				3C4F03352462A13C000EFE87 /* ProductNotCollectCell.xib */,
 				3C84C124245AB7EE00C8FA3A /* ProductCell.h */,
 				3C84C125245AB7EE00C8FA3A /* ProductCell.m */,
 				3C84C126245AB7EE00C8FA3A /* ProductCell.xib */,
@@ -424,8 +440,10 @@
 				3C8A91522445A27D00D99D4B /* DeliveryReportCell.xib in Resources */,
 				3C5CAB8624370D8D00C68CFB /* WarehouseCell.xib in Resources */,
 				3C8A914D2444003800D99D4B /* RecordReceivingCell.xib in Resources */,
+				3C4F03392462A80D000EFE87 /* ProductCollectCell.xib in Resources */,
 				3C5CAB8B2437345400C68CFB /* AreaCell.xib in Resources */,
 				3CB90FD9242D8C5000819C3B /* Login.storyboard in Resources */,
+				3C4F03372462A13C000EFE87 /* ProductNotCollectCell.xib in Resources */,
 				3C5CAB7B243583AE00C68CFB /* Main.storyboard in Resources */,
 				3C84C128245AB7EE00C8FA3A /* ProductCell.xib in Resources */,
 				3C8A9130243C7ADA00D99D4B /* AreaDetailsCell.xib in Resources */,
@@ -488,6 +506,7 @@
 				3CB90FCC242CA29900819C3B /* main.m in Sources */,
 				3C8A913D243DD5F000D99D4B /* QCSWarehouseRecordVC.m in Sources */,
 				3C8A915E2446FFF700D99D4B /* CKSlideMenu.m in Sources */,
+				3C4F03362462A13C000EFE87 /* ProductNotCollectCell.m in Sources */,
 				3C8A91582445ADE300D99D4B /* QCSCardView.m in Sources */,
 				3C5CAB942437363A00C68CFB /* QCSAreaVC.m in Sources */,
 				3CB91009242DFAC200819C3B /* MainVC.m in Sources */,
@@ -502,6 +521,7 @@
 				3C8A91D524553A5D00D99D4B /* QCSWarehousingVC.m in Sources */,
 				3C8A9134243C7FE700D99D4B /* AreaHeadView.m in Sources */,
 				3C8A91DE2456B55200D99D4B /* ProductListView.m in Sources */,
+				3C4F03312462A0F4000EFE87 /* ProductCollectCell.m in Sources */,
 				3C5CAB8524370D8D00C68CFB /* WarehouseCell.m in Sources */,
 				3C8A91512445A27D00D99D4B /* DeliveryReportCell.m in Sources */,
 				3C8A912F243C7ADA00D99D4B /* AreaDetailsCell.m in Sources */,
