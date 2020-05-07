@@ -7,11 +7,24 @@
 //
 
 #import <YTYCoreFramework/YTYCoreFramework.h>
+#import "ProductView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProductCollectCell : YTYBaseTableViewCell
+@property (strong, nonatomic) UILabel *titleLabel;
 
+@property (strong, nonatomic) UIImageView *icon;
+
+@property (strong, nonatomic) UIButton *complete;
+
+@property (strong, nonatomic) UILabel *state;
+
+@property (strong, nonatomic) UILabel *area;
+
+@property (strong, nonatomic) NSMutableArray<UIButton *> * btns;
+/// 列表
+@property (strong, nonatomic) NSMutableArray<ProductView *> * productViews;
 @end
 
 NS_ASSUME_NONNULL_END

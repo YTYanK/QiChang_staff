@@ -7,7 +7,6 @@
 //
 
 #import "ProductListView.h"
-#import "ProductCell.h"
 #import "ProductCollectCell.h"
 
 
@@ -15,6 +14,7 @@
 
 @property (strong, nonatomic) UITableView * tableView;
 
+@property (strong, nonatomic) NSArray * titles;
 @end
 
 
@@ -43,15 +43,22 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 100; //预估高度
+    self.tableView.estimatedRowHeight = 400.0; //预估高度
     [self addSubview:self.tableView];
+    if (@available(iOS 11.0, *)) {
+           // https://www.jianshu.com/p/b616bea9da88
+           self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAlways;
+       }
+    
+     self.titles = @[@"美國 'Solo' \"BARE\" 四安蒸餾水捲邊尖杯(Eco- Forward) Packing: 1 x 25boxes x",@"美fffffffff國 'Solo' \"BARE\" 四安蒸餾水捲邊尖杯(Eco- Forward) Packing: 1 x 25boxes x",@"美國 'Solo'eeeeeeeeeeeeeeeeeeeeeefwqafwefewfefawefe \"BARE\" 四安蒸餾水捲邊尖杯(Eco- Forward) Packing: 1 x 25boxes x",];
     
       [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(self).with.offset(0);
-         make.left.equalTo(self).with.offset(0);
-          make.bottom.equalTo(self).with.offset(0);
-//         make.height.mas_equalTo(40 * 3);
-         make.width.equalTo(self);
+//         make.top.equalTo(self).with.offset(0);
+//         make.left.equalTo(self).with.offset(0);
+//          make.bottom.equalTo(self).with.offset(0);
+////         make.height.mas_equalTo(40 * 3);
+//         make.width.equalTo(self);
+          make.edges.equalTo(self);
      }];
     
 }
@@ -61,12 +68,12 @@
 }// numberOfRowsInSection:(NSInteger)section
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section  {
-    return 3;
+    return self.titles.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return  40;
@@ -124,6 +131,9 @@
 
     //ProductCell *cell = [ProductCell initCellWithCellView:tableView reuseIdentifier:@"ProductCell"];
     ProductCollectCell *cell = [ProductCollectCell initCellWithCellView:tableView reuseIdentifier:@"ProductCollectCell"];
+
+    cell.titleLabel.text = self.titles[indexPath.row];
+    
     return cell;
 }
 
