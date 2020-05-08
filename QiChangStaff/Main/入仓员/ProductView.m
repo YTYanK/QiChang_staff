@@ -112,11 +112,7 @@
     }];
 }
 
-- (void)updateAllData {
-//    self.product.text = @"---";
-//    self.number.text = @"0";
-//    self.numberValue.text = @"1";
-    
+- (void)updateAllData {    
     [self updateDataForDictionrary:@{@"product": @"---", @"number": @"0", @"numberValue" : @"1"}];
     [self.arrBtn setTitle:@"-" forState:UIControlStateNormal];
     [self.addBtn setTitle:@"+" forState:UIControlStateNormal];

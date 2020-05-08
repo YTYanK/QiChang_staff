@@ -129,11 +129,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    //ProductCell *cell = [ProductCell initCellWithCellView:tableView reuseIdentifier:@"ProductCell"];
     ProductCollectCell *cell = [ProductCollectCell initCellWithCellView:tableView reuseIdentifier:@"ProductCollectCell"];
 
     cell.titleLabel.text = self.titles[indexPath.row];
     
+    cell.state.text = @"檢查狀態\n未收貨";
+    cell.area.text = @"存放區域\nArea1";
+    
+    [cell.state setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:UIColor.redColor tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.greenColor];
+    [cell.area setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:UIColor.redColor tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.greenColor];
     return cell;
 }
 

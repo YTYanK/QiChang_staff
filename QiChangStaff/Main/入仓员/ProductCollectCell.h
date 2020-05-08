@@ -22,9 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UILabel *area;
 
-@property (strong, nonatomic) NSMutableArray<UIButton *> * btns;
+
 /// 列表
 @property (strong, nonatomic) NSMutableArray<ProductView *> * productViews;
+
+
+@property (strong, nonatomic) NSArray * btnTitles;
+
 @end
 
 NS_ASSUME_NONNULL_END
