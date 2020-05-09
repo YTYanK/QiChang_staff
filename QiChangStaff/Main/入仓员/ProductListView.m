@@ -135,9 +135,19 @@
     
     cell.state.text = @"檢查狀態\n未收貨";
     cell.area.text = @"存放區域\nArea1";
+    cell.btnTitles = @[@"收貨",@"收不齊",@"壞貨",@"送錯"];
     
-    [cell.state setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:UIColor.redColor tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.greenColor];
-    [cell.area setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:UIColor.redColor tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.greenColor];
+    cell.num.text = @"數量";
+     cell.product.text = @"產品";
+     cell.actualNum.text = @"實際數量";
+    
+    cell.dataLits = [NSMutableArray arrayWithArray:@[@{@"product": @"此產品名稱", @"number": @"10", @"numberValue": @"10"},@{@"product": @"此產品名稱2", @"number": @"10", @"numberValue": @"10"},@{@"product": @"此產品名稱3", @"number": @"10", @"numberValue": @"10"}]];
+//    self.product.text = [dic[@"product"] stringValue];
+//    self.number.text = [dic[@"number"] stringValue];
+//    self.numberValue.text = [dic[@"numberValue"] stringValue];
+    
+    [cell.state setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:NAV_COLOR tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.redColor];
+    [cell.area setRangeOfString:@"\n" lineSpacing:2 firstFont:[UIFont systemFontOfSize:12 weight:UIFontWeightSemibold] firstColor:NAV_COLOR tailFont:[UIFont systemFontOfSize:12] tailColor:UIColor.redColor];
     return cell;
 }
 

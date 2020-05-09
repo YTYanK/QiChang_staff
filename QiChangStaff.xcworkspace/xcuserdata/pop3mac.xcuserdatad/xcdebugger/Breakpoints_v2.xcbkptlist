@@ -151,48 +151,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D1B03210-0592-4325-98CC-FBB309646331"
+            uuid = "1C89076F-D88B-42B3-9F39-5793C7438A1D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiChangStaff/Main/&#x5165;&#x4ed3;&#x5458;/ProductCollectCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-initAllView"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "-initWithStyle:reuseIdentifier:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1F6551CC-C54E-4EF2-93E7-65E2FBD37F3F"
+            uuid = "3C923FEC-A12C-4BBC-A19F-2260E1ED34EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiChangStaff/Main/&#x5165;&#x4ed3;&#x5458;/ProductCollectCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-initAllView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B4021EFC-0427-4414-9896-A71862956C1A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiChangStaff/Main/&#x5165;&#x4ed3;&#x5458;/ProductCollectCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-awakeFromNib"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-setDataLits:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

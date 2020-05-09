@@ -26,8 +26,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// 列表
 @property (strong, nonatomic) NSMutableArray<ProductView *> * productViews;
 
+/// 內容數據
 
 @property (strong, nonatomic) NSArray * btnTitles;
+
+
+@property (strong, nonatomic) UILabel *product;
+@property (strong, nonatomic) UILabel *num;
+@property (strong, nonatomic) UILabel *actualNum;
+
+
+@property (strong,  nonatomic) NSMutableArray<NSDictionary *> *dataLits;
+
 
 @end
 
