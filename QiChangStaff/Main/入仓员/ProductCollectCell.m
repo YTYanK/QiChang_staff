@@ -75,24 +75,51 @@
               [pvs updateDataForDictionrary:_dataLits[i]];
               [self.container addSubview:pvs];
               [self.productViews addObject:pvs];
+            
+            
+              [self.productViews[i] mas_makeConstraints:^(MASConstraintMaker *make) {
+                            if (i == 0) {
+                              make.top.equalTo(self.container.mas_top).offset(0);
+                            }else {
+                              make.top.equalTo(self.productViews[i- 1].mas_bottom).offset(2);
+                            }
+                            if (i == (_dataLits.count - 1)) {
+                              make.bottom.equalTo(self.container.mas_bottom).offset(0);
+                            }
+                            make.left.equalTo(self.container).offset(0);
+                            make.right.equalTo(self.container).offset(0);
+
+                     }];
           }
         
         
-        for (int j = 0; j < _dataLits.count; j++) {
-               [self.productViews[j] mas_makeConstraints:^(MASConstraintMaker *make) {
-                       if (j == 0) {
-                         make.top.equalTo(self.container.mas_top).offset(0);
-                       }else {
-                         make.top.equalTo(self.productViews[j - 1].mas_bottom).offset(2);
-                       }
-                       if (j == (_dataLits.count - 2)) {
-                        make.bottom.equalTo(self.container.mas_bottom).offset(0);
-                       }
-                       make.left.equalTo(self.container).offset(0);
-                       make.right.equalTo(self.container).offset(0);
+//        for (int j = 0; j < _dataLits.count; j++) {
+//               [self.productViews[j] mas_makeConstraints:^(MASConstraintMaker *make) {
+//                       if (j == 0) {
+//                         make.top.equalTo(self.container.mas_top).offset(0);
+//                       }else {
+//                         make.top.equalTo(self.productViews[j - 1].mas_bottom).offset(2);
+//                       }
+//                       if (j == (_dataLits.count - 2)) {
+//                        make.bottom.equalTo(self.container.mas_bottom).offset(0);
+//                       }
+//                       make.left.equalTo(self.container).offset(0);
+//                       make.right.equalTo(self.container).offset(0);
+//
+//                }];
+//         }
+        
+//        //容器
+//               [self.container mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                   make.top.equalTo(self.product.mas_bottom).offset(15);
+//                   make.leading.equalTo(self.contentView.mas_leading).offset(10.0);
+//                   //小于或等于 lessThanOrEqualTo
+//                   make.trailing.equalTo(self.contentView.mas_trailing).offset(-10.0);
+//           //        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10.0);
+//               }];
 
-                }];
-         }
+       
+        
     }
 }
 
@@ -134,14 +161,14 @@
     }];
     
         
-      //容器
-        [self.container mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.product.mas_bottom).offset(15);
-            make.leading.equalTo(self.contentView.mas_leading).offset(10.0);
-            //小于或等于 lessThanOrEqualTo
-            make.trailing.equalTo(self.contentView.mas_trailing).offset(-10.0);
+    //容器
+    [self.container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.product.mas_bottom).offset(15);
+        make.leading.equalTo(self.contentView.mas_leading).offset(10.0);
+        //小于或等于 lessThanOrEqualTo
+        make.trailing.equalTo(self.contentView.mas_trailing).offset(-10.0);
     //        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10.0);
-        }];
+    }];
 
         
         
@@ -160,7 +187,6 @@
                  //小于或等于 lessThanOrEqualTo
                  make.width.equalTo(self.contentView).multipliedBy(0.4);
          }];
-        
         
         [self.state mas_makeConstraints:^(MASConstraintMaker *make) {
     //         make.centerY.equalTo(self.area).offset(0);
@@ -206,7 +232,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initAllView];
-          [self layoutAllSubviews];
+        [self layoutAllSubviews];
     }
     return self;
 }
